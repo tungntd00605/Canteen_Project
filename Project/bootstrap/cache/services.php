@@ -29,8 +29,9 @@
     25 => 'NunoMaduro\\Collision\\Adapters\\Laravel\\CollisionServiceProvider',
     26 => 'App\\Providers\\AppServiceProvider',
     27 => 'App\\Providers\\AuthServiceProvider',
-    28 => 'App\\Providers\\EventServiceProvider',
-    29 => 'App\\Providers\\RouteServiceProvider',
+    28 => 'App\\Providers\\BroadcastServiceProvider',
+    29 => 'App\\Providers\\EventServiceProvider',
+    30 => 'App\\Providers\\RouteServiceProvider',
   ),
   'eager' => 
   array (
@@ -48,8 +49,9 @@
     11 => 'JD\\Cloudder\\CloudderServiceProvider',
     12 => 'App\\Providers\\AppServiceProvider',
     13 => 'App\\Providers\\AuthServiceProvider',
-    14 => 'App\\Providers\\EventServiceProvider',
-    15 => 'App\\Providers\\RouteServiceProvider',
+    14 => 'App\\Providers\\BroadcastServiceProvider',
+    15 => 'App\\Providers\\EventServiceProvider',
+    16 => 'App\\Providers\\RouteServiceProvider',
   ),
   'deferred' => 
   array (
