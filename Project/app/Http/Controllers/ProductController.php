@@ -86,10 +86,11 @@ class ProductController extends Controller
     {
         //
         $obj = Product::find($id);
+        $categories = Category::all()->where('status', 1);
         if ($obj == null){
             return view('error.404');
         }
-        return view('admin.product.edit')->with('obj',$obj);
+        return view('admin.product.edit')->with('obj',$obj)->with('categories', $categories);
     }
 
     /**
@@ -104,9 +105,14 @@ class ProductController extends Controller
         //
         $obj = Product::find($id);
         $obj->name = Input::get('name');
+        $obj->categoryId = Input::get('categoryId');
         $obj->price = Input::get('price');
         $obj->discount = Input::get('discount');
-        $obj->thumbnail = Input::get('thumbnail');
+        if(Input::hasFile('thumbnail')) {
+            $image_id = time();
+            Cloudder::upload(Input::file('thumbnail')->getRealPath(), $image_id);
+            $obj->thumbnail = Cloudder::secureShow($image_id);
+        }
         $obj->description = Input::get('description');
         $obj->save();
         return redirect('admin/product');
