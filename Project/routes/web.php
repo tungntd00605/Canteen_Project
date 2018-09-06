@@ -17,3 +17,5 @@ Route::resource('admin/product', 'ProductController');
 Route::get('/', function () {
     return view('client.homepage');
 });
+
+Route::delete('admin/destroy-many/product', 'ProductController@destroyMany');
