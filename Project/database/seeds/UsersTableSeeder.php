@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
 
 class UsersTableSeeder extends Seeder
 {
@@ -12,8 +13,8 @@ class UsersTableSeeder extends Seeder
     public function run()
     {
         //
-        DB::table('categories')->truncate();
-        DB::table('categories')->insert([
+        DB::table('users')->truncate();
+        DB::table('users')->insert([
             [
                 'id'=>1,
                 'name'=> 'Admin',

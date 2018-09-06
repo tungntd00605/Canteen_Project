@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
 
 class ProductsTableSeeder extends Seeder
 {
@@ -12,9 +13,8 @@ class ProductsTableSeeder extends Seeder
     public function run()
     {
         //
-        DB::statement('SET FOREIGN_KEY_CHECKS=0');
-        DB::table('categories')->truncate();
-        DB::table('categories')->insert([
+        DB::table('products')->truncate();
+        DB::table('products')->insert([
             [
                 'id'=>1,
                 'name'=> 'Mỳ tôm trứng',
@@ -43,6 +43,5 @@ class ProductsTableSeeder extends Seeder
 
             ],
         ]);
-        DB::statement('SET FOREIGN_KEY_CHECKS=1');
     }
 }

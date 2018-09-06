@@ -13,4 +13,22 @@ class Product extends Model
     public function category() {
         return $this->belongsTo('App\Category','categoryId');
     }
+
+    public function getStatusLabelAttribute()
+    {
+        switch ($this->status) {
+            case 0:
+                return 'Đã bị xóa';
+                break;
+            case 1:
+                return 'Còn hàng';
+                break;
+            case 2:
+                return 'Hết hàng';
+                break;
+            default:
+                return 'Không xác định';
+                break;
+        }
+    }
 }

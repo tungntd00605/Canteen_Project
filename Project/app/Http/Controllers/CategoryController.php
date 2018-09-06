@@ -2,8 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Category;
+use App\Product;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Input;
 
 class CategoryController extends Controller
 {
@@ -15,6 +18,9 @@ class CategoryController extends Controller
     public function index()
     {
         //
+        $limit = 5;
+        $list_obj = Category::where('status', 1)->paginate($limit);
+        return view('admin.category.list')->with('list_obj', $list_obj);
     }
 
     /**
@@ -25,6 +31,7 @@ class CategoryController extends Controller
     public function create()
     {
         //
+        return view('admin.category.create');
     }
 
     /**
@@ -36,6 +43,12 @@ class CategoryController extends Controller
     public function store(Request $request)
     {
         //
+        $obj = new Category();
+        $obj->name = Input::get('name');
+        $obj->thumbnail = Input::get('thumbnail');
+        $obj->description = Input::get('description');
+        $obj->save();
+        return redirect('admin/category');
     }
 
     /**
@@ -47,6 +60,11 @@ class CategoryController extends Controller
     public function show($id)
     {
         //
+        $obj = Category::find($id);
+        if ($obj == null){
+            return view('error.404');
+        }
+        return view('admin.category.show')->with('obj',$obj);
     }
 
     /**
@@ -58,6 +76,11 @@ class CategoryController extends Controller
     public function edit($id)
     {
         //
+        $obj = Category::find($id);
+        if ($obj == null || $obj->status != 1) {
+            return view('error.404');
+        }
+        return view('admin.category.edit')->with('obj', $obj);
     }
 
     /**
@@ -70,6 +93,15 @@ class CategoryController extends Controller
     public function update(Request $request, $id)
     {
         //
+        $obj = Category::find($id);
+        if ($obj == null){
+            return view('error.404');
+        }
+        $obj->name = Input::get('name');
+        $obj->thumbnail = Input::get('thumbnail');
+        $obj->description = Input::get('description');
+        $obj->save();
+        return redirect('admin/category');
     }
 
     /**
@@ -81,5 +113,14 @@ class CategoryController extends Controller
     public function destroy($id)
     {
         //
+        $obj = Category::find($id);
+        if ($obj == null) {
+            return response()->json(['message' => 'Danh mục không tồn tại hoặc đã bị xoá!',
+                                    'message-class' => 'alert alert-danger'], 404);
+        }
+        $obj->status = 0;
+        $obj->save();
+        return response()->json(['message' => 'Đã xoá thông tin danh mục',
+                                'message-class' => 'alert alert-success'], 200);
     }
 }
