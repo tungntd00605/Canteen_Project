@@ -37,15 +37,15 @@
                         <a class="nav-link dark-grey-text font-weight-bold waves-effect waves-light" href="#" data-toggle="modal" data-target="#cart-modal-ex">
                             <span class="badge danger-color">4</span>
                             <i class="fa fa-shopping-cart blue-text" aria-hidden="true"></i>
-                            <span class="clearfix d-none d-sm-inline-block">Cart</span>
+                            <span class="clearfix d-none d-sm-inline-block">Đặt Hàng</span>
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link waves-effect waves-light dark-grey-text font-weight-bold" href="#"><i class="fa fa-envelope blue-text"></i> Contact <span class="sr-only">(current)</span></a>
+                        <a class="nav-link waves-effect waves-light dark-grey-text font-weight-bold" href="#"><i class="fa fa-envelope blue-text"></i> Giới Thiệu<span class="sr-only">(current)</span></a>
                     </li>
                     <li class="nav-item dropdown ml-3">
                         <a class="nav-link dropdown-toggle waves-effect waves-light dark-grey-text font-weight-bold" id="navbarDropdownMenuLink-4" data-toggle="dropdown"
-                           aria-haspopup="true" aria-expanded="false"><i class="fa fa-user blue-text"></i> Profile </a>
+                           aria-haspopup="true" aria-expanded="false"><i class="fa fa-user blue-text"></i> Tài Khoản </a>
                         <div class="dropdown-menu dropdown-menu-right dropdown-cyan" aria-labelledby="navbarDropdownMenuLink-4">
                             <a class="dropdown-item waves-effect waves-light" href="#">My account</a>
                             <a class="dropdown-item waves-effect waves-light" href="#">Log out</a>
@@ -74,7 +74,7 @@
             <!-- Links -->
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item active">
-                    <a class="nav-link" href="#">Home
+                    <a class="nav-link" href="#">Trang Chủ
                         <span class="sr-only">(current)</span>
                     </a>
                 </li>
@@ -172,10 +172,10 @@
 
                         <!--Grid column-->
                         <div class="col-12">
-
+                            <h4 class="font-weight-bold mt-4 dark-grey-text"><strong>Sản Phẩm Bán Chạy</strong></h4>
+                            <hr class="mb-5">
                             <!-- Grid row -->
                             <div class="row">
-
                                 <!--Grid column-->
                                 <div class="col-lg-3 col-md-3 mb-4">
 
@@ -573,7 +573,295 @@
 
                 </section>
                 <!--Section product list-->
+                <section class="mb-5">
+                    <div class="row">
+                        <!-- New Products-->
+                        <div class="col-lg-4 col-md-12 col-12 pt-4">
+                            <hr>
+                            <h5 class="text-center font-weight-bold dark-grey-text"><strong>Đồ Ăn</strong></h5>
+                            <hr>
+                            <!-- First row -->
+                            <div class="row mt-5 py-2 mb-4 hoverable align-items-center">
 
+                                <div class="col-6">
+                                    <a><img src="http://media.phunutoday.vn/files/upload_images/2016/01/21/cach-lam-banh-my-trung-ngon-1-phunutoday_vn.jpg" class="img-fluid"></a>
+                                </div>
+                                <div class="col-6 pl-0">
+                                    <!--Card content-->
+                                    <div class="card-body">
+                                        <!--Category & Title-->
+
+                                        <h6 class="card-title mb-1"><strong><a href="" class="dark-grey-text">Bánh Mì Trứng</a></strong></h6>
+                                        <span class="badge badge-danger mb-2"><strong>1439$</strong></span>
+                                        <!-- Rating -->
+
+                                        <!--Card footer-->
+                                        <div class="card-footer pb-0">
+                                            <div class="row mb-0">
+                                                <span class="float-left"></span>
+                                                <span class="float-right">
+                                                        <a class="" data-toggle="tooltip" data-placement="top" title="Add to card"><i class="fa fa-shopping-cart ml-3"></i></a>
+                                                        </span>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                    <!--Card content-->
+                                </div>
+
+                            </div>
+                            <!-- /.First row -->
+
+                            <!-- Second row -->
+                            <div class="row mt-2 py-2 mb-4 hoverable align-items-center">
+
+                                <div class="col-6">
+                                    <a><img src="http://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Products/10.jpg" class="img-fluid"></a>
+                                </div>
+                                <div class="col-6">
+
+                                    <!-- Title -->
+                                    <a><strong>Headphones</strong></a>
+
+                                    <!-- Rating -->
+                                    <ul class="rating inline-ul">
+                                        <li><i class="fa fa-star blue-text"></i></li>
+                                        <li><i class="fa fa-star blue-text"></i></li>
+                                        <li><i class="fa fa-star blue-text"></i></li>
+                                        <li><i class="fa fa-star blue-text"></i></li>
+                                        <li><i class="fa fa-star blue-text"></i></li>
+                                    </ul>
+
+                                    <!-- Price -->
+                                    <h6 class="h6-responsive font-weight-bold dark-grey-text"><strong>$49</strong> <span class="grey-text"><small><s>$89</s></small></span></h6>
+
+                                </div>
+
+                            </div>
+                            <!-- /.Second row -->
+
+                            <!-- Third row -->
+                            <div class="row mt-2 py-2 pb-1 hoverable align-items-center">
+
+                                <div class="col-6">
+                                    <a><img src="http://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Products/3.jpg" class="img-fluid"></a>
+                                </div>
+                                <div class="col-6">
+
+                                    <!-- Title -->
+                                    <a><strong>iMac 27"</strong></a>
+
+                                    <!-- Rating -->
+                                    <ul class="rating inline-ul">
+                                        <li><i class="fa fa-star blue-text"></i></li>
+                                        <li><i class="fa fa-star blue-text"></i></li>
+                                        <li><i class="fa fa-star blue-text"></i></li>
+                                        <li><i class="fa fa-star blue-text"></i></li>
+                                        <li><i class="fa fa-star blue-text"></i></li>
+                                    </ul>
+
+                                    <!-- Price -->
+                                    <h6 class="h6-responsive font-weight-bold dark-grey-text"><strong>$1449</strong> <span class="grey-text"><small><s>$2189</s></small></span></h6>
+
+                                </div>
+
+                            </div>
+                            <!-- /.Third row -->
+
+                        </div>
+                        <!-- /.New Products-->
+
+                        <!-- Top Sellers-->
+                        <div class="col-lg-4 col-md-12 pt-4">
+
+                            <hr>
+                            <h5 class="text-center font-weight-bold dark-grey-text"><strong>Top Sellers</strong></h5>
+                            <hr>
+
+
+                            <!-- First row -->
+                            <div class="row mt-5 py-2 mb-4 hoverable align-items-center">
+
+                                <div class="col-6">
+                                    <a><img src="http://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Products/4.jpg" class="img-fluid"></a>
+                                </div>
+                                <div class="col-6">
+
+                                    <!-- Title -->
+                                    <a><strong>Dell V-964i</strong></a>
+
+                                    <!-- Rating -->
+                                    <ul class="rating inline-ul">
+                                        <li><i class="fa fa-star blue-text"></i></li>
+                                        <li><i class="fa fa-star blue-text"></i></li>
+                                        <li><i class="fa fa-star blue-text"></i></li>
+                                        <li><i class="fa fa-star blue-text"></i></li>
+                                        <li><i class="fa fa-star blue-text"></i></li>
+                                    </ul>
+
+                                    <!-- Price -->
+                                    <h6 class="h6-responsive font-weight-bold dark-grey-text"><strong>$649</strong> <span class="grey-text"><small><s>$889</s></small></span></h6>
+
+                                </div>
+
+                            </div>
+                            <!-- /.First row -->
+
+                            <!-- Second row -->
+                            <div class="row mt-2 py-2 mb-4 hoverable align-items-center">
+
+                                <div class="col-6">
+                                    <a><img src="http://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Products/5.jpg" class="img-fluid"></a>
+                                </div>
+                                <div class="col-6">
+
+                                    <!-- Title -->
+                                    <a><strong>Asus GT67i</strong></a>
+
+                                    <!-- Rating -->
+                                    <ul class="rating inline-ul">
+                                        <li><i class="fa fa-star blue-text"></i></li>
+                                        <li><i class="fa fa-star blue-text"></i></li>
+                                        <li><i class="fa fa-star blue-text"></i></li>
+                                        <li><i class="fa fa-star grey-text"></i></li>
+                                        <li><i class="fa fa-star grey-text"></i></li>
+                                    </ul>
+
+                                    <!-- Price -->
+                                    <h6 class="h6-responsive font-weight-bold dark-grey-text"><strong>$1249</strong> <span class="grey-text"><small><s>$1489</s></small></span></h6>
+
+                                </div>
+
+                            </div>
+                            <!-- /.Second row -->
+
+                            <!-- Third row -->
+                            <div class="row mt-2 py-2 pb-1 hoverable align-items-center">
+
+                                <div class="col-6">
+                                    <a><img src="http://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Products/6.jpg" class="img-fluid"></a>
+                                </div>
+                                <div class="col-6">
+
+                                    <!-- Title -->
+                                    <a><strong>Headphones</strong></a>
+
+                                    <!-- Rating -->
+                                    <ul class="rating inline-ul">
+                                        <li><i class="fa fa-star blue-text"></i></li>
+                                        <li><i class="fa fa-star blue-text"></i></li>
+                                        <li><i class="fa fa-star blue-text"></i></li>
+                                        <li><i class="fa fa-star blue-text"></i></li>
+                                        <li><i class="fa fa-star grey-text"></i></li>
+                                    </ul>
+
+                                    <!-- Price -->
+                                    <h6 class="h6-responsive font-weight-bold dark-grey-text"><strong>$49</strong> <span class="grey-text"><small><s>$89</s></small></span></h6>
+
+                                </div>
+
+                            </div>
+                            <!-- /.Third row -->
+
+                        </div>
+                        <!-- /.Top Sellers -->
+
+                        <!-- Random Products-->
+                        <div class="col-lg-4 col-md-12 pt-4">
+
+                            <hr>
+                            <h5 class="text-center font-weight-bold dark-grey-text"><strong>Random products</strong></h5>
+                            <hr>
+
+                            <!-- First row -->
+                            <div class="row mt-5 py-2 mb-4 hoverable align-items-center">
+
+                                <div class="col-6">
+                                    <a><img src="http://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Products/7.jpg" class="img-fluid"></a>
+                                </div>
+                                <div class="col-6">
+
+                                    <!-- Title -->
+                                    <a><strong>Dell 786i</strong></a>
+
+                                    <!-- Rating -->
+                                    <ul class="rating inline-ul">
+                                        <li><i class="fa fa-star blue-text"></i></li>
+                                        <li><i class="fa fa-star blue-text"></i></li>
+                                        <li><i class="fa fa-star blue-text"></i></li>
+                                        <li><i class="fa fa-star blue-text"></i></li>
+                                        <li><i class="fa fa-star grey-text"></i></li>
+                                    </ul>
+
+                                    <!-- Price -->
+                                    <h6 class="h6-responsive font-weight-bold dark-grey-text"><strong>$749</strong> <span class="grey-text"><small><s>$889</s></small></span></h6>
+
+                                </div>
+
+                            </div>
+                            <!-- /.First row -->
+
+                            <!-- Second row -->
+                            <div class="row mt-2 py-2 mb-4 hoverable align-items-center">
+
+                                <div class="col-6">
+                                    <a><img src="http://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Products/8.jpg" class="img-fluid"></a>
+                                </div>
+                                <div class="col-6">
+
+                                    <!-- Title -->
+                                    <a><strong>Samsung V54</strong></a>
+
+                                    <!-- Rating -->
+                                    <ul class="rating inline-ul">
+                                        <li><i class="fa fa-star blue-text"></i></li>
+                                        <li><i class="fa fa-star blue-text"></i></li>
+                                        <li><i class="fa fa-star blue-text"></i></li>
+                                        <li><i class="fa fa-star blue-text"></i></li>
+                                        <li><i class="fa fa-star blue-text"></i></li>
+                                    </ul>
+
+                                    <!-- Price -->
+                                    <h6 class="h6-responsive font-weight-bold dark-grey-text"><strong>$249</strong> <span class="grey-text"><small><s>$489</s></small></span></h6>
+
+                                </div>
+
+                            </div>
+                            <!-- /.Second row -->
+
+                            <!-- Third row -->
+                            <div class="row mt-2 py-2 mb-4 hoverable align-items-center">
+
+                                <div class="col-6">
+                                    <a><img src="http://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Products/9.jpg" class="img-fluid"></a>
+                                </div>
+                                <div class="col-6">
+
+                                    <!-- Title -->
+                                    <a><strong>Canon 675-D</strong></a>
+
+                                    <!-- Rating -->
+                                    <ul class="rating inline-ul">
+                                        <li><i class="fa fa-star blue-text"></i></li>
+                                        <li><i class="fa fa-star blue-text"></i></li>
+                                        <li><i class="fa fa-star blue-text"></i></li>
+                                        <li><i class="fa fa-star grey-text"></i></li>
+                                        <li><i class="fa fa-star grey-text"></i></li>
+                                    </ul>
+
+                                    <!-- Price -->
+                                    <h6 class="h6-responsive font-weight-bold dark-grey-text"><strong>$2149</strong> <span class="grey-text"><small><s>$2489</s></small></span></h6>
+
+                                </div>
+
+                            </div>
+                            <!-- /.Third row -->
+
+                        </div>
+                        <!-- /.Random Products -->
+                    </div>
+
+                </section>
                 <h4 class="font-weight-bold mt-4 dark-grey-text"><strong>LAST ITEMS</strong></h4>
                 <hr class="mb-5">
 
