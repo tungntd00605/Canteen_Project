@@ -9,6 +9,15 @@
 
             <!--Section heading-->
             <h1 class="text-center my-5 h1">Thêm sản phẩm</h1>
+            @if ($errors->any())
+                <div class="alert alert-danger">
+                    <ul>
+                        @foreach ($errors->all() as $error)
+                            <li>{{ $error }}</li>
+                        @endforeach
+                    </ul>
+                </div>
+            @endif
             <form action="/admin/product" method="POST" enctype="multipart/form-data">
             {{ csrf_field() }}
             <!--Grid row-->

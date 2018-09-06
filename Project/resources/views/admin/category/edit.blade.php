@@ -1,5 +1,5 @@
 @extends('layout.master', [
-    'page_title'=>'Thêm danh mục sản phẩm | FPTcanteen Admin Page',
+    'page_title'=>'Sửa danh mục sản phẩm | FPTcanteen Admin Page',
     'current_page'=>'category_page',
 ])
 @section('content')
@@ -9,6 +9,15 @@
 
             <!--Section heading-->
             <h1 class="text-center my-5 h1">Sửa Danh Mục</h1>
+            @if ($errors->any())
+                <div class="alert alert-danger">
+                    <ul>
+                        @foreach ($errors->all() as $error)
+                            <li>{{ $error }}</li>
+                        @endforeach
+                    </ul>
+                </div>
+            @endif
             <form action="/admin/category/{{$obj->id}}" method="POST" enctype="multipart/form-data">
             {{ csrf_field() }}
             @method('PUT')
