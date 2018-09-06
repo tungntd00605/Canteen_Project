@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Category;
+use App\Http\Requests\StoreCategoryRequest;
 use App\Product;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -41,9 +42,11 @@ class CategoryController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(StoreCategoryRequest $request)
     {
         //
+        $request->validated();
+
         $obj = new Category();
         $obj->name = Input::get('name');
         if(Input::hasFile('thumbnail')) {
@@ -95,9 +98,11 @@ class CategoryController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(StoreCategoryRequest $request, $id)
     {
         //
+        $request->validated();
+
         $obj = Category::find($id);
         if ($obj == null){
             return view('error.404');

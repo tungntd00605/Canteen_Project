@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Category;
+use App\Http\Requests\StoreCategoryRequest;
+use App\Http\Requests\StoreProductRequest;
 use App\Product;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -42,9 +44,11 @@ class ProductController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(StoreProductRequest $request)
     {
         //
+        $request->validated();
+
         $obj = new Product();
         $obj->name = Input::get('name');
         $obj->categoryId = Input::get('categoryId');
@@ -100,9 +104,11 @@ class ProductController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(StoreProductRequest $request, $id)
     {
         //
+        $request->validated();
+
         $obj = Product::find($id);
         $obj->name = Input::get('name');
         $obj->categoryId = Input::get('categoryId');
