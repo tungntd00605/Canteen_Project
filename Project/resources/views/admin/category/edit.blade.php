@@ -1,6 +1,6 @@
 @extends('layout.master', [
-    'page_title'=>'Thêm sản phẩm | FPTcanteen Admin Page',
-    'current_page'=>'product_page',
+    'page_title'=>'Thêm danh mục sản phẩm | FPTcanteen Admin Page',
+    'current_page'=>'category_page',
 ])
 @section('content')
     <section class="section card mb-5">
@@ -8,8 +8,8 @@
         <div class="card-body">
 
             <!--Section heading-->
-            <h1 class="text-center my-5 h1">Thêm sản phẩm</h1>
-            <form action="/admin/product" method="POST" enctype="multipart/form-data">
+            <h1 class="text-center my-5 h1">Tạo Danh Mục</h1>
+            <form action="/admin/category" method="POST" enctype="multipart/form-data">
             {{ csrf_field() }}
             <!--Grid row-->
                 <div class="row">
@@ -17,7 +17,7 @@
                         <!--Grid column-->
                         <div class="col-md-6 mb-4">
                             <div class="md-form">
-                                <input type="text" name="name" class="form-control">
+                                <input type="text" name="name" class="form-control" value="{{$obj->name}}">
                                 <label class="">Name </label>
                             </div>
                         </div>
@@ -28,52 +28,10 @@
 
                 <div class="row">
                     <div class="container">
-                        <div class="col-md-6 mb-4">
-                            <div class="md-form">
-                                <select class="mdb-select" name="categoryId">
-                                    @foreach($categories as $category)
-                                        <option value="{{$category->id}}">{{$category->name}}</option>
-                                    @endforeach
-                                </select>
-                                <label>Category</label>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="row">
-                    <div class="container">
                         <!--Grid column-->
                         <div class="col-md-6 mb-4">
                             <div class="md-form">
-                                <input type="text" name="price" class="form-control">
-                                <label class="">Price </label>
-                            </div>
-                        </div>
-                        <!--Grid column-->
-                    </div>
-                </div>
-
-                <div class="row">
-                    <div class="container">
-                        <!--Grid column-->
-                        <div class="col-md-6 mb-4">
-                            <div class="md-form">
-                                <input type="text" name="discount" class="form-control" value="0">
-                                <label class="">Discount </label>
-                            </div>
-                        </div>
-                        <!--Grid column-->
-                    </div>
-                </div>
-
-
-                <div class="row">
-                    <div class="container">
-                        <!--Grid column-->
-                        <div class="col-md-6 mb-4">
-                            <div class="md-form">
-                                <textarea type="text" id="description" name="description" class="md-textarea form-control" rows="2"></textarea>
+                                <textarea type="text" id="description" name="description" class="md-textarea form-control" rows="2">{{$obj->description}}</textarea>
                                 <label for="description">Description</label>
                             </div>
                         </div>
@@ -87,7 +45,9 @@
                         <div class="col-md-6 mb-4">
                             <div class="file-field">
                                 <div class="z-depth-1-half mb-4">
-                                    <img id="preview-img" src="https://mdbootstrap.com/img/Photos/Others/placeholder.jpg" class="img-fluid" alt="example placeholder">
+                                    <img id="preview-img"
+                                         src="{{$obj->thumbnail}}"
+                                         class="img-fluid" alt="example placeholder">
                                 </div>
                                 <div class="d-flex justify-content-center">
                                     <div class="btn btn-mdb-color btn-rounded float-left">

@@ -7,6 +7,7 @@ use App\Product;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Input;
+use JD\Cloudder\Facades\Cloudder;
 
 class CategoryController extends Controller
 {
@@ -45,7 +46,11 @@ class CategoryController extends Controller
         //
         $obj = new Category();
         $obj->name = Input::get('name');
-        $obj->thumbnail = Input::get('thumbnail');
+        if(Input::hasFile('thumbnail')) {
+            $image_id = time();
+            Cloudder::upload(Input::file('thumbnail')->getRealPath(), $image_id);
+            $obj->thumbnail = Cloudder::secureShow($image_id);
+        }
         $obj->description = Input::get('description');
         $obj->save();
         return redirect('admin/category');

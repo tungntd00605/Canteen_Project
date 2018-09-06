@@ -34,7 +34,7 @@
                         <td class="pt-3-half">{{$item->description}}</td>
                         <td class="pt-3-half">{{$item->statusLabel}}</td>
                         <td>
-                            <a href="/admin/product/edit" class="table-edit"><button type="button"
+                            <a href="/admin/product/{{$item->id}}/edit" class="table-edit"><button type="button"
                                  class="btn-floating btn-sm btn-info btn-edit"><i class="far fa-edit"></i></button></a>
                             <span class="table-remove"><button type="button"
                                class="btn-floating btn-sm btn-danger btn-delete"><i class="far fa-trash-alt"></i></button></span>

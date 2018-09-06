@@ -7,6 +7,7 @@ use App\Product;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Input;
+use JD\Cloudder\Facades\Cloudder;
 
 class ProductController extends Controller
 {
@@ -46,9 +47,14 @@ class ProductController extends Controller
         //
         $obj = new Product();
         $obj->name = Input::get('name');
+        $obj->categoryId = Input::get('categoryId');
         $obj->price = Input::get('price');
         $obj->discount = Input::get('discount');
-        $obj->thumbnail = Input::get('thumbnail');
+        if(Input::hasFile('thumbnail')) {
+            $image_id = time();
+            Cloudder::upload(Input::file('thumbnail')->getRealPath(), $image_id);
+            $obj->thumbnail = Cloudder::secureShow($image_id);
+        }
         $obj->description = Input::get('description');
         $obj->save();
         return redirect('admin/product');
