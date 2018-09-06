@@ -131,25 +131,18 @@
         <!-- /.Navbar -->
 
         <!-- Fixed button -->
-        <div class="fixed-action-btn clearfix d-none d-xl-block" style="bottom: 45px; right: 24px;">
-            <a class="btn-floating btn-lg red">
-                <i class="fa fa-pencil"></i>
+        <div class="fixed-action-btn smooth-scroll" style="bottom: 45px; right: 24px;" id="backToTop">
+            <a href="#top-section" class="btn-floating btn-large red">
+                <i class="fa fa-arrow-up"></i>
             </a>
-
-            <ul class="list-unstyled">
-                <li><a class="btn-floating red"><i class="fa fa-star"></i></a></li>
-                <li><a class="btn-floating yellow darken-1"><i class="fa fa-user"></i></a></li>
-                <li><a class="btn-floating green"><i class="fa fa-envelope"></i></a></li>
-                <li><a class="btn-floating blue"><i class="fa fa-shopping-cart"></i></a></li>
-            </ul>
         </div>
         <!-- Fixed button -->
 
     </header>
     <!--Main Navigation-->
 
-    <main>
-        <div class="container-fluid">
+    <main id="top-section">
+        <div class="container-fluid" >
                 @section('content')
                 @show()
         </div>
@@ -205,6 +198,9 @@
         $(function () {
             $('[data-toggle="tooltip"]').tooltip()
         })
+
+        // Hide back to top button
+
     </script>
 
 </body>
