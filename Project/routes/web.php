@@ -17,3 +17,5 @@ Route::get('/', function () {
 
 Route::resource('admin/category', 'CategoryController');
 Route::resource('admin/product', 'ProductController');
+
+Route::delete('admin/destroy-many/product', 'ProductController@destroyMany');
