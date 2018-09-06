@@ -11,8 +11,10 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+Route::get('/', 'ClientPageController@showHome');
+
+Route::get('/layout', function () {
+    return view('layout.client');
 });
 
 Route::resource('admin/category', 'CategoryController');
