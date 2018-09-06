@@ -11,7 +11,7 @@
                 @if (Session::has('message'))
                     <div class="alert {{ Session::get('message-class') }}">{{ Session::get('message') }}</div>
                 @endif
-                <span class="table-add float-right mb-3 mr-2"><a href="./category/create" class="text-success"><i
+                <span class="table-add float-right mb-3 mr-2"><a href="/admin/category/create" class="text-success"><i
                                 class="fa fa-plus fa-2x" aria-hidden="true"></i></a></span>
                 @if(count($list_obj) > 0)
                 <table class="table table-bordered table-responsive-md table-striped text-center">
@@ -31,8 +31,10 @@
                                 <img src="{{$item->thumbnail}}" alt="" height="120px" width="180px">
                             </td>
                             <td>
+                                <a href="/admin/category/edit" class="table-edit"><button type="button"
+                                   class="btn-floating btn-sm btn-info btn-edit"><i class="far fa-edit"></i></button></a>
                                 <span class="table-remove"><button type="button"
-                                                                   class="btn btn-danger btn-rounded btn-sm my-0 btn-delete">Remove</button></span>
+                                   class="btn-floating btn-sm btn-danger btn-delete"><i class="far fa-trash-alt"></i></button></span>
                             </td>
                         </tr>
                     @endforeach

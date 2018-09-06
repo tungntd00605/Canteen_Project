@@ -10,6 +10,7 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>Material Design Bootstrap</title>
     <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
     <link rel="stylesheet" href="{{asset('mdb/css/font-awesome.min.css')}}">
     <!-- Bootstrap core CSS -->
     <link rel="stylesheet" href="{{asset('mdb/css/bootstrap.min.css')}}"> 
