@@ -1,5 +1,5 @@
 @extends('layout.master', [
-    'page_title'=>'Thêm danh mục sản phẩm | FPTcanteen Admin Page',
+    'page_title'=>'Sửa danh mục sản phẩm | FPTcanteen Admin Page',
     'current_page'=>'category_page',
 ])
 @section('content')
