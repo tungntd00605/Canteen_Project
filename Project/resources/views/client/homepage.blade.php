@@ -187,7 +187,7 @@
                                             <div class="col-6 d-flex align-items-center">
                                                 <!--Card image-->
                                                 <div class="view overlay">
-                                                    <img src="" class="img-fluid" alt="">
+                                                    <img src="https://cdn02.static-adayroi.com/0/2016/09/29/1475126926991_9911414.jpg" class="img-fluid" alt="">
                                                     <a>
                                                         <div class="mask rgba-white-slight"></div>
                                                     </a>

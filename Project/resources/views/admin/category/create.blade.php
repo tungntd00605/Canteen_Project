@@ -46,7 +46,7 @@
                         <div class="col-md-6 mb-4">
                             <div class="file-field">
                                 <div class="z-depth-1-half mb-4">
-                                    <img id="preview-img" src="https://mdbootstrap.com/img/Photos/Others/placeholder.jpg" class="img-fluid" alt="example placeholder">
+                                    <img id="preview-img" src="https://mdbootstrap.com/img/Photos/Others/placeholder.jpg" style="width: 100%;" class="img-fluid" alt="example placeholder">
                             </div>
                                 <div class="d-flex justify-content-center">
                                     <div class="btn btn-mdb-color btn-rounded float-left">

@@ -8,9 +8,10 @@
         <div class="card-body">
 
             <!--Section heading-->
-            <h1 class="text-center my-5 h1">Tạo Danh Mục</h1>
-            <form action="/admin/category" method="POST" enctype="multipart/form-data">
+            <h1 class="text-center my-5 h1">Sửa Danh Mục</h1>
+            <form action="/admin/category/{{$obj->id}}" method="POST" enctype="multipart/form-data">
             {{ csrf_field() }}
+            @method('PUT')
             <!--Grid row-->
                 <div class="row">
                     <div class="container">
@@ -45,7 +46,7 @@
                         <div class="col-md-6 mb-4">
                             <div class="file-field">
                                 <div class="z-depth-1-half mb-4">
-                                    <img id="preview-img"
+                                    <img id="preview-img" style="width: 100%;"
                                          src="{{$obj->thumbnail}}"
                                          class="img-fluid" alt="example placeholder">
                                 </div>

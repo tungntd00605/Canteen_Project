@@ -8,16 +8,17 @@
         <div class="card-body">
 
             <!--Section heading-->
-            <h1 class="text-center my-5 h1">Thêm sản phẩm</h1>
-            <form action="/admin/product" method="POST" enctype="multipart/form-data">
+            <h1 class="text-center my-5 h1">Sửa sản phẩm</h1>
+            <form action="/admin/product/{{$obj->id}}" method="POST" enctype="multipart/form-data">
             {{ csrf_field() }}
+            @method('PUT')
             <!--Grid row-->
                 <div class="row">
                     <div class="container">
                         <!--Grid column-->
                         <div class="col-md-6 mb-4">
                             <div class="md-form">
-                                <input type="text" name="name" class="form-control">
+                                <input type="text" name="name" class="form-control" value="{{$obj->name}}">
                                 <label class="">Name </label>
                             </div>
                         </div>
@@ -32,7 +33,7 @@
                             <div class="md-form">
                                 <select class="mdb-select" name="categoryId">
                                     @foreach($categories as $category)
-                                        <option value="{{$category->id}}">{{$category->name}}</option>
+                                        <option value="{{$category->id}}" {{($category->id == $obj->categoryId)?'selected':''}}>{{$category->name}}</option>
                                     @endforeach
                                 </select>
                                 <label>Category</label>
@@ -46,7 +47,7 @@
                         <!--Grid column-->
                         <div class="col-md-6 mb-4">
                             <div class="md-form">
-                                <input type="text" name="price" class="form-control">
+                                <input type="text" name="price" class="form-control" value="{{$obj->price}}">
                                 <label class="">Price </label>
                             </div>
                         </div>
@@ -59,7 +60,7 @@
                         <!--Grid column-->
                         <div class="col-md-6 mb-4">
                             <div class="md-form">
-                                <input type="text" name="discount" class="form-control" value="0">
+                                <input type="text" name="discount" class="form-control" value="{{$obj->discount}}">
                                 <label class="">Discount </label>
                             </div>
                         </div>
@@ -73,7 +74,7 @@
                         <!--Grid column-->
                         <div class="col-md-6 mb-4">
                             <div class="md-form">
-                                <textarea type="text" id="description" name="description" class="md-textarea form-control" rows="2"></textarea>
+                                <textarea type="text" id="description" name="description" class="md-textarea form-control" rows="2">{{$obj->description}}</textarea>
                                 <label for="description">Description</label>
                             </div>
                         </div>
@@ -87,7 +88,7 @@
                         <div class="col-md-6 mb-4">
                             <div class="file-field">
                                 <div class="z-depth-1-half mb-4">
-                                    <img id="preview-img" src="https://mdbootstrap.com/img/Photos/Others/placeholder.jpg" style="width: 100%;" class="img-fluid" alt="example placeholder">
+                                    <img id="preview-img" src="{{$obj->thumbnail}}" style="width: 100%;" class="img-fluid" alt="example placeholder">
                                 </div>
                                 <div class="d-flex justify-content-center">
                                     <div class="btn btn-mdb-color btn-rounded float-left">
