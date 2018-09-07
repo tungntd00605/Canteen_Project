@@ -10,7 +10,7 @@ use App\Http\Controllers\Controller;
 class ClientPageController extends Controller
 {
     public function showHome(){
-        $limit = 8;
+        $limit = 6;
 
         $categories = Category::all();
         $product = Product::where('status', '!=' , 0)->paginate($limit);
@@ -18,10 +18,12 @@ class ClientPageController extends Controller
         $drinks = Product::where('status', '!=' , 0)->where('categoryId', 2)->paginate(3);
         $others = Product::where('status', '!=' , 0)->where('categoryId', 3)->paginate(3);
         return view('client.homepage')
-            ->with('categories',$categories)
-            ->with('product',$product)
-            ->with('foods', $foods)
-            ->with('drinks', $drinks)
-            ->with('others', $others);
+            ->with([
+                'categories'=> $categories,
+                'product'=> $product,
+                'foods'=> $foods,
+                'drinks'=> $drinks,
+                'others'=> $others
+            ]);
     }
 }

@@ -11,7 +11,7 @@
 |
 */
 
-Route::get('/', 'ClientPageController@showHome');
+
 
 Route::get('/layout', function () {
     return view('layout.client');
@@ -19,9 +19,9 @@ Route::get('/layout', function () {
 
 Route::resource('admin/category', 'CategoryController');
 Route::resource('admin/product', 'ProductController');
+Route::get('/', 'ClientPageController@showHome');
 
-Route::get('/', function () {
-    return view('client.homepage');
-});
+Route::post('/api-them-gio-hang', 'ShoppingCartController@addToCartApi');
+Route::get('/xoa-gio-hang', 'ShoppingCartController@destroyCart');
 
 Route::delete('admin/destroy-many/product', 'ProductController@destroyMany');

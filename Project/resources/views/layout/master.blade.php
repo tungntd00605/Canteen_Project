@@ -8,7 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    <title>Material Design Bootstrap</title>
+    <title>{{$page_title}}</title>
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
     <link rel="stylesheet" href="{{asset('mdb/css/font-awesome.min.css')}}">
@@ -32,21 +32,21 @@
         <div id="slide-out" class="side-nav sn-bg-4 fixed">
             <ul class="custom-scrollbar">
             <!-- Logo -->
-            <li class="logo-sn waves-effect">
+            <li class="logo-sn waves-effect"  style="height: 230px;">
                 <div class="text-center">
-                    <a href="#" class="pl-0"><img src="{{asset('mdb/img/mdb-transaprent-noshadows.png')}}" class=""></a>
+                    <a href="#" class="pl-0"><img src="{{asset('img/logo.png')}}" class="img-fluid" ></a>
                 </div>
             </li>
             <!--/. Logo -->
 
             <!--Search Form-->
-            <li>
-                <form class="search-form" role="search">
-                    <div class="form-group md-form mt-0 pt-1 waves-light">
-                        <input type="text" class="form-control" placeholder="Search">
-                    </div>
-                </form>
-            </li>
+            {{--<li>--}}
+                {{--<form class="search-form" role="search">--}}
+                    {{--<div class="form-group md-form mt-0 pt-1 waves-light">--}}
+                        {{--<input type="text" class="form-control" placeholder="Search">--}}
+                    {{--</div>--}}
+                {{--</form>--}}
+            {{--</li>--}}
             <!--/.Search Form-->
             <!-- Side navigation links -->
             <li>

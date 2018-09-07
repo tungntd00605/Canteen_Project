@@ -4,6 +4,7 @@
 
 <head>
     <meta charset="UTF-8">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
 
@@ -17,6 +18,9 @@
 
     <!-- Material Design Bootstrap -->
     <link href="{{asset('mdb/css/mdb.min.css')}}" rel="stylesheet">
+
+    <!-- JQuery -->
+    <script type="text/javascript" src="{{asset('mdb/js/jquery-3.3.1.min.js')}}"></script>
 
 </head>
 
@@ -35,9 +39,9 @@
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item ">
                         <a class="nav-link dark-grey-text font-weight-bold waves-effect waves-light" href="#" data-toggle="modal" data-target="#cart-modal-ex">
-                            <span class="badge danger-color">4</span>
+                            <span id="cart-count-icon" class="badge {{\App\ShoppingCart::getTotalItem() == 0?'grey':'danger-color'}}">{{\App\ShoppingCart::getTotalItem()}}</span>
                             <i class="fa fa-shopping-cart blue-text" aria-hidden="true"></i>
-                            <span class="clearfix d-none d-sm-inline-block">Đặt Hàng</span>
+                            <span class="clearfix d-none d-sm-inline-block">Giỏ Hàng</span>
                         </a>
                     </li>
                     <li class="nav-item">
@@ -107,11 +111,67 @@
 </footer>
 <!--/.Footer-->
 
+<!-- Cart Modal -->
+<div class="modal fade cart-modal" id="cart-modal-ex" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <!--Content-->
+        <div class="modal-content">
+            <!--Header-->
+            <div class="modal-header">
+
+                <h4 class="modal-title font-weight-bold dark-grey-text" id="myModalLabel">Giỏ hàng của bạn</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <!--Body-->
+            <div class="modal-body">
+
+                <table class="table table-hover" >
+                    <thead>
+                    <tr>
+                        <th>Ảnh</th>
+                        <th>Tên sản phẩm</th>
+                        <th>Số lượng</th>
+                        <th>Đơn giá</th>
+                    </tr>
+                    </thead>
+                    <tbody id="cart-body">
+                    @if(count(\App\ShoppingCart::getCart()->items)>0)
+                            @foreach(\App\ShoppingCart::getCart()->items as $item)
+                                <tr>
+                                    <th scope="row"><img src="{{$item->product->thumbnail}}" class="img-fluid img-thumbnail" width="110px" alt=""></th>
+                                    <td>{{$item->product->name}}</td>
+                                    <td>{{$item->quantity}}</td>
+                                    <td>{{$item->product->discountPriceString}}</td>
+                                </tr>
+                            @endforeach
+                    @else
+                        <tr>
+                            <td colspan="4"><strong style="font-size: 16px;">Hiện tại không có sản phẩm nào trong giỏ hàng</strong></td>
+                        </tr>
+                    @endif
+                    </tbody>
+                </table>
+                <div class="text-right">
+                    Tổng cộng: <span
+                            id="cart-total">{{\App\ShoppingCart::getCart()->getTotalMoneyString()}}</span>
+                </div>
+            </div>
+            <!--Footer-->
+            <div class="modal-footer">
+                <button type="button" class="btn btn-grey btn-rounded btn-sm" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+        <!--/.Content-->
+    </div>
+</div>
+
+<!-- /.Cart Modal -->
+
 
 <!-- SCRIPTS -->
 
-<!-- JQuery -->
-<script type="text/javascript" src="{{asset('mdb/js/jquery-3.3.1.min.js')}}"></script>
 
 <!-- Bootstrap tooltips -->
 <script type="text/javascript" src="{{asset('mdb/js/popper.min.js')}}"></script>
@@ -121,6 +181,9 @@
 
 <!-- MDB core JavaScript -->
 <script type="text/javascript" src="{{asset('mdb/js/mdb.min.js')}}"></script>
+
+<!-- Sweet alert JavaScript -->
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 
 <script type="text/javascript">
     /* WOW.js init */
