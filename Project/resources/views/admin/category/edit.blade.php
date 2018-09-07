@@ -3,12 +3,19 @@
     'current_page'=>'category_page',
 ])
 @section('content')
+    <style>
+        /*p { display: none; }*/
+        .invalid { border-color: red; }
+        #errorUser,#errorDescription { color: red }
+        .succes{border-color: blue}
+    </style>
     <section class="section card mb-5">
 
         <div class="card-body">
 
             <!--Section heading-->
             <h1 class="text-center my-5 h1">Sửa Danh Mục</h1>
+
             @if ($errors->any())
                 <div class="alert alert-danger">
                     <ul>
@@ -18,7 +25,8 @@
                     </ul>
                 </div>
             @endif
-            <form action="/admin/category/{{$obj->id}}" method="POST" enctype="multipart/form-data">
+            
+            <form action="/admin/category/{{$obj->id}}" method="POST" enctype="multipart/form-data" id="form-validation">
             {{ csrf_field() }}
             @method('PUT')
             <!--Grid row-->
@@ -27,7 +35,7 @@
                         <!--Grid column-->
                         <div class="col-md-6 mb-4">
                             <div class="md-form">
-                                <input type="text" name="name" class="form-control" value="{{$obj->name}}">
+                                <input type="text" name="name" class="form-control" value="{{$obj->name}}" id="name">
                                 <label class="">Name </label>
                             </div>
                         </div>
@@ -106,6 +114,53 @@
                 }
 
                 reader.readAsDataURL(input.files[0]);
+            }
+        }
+
+    </script>
+    <script type="text/javascript">
+        window.onload = function () {
+            validationform();
+        }
+
+        function validationform() {
+            var inputUser = document.forms['form-validation']['name'];
+            inputUser.onblur = function() {
+                if (inputUser.value == ''){
+                    inputUser.classList.add('invalid');
+                    document.getElementById('errorUser').innerHTML = 'Vui lòng không để trống Name.';
+                }
+            };
+
+            inputUser.onblur = function() {
+                if (inputUser.size >= 20){
+                    inputUser.classList.add('invalid');
+                    document.getElementById('errorUser').innerHTML = 'Name không được để quá 20 kí tự.';
+                }
+            };
+
+            inputUser.onfocus = function() {
+                if (this.classList.contains('invalid')) {
+                    // remove the "error" indication, because the user wants to re-enter something
+                    this.classList.remove('invalid');
+                    document.getElementById('errorUser').innerHTML ='';
+                }
+            }
+
+            var inputDescription = document.forms['form-validation']['description'];
+            inputDescription.onblur = function() {
+                if (inputDescription.value == ''){
+                    inputDescription.classList.add('invalid');
+                    document.getElementById('errorDescription').innerHTML = 'Vui lòng không để trống Description.';
+                }
+            };
+
+            inputDescription.onfocus = function() {
+                if (this.classList.contains('invalid')) {
+                    // remove the "error" indication, because the user wants to re-enter something
+                    this.classList.remove('invalid');
+                    document.getElementById('errorDescription').innerHTML ='';
+                }
             }
         }
     </script>

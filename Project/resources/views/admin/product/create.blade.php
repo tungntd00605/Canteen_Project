@@ -3,6 +3,12 @@
     'current_page'=>'product_page',
 ])
 @section('content')
+    <style>
+        /*p { display: none; }*/
+        .invalid { border-color: red; }
+        #errorUser,#errorPrice,#errorDiscount,#errorDescription { color: red }
+        .succes{border-color: blue}
+    </style>
     <section class="section card mb-5">
 
         <div class="card-body">
@@ -18,7 +24,7 @@
                     </ul>
                 </div>
             @endif
-            <form action="/admin/product" method="POST" enctype="multipart/form-data">
+            <form action="/admin/product" method="POST" enctype="multipart/form-data" id="form-validation" >
             {{ csrf_field() }}
             <!--Grid row-->
                 <div class="row">
@@ -28,6 +34,7 @@
                             <div class="md-form">
                                 <input type="text" name="name" class="form-control">
                                 <label class="">Name </label>
+                                <span id="errorUser" ></span>
                             </div>
                         </div>
                         <!--Grid column-->
@@ -57,6 +64,7 @@
                             <div class="md-form">
                                 <input type="text" name="price" class="form-control">
                                 <label class="">Price </label>
+                                <span id="errorPrice" ></span>
                             </div>
                         </div>
                         <!--Grid column-->
@@ -70,6 +78,7 @@
                             <div class="md-form">
                                 <input type="text" name="discount" class="form-control" value="0">
                                 <label class="">Discount </label>
+                                <span id="errorDiscount" ></span>
                             </div>
                         </div>
                         <!--Grid column-->
@@ -84,6 +93,7 @@
                             <div class="md-form">
                                 <textarea type="text" id="description" name="description" class="md-textarea form-control" rows="2"></textarea>
                                 <label for="description">Description</label>
+                                <span id="errorDescription" ></span>
                             </div>
                         </div>
                         <!--Grid column-->
@@ -145,6 +155,77 @@
                 }
 
                 reader.readAsDataURL(input.files[0]);
+            }
+        }
+    </script>
+    <script type="text/javascript">
+        window.onload = function () {
+            validationform();
+        }
+
+        function validationform() {
+            var inputUser = document.forms['form-validation']['name'];
+            inputUser.onblur = function() {
+                if (inputUser.value == ''){
+                    inputUser.classList.add('invalid');
+                    document.getElementById('errorUser').innerHTML = 'Vui lòng không để trống Name.';
+                }
+            };
+
+            inputUser.onfocus = function() {
+                if (this.classList.contains('invalid')) {
+                    // remove the "error" indication, because the user wants to re-enter something
+                    this.classList.remove('invalid');
+                    document.getElementById('errorUser').innerHTML ='';
+                }
+            }
+
+            var inputPrice = document.forms['form-validation']['price'];
+            inputPrice.onblur = function() {
+                if (inputPrice.value == ''){
+                    inputPrice.classList.add('invalid');
+                    document.getElementById('errorPrice').innerHTML = 'Vui lòng không để trống Price.';
+                }
+            };
+
+            inputPrice.onfocus = function() {
+                if (this.classList.contains('invalid')) {
+                    // remove the "error" indication, because the user wants to re-enter something
+                    this.classList.remove('invalid');
+                    document.getElementById('errorPrice').innerHTML ='';
+                }
+            }
+
+            var inputDiscount = document.forms['form-validation']['discount'];
+            inputDiscount.onblur = function() {
+                if (inputDiscount.value == ''){
+                    inputDiscount.classList.add('invalid');
+                    document.getElementById('errorDiscount').innerHTML = 'Vui lòng không để trống Discount.';
+                }
+            };
+
+            inputDiscount.onfocus = function() {
+                if (this.classList.contains('invalid')) {
+                    // remove the "error" indication, because the user wants to re-enter something
+                    this.classList.remove('invalid');
+                    document.getElementById('errorDiscount').innerHTML ='';
+                }
+            }
+
+            var inputDescription = document.forms['form-validation']['description'];
+            inputDescription.onblur = function() {
+                if (inputDescription.value == ''){
+                    inputDescription.classList.add('invalid');
+                    document.getElementById('errorDescription').innerHTML = 'Vui lòng không để trống Description.';
+                }
+            };
+
+            inputDescription.onfocus = function() {
+                if (this.classList.contains('invalid')) {
+                    // remove the "error" indication, because the user wants to re-enter something
+                    this.classList.remove('invalid');
+                    document.getElementById('errorDescription').innerHTML ='';
+                }
             }
         }
     </script>
