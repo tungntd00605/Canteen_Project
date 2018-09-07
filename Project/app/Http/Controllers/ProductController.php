@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Category;
+use App\Http\Requests\StoreCategoryRequest;
+use App\Http\Requests\StoreProductRequest;
 use App\Product;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -20,8 +22,19 @@ class ProductController extends Controller
     {
         //
         $limit = 10;
-        $list_obj = Product::where('status', '!=' , 0)->paginate($limit);
-        return view('admin.product.list')->with('list_obj', $list_obj);
+        $list_obj = null;
+        $list_category = Category::all();
+        $choosedCategory = Input::get('categoryId');
+        if($choosedCategory == null || $choosedCategory == 0){
+            $list_obj = Product::where('status', '!=' , 0)->paginate($limit);
+        }
+        else {
+            $list_obj = Product::where('status', '!=' , 0)->where('categoryId', $choosedCategory)->paginate($limit);
+        }
+        return view('admin.product.list')
+            ->with('list_obj', $list_obj)
+            ->with('list_category', $list_category)
+            ->with('choosedCategory', $choosedCategory);
     }
 
     /**
@@ -42,9 +55,11 @@ class ProductController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(StoreProductRequest $request)
     {
         //
+        $request->validated();
+
         $obj = new Product();
         $obj->name = Input::get('name');
         $obj->categoryId = Input::get('categoryId');
@@ -100,9 +115,11 @@ class ProductController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(StoreProductRequest $request, $id)
     {
         //
+        $request->validated();
+
         $obj = Product::find($id);
         $obj->name = Input::get('name');
         $obj->categoryId = Input::get('categoryId');
@@ -136,5 +153,10 @@ class ProductController extends Controller
         $obj->save();
         return response()->json(['message' => 'Đã xoá thông tin Sản phẩm',
             'message-class' => 'alert alert-success'], 200);
+    }
+
+    public function destroyMany(){
+        Product::destroy(Input::get('ids'));
+        return "Ok";
     }
 }

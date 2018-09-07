@@ -1,5 +1,5 @@
 @extends('layout.master', [
-    'page_title'=>'Thêm sản phẩm | FPTcanteen Admin Page',
+    'page_title'=>'Sửa sản phẩm | FPTcanteen Admin Page',
     'current_page'=>'product_page',
 ])
 @section('content')
@@ -14,7 +14,16 @@
         <div class="card-body">
 
             <!--Section heading-->
-            <h1 class="text-center my-5 h1">Sửa sản phẩm</h1>
+            <h1 class="text-center my-5 h1">Sửa sản phẩm</h>
+            @if ($errors->any())
+                <div class="alert alert-danger">
+                    <ul>
+                        @foreach ($errors->all() as $error)
+                            <li>{{ $error }}</li>
+                        @endforeach
+                    </ul>
+                </div>
+            @endif
             <form action="/admin/product/{{$obj->id}}" method="POST" enctype="multipart/form-data" id="form-validation">
             {{ csrf_field() }}
             @method('PUT')
