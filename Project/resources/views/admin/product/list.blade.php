@@ -50,13 +50,13 @@
                                 <label class="custom-control-label" for="check-{{$item->id}}"></label>
                             </div>
                         </td>
-                        <td class="pt-3-half">{{$item->id}}</td>
-                        <td class="pt-3-half">{{$item->name}}</td>
-                        <td class="pt-3-half">{{$item->price}}</td>
-                        <td class="pt-3-half"><img src="{{$item->thumbnail}}" alt="" height="90px" width="150px"></td>
-                        <td class="pt-3-half">{{$item->discount}}</td>
-                        <td class="pt-3-half">{{$item->description}}</td>
-                        <td class="pt-3-half">{{$item->statusLabel}}</td>
+                        <td class="pt-3-half id-col">{{$item->id}}</td>
+                        <td class="pt-3-half name-col">{{$item->name}}</td>
+                        <td class="pt-3-half price-col">{{$item->price}}</td>
+                        <td class="pt-3-half thumbnail-col"><img src="{{$item->thumbnail}}" alt="" height="90px" width="150px"></td>
+                        <td class="pt-3-half discount-col">{{$item->discount}}</td>
+                        <td class="pt-3-half description-col">{{$item->description}}</td>
+                        <td class="pt-3-half status-col-{{$item->status}}" >{{$item->statusLabel}}</td>
                         <td>
                             <a href="/admin/product/{{$item->id}}/edit" class="table-edit"><button type="button"
                                  class="btn-floating btn-sm btn-info btn-edit"><i class="far fa-edit"></i></button></a>
@@ -76,10 +76,5 @@
         </div>
     </div>
     <!-- Editable table -->
-    <script>
-        $('form[name="category-form"] select[name="categoryId"]').change(()=>{
-            window.location.href = $('form[name="category-form"]').attr('action') + '?categoryId=' +  $('[name="categoryId"]').val();
-        });
-    </script>
     <script src="{{asset('js/product.js')}}"></script>
 @endsection
