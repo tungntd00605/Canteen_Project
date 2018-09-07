@@ -82,15 +82,11 @@
                 <!--Grid column-->
                 <div class="col-md-6 col-lg-7 text-center text-md-right">
                     <!--Facebook-->
-                    <a class="fb-ic ml-0 px-2"><i class="fa fa-facebook white-text"> </i></a>
+                    <a class="fb-ic ml-0 px-2"><i class="fab fa-facebook white-text"></i></a>
                     <!--Twitter-->
-                    <a class="tw-ic px-2"><i class="fa fa-twitter white-text"> </i></a>
+                    <a class="tw-ic px-2"><i class="fab fa-twitter-square white-text"></i></a>
                     <!--Google +-->
-                    <a class="gplus-ic px-2"><i class="fa fa-google-plus white-text"> </i></a>
-                    <!--Linkedin-->
-                    <a class="li-ic px-2"><i class="fa fa-linkedin white-text"> </i></a>
-                    <!--Instagram-->
-                    <a class="ins-ic px-2"><i class="fa fa-instagram white-text"> </i></a>
+                    <a class="gplus-ic px-2"><i class="fab fa-google-plus-square white-text"></i></a>
                 </div>
                 <!--Grid column-->
 
@@ -184,6 +180,9 @@
 
 <!-- Sweet alert JavaScript -->
 <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
+<!-- Custome script -->
+<script type="text/javascript" src="{{asset('js/client.js')}}"></script>
 
 <script type="text/javascript">
     /* WOW.js init */
