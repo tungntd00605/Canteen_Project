@@ -1,4 +1,7 @@
-@extends('layout.client')
+@extends('layout.client', [
+    'page_title'=>'Home Page | FPTcanteen',
+    'current_page'=>'home_page',
+])
 @section('content')
     <!-- Mega menu -->
     <div class="container mt-5 pt-2">

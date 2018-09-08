@@ -53,7 +53,7 @@ class ShoppingCartController extends Controller
         if (Session::has('cart')) {
             $shopping_cart = Session::get('cart');
         }
-        return view('client.shopping-cart')->with('shopping_cart', $shopping_cart);
+        return view('client.cart')->with('shopping_cart', $shopping_cart);
     }
 
     public function updateCart()
