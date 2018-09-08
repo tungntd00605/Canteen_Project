@@ -144,7 +144,7 @@ class ProductController extends Controller
     public function destroy($id)
     {
         //
-        $obj = Category::find($id);
+        $obj = Product::find($id);
         if ($obj == null) {
             return response()->json(['message' => 'Sản phẩm không tồn tại hoặc đã bị xoá!',
                 'message-class' => 'alert alert-danger'], 404);

@@ -1,12 +1,56 @@
-$("#checkAll").click(function () {
-    $('input:checkbox').not(this).prop('checked', this.checked);
+
+$(document).ready(function () {
+
+    $("#checkAll").click(function () {
+        $('input:checkbox').not(this).prop('checked', this.checked);
+    });
+
+    $('#btn-apply').click(()=>{
+        deleteMany();
+    });
+
+    $('form[name="category-form"] select[name="categoryId"]').change(()=>{
+        window.location.href = $('form[name="category-form"]').attr('action') + '?categoryId=' +  $('[name="categoryId"]').val();
+    });
+
+
+    $('.btn-delete').on('click', function () {
+        deleteOne(this);
+    });
 });
 
-$('#btn-apply').click(()=>{
-    processDelete();
-});
+function deleteOne(button) {
+    var thisButton = $(button);
+    swal({
+        title: "Warning!",
+        text: "Bạn có chắc muốn xoá sản phẩm này không?",
+        icon: "warning",
+        buttons: true,
+        dangerMode: true,
+    }).then((willDelete) => {
+        if (willDelete) {
+            var id = thisButton.closest("tr").children(".id-col").text();
+            $.ajax({
+                'url': '/admin/product/' + id,
+                'method': 'DELETE',
+                'data': {
+                    '_token': $('meta[name="csrf-token"]').attr('content')
+                },
+                success: function (response) {
+                    swal("Thành công!", "Sản phẩm đã bị xoá!", "success");
+                    thisButton.closest('tr').remove();
+                },
+                error: function () {
+                    swal("Có lỗi xảy ra!", "Vui lòng thử lại sau", "error");
+                }
+            });
+        } else {
+        }
+    })
+    return false;
+}
 
-function processDelete(){
+function deleteMany(){
     var arrayId = [];
     $('.check-item:checked').each(function(index, item) {
         //arrayId.push(item.closest('.row').id.replace('row-item-', ''));
