@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\CartItem;
+use App\Order;
+use App\OrderDetail;
 use App\Product;
 use App\ShoppingCart;
 use Illuminate\Http\Request;
@@ -89,11 +91,12 @@ class ShoppingCartController extends Controller
             try {
                 DB::beginTransaction();
                 $shopping_cart = Session::get('cart');
+                $customer_name = Input::get('customer_name');
                 $ship_name = Input::get('ship_name');
                 $ship_address = Input::get('ship_address');
                 $ship_phone = Input::get('ship_phone');
                 $order = new Order();
-                $order->customer_id = 1;
+                $order->customer_name = $customer_name;
                 $order->ship_name = $ship_name;
                 $order->ship_address = $ship_address;
                 $order->ship_phone = $ship_phone;
@@ -128,7 +131,7 @@ class ShoppingCartController extends Controller
             }
 
         } else {
-            return redirect('/danh-sach-san-pham')->with('message', 'Hiện tại chưa có sản phẩm nào trong giỏ hàng.');
+            return redirect('/cart')->with('message', 'Hiện tại chưa có sản phẩm nào trong giỏ hàng.');
         }
     }
 }

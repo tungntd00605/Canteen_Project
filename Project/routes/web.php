@@ -19,10 +19,14 @@ Route::get('/layout', function () {
 
 Route::resource('admin/category', 'CategoryController');
 Route::resource('admin/product', 'ProductController');
-Route::get('/', 'ClientPageController@showHome');
-Route::get('/cart', 'ShoppingCartController@showCart');
+Route::get('/admin/order', 'OrderController@index');
 
+Route::get('/', 'ClientPageController@showHome');
+
+Route::get('/cart', 'ShoppingCartController@showCart');
 Route::post('/api-them-gio-hang', 'ShoppingCartController@addToCartApi');
 Route::get('/xoa-gio-hang', 'ShoppingCartController@destroyCart');
+
+
 
 Route::delete('admin/destroy-many/product', 'ProductController@destroyMany');

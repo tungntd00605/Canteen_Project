@@ -58,7 +58,7 @@
                     </li>
                     <li><a href="/admin/category" class="collapsible-header waves-effect arrow-r {{$current_page == 'category_page'?'active':''}}"><i class="fa fa-user"></i>Category<i class="fa fa-angle-down rotate-icon"></i></a>
                     </li>
-                    <li><a class="collapsible-header waves-effect arrow-r"><i class="fa fa-css3"></i> Order<i class="fa fa-angle-down rotate-icon"></i></a>
+                    <li><a href="/admin/order" class="collapsible-header waves-effect arrow-r {{$current_page == 'order_page'?'active':''}}"><i class="fa fa-css3"></i> Order<i class="fa fa-angle-down rotate-icon"></i></a>
                     </li>
                     <li><a class="collapsible-header waves-effect arrow-r"><i class="fa fa-th"></i>User<i class="fa fa-angle-down rotate-icon"></i></a>              
                     </li>
