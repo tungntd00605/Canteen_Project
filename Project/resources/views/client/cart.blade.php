@@ -58,7 +58,7 @@
                             <td class="text-center">{{$item->product->discountPriceString}}</td>
                             <td class="text-center text-md-left">
 
-                                <div class="btn-group radio-group ml-2" data-toggle="buttons">
+                                <div class="btn-group radio-group ml-2 text-center" data-toggle="buttons" style="padding-left: 26%; width: 100%">
                                     <label class="btn btn-sm btn-primary btn-rounded btn-">
                                         <input type="radio" name="options" id="option1">--
                                     </label>
