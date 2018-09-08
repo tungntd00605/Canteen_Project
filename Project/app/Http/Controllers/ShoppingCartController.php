@@ -127,7 +127,8 @@ class ShoppingCartController extends Controller
                 // clear session cart.
                 Session::remove('cart');
                 // send mail or sms.
-                return view('client.order-success')->with('order', $order)->with('order_details', $order_details);
+                return response()->json(['msg' => 'Bạn đã đặt hàng thành công',
+                    'class' => 'success'], 200);
             } catch (\Exception $exception) {
                 DB::rollBack();
                 return 'Có lỗi xảy ra.' . $exception->getMessage();

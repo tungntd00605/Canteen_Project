@@ -22,7 +22,7 @@ $(document).ready(function () {
 function deleteOne(button) {
     var thisButton = $(button);
     swal({
-        title: "Warning!",
+        title: "Xóa sản phẩm!",
         text: "Bạn có chắc muốn xoá sản phẩm này không?",
         icon: "warning",
         buttons: true,
@@ -58,37 +58,47 @@ function deleteMany(){
     });
     
     if(arrayId.length == 0){
-        alert('Please choose at least 1 item.');
+        swal('Bạn chưa chọn gì!', 'Vui lòng chọn ít nhất một sản phẩm.', 'error');
         return;
     }
 
-    console.log(arrayId);
-    if (confirm('Are you sure want to delete these accounts?')) {
-        $.ajax({
-            method: 'DELETE',
-            url: '/admin/destroy-many/product',
-            data: {
-                '_token': $('meta[name="csrf-token"]').attr('content'),
-                'ids': arrayId
-            },
-            success: function (resp) {
-                alert(arrayId);
-                $('#messageSuccess').text('Action success!');
-                $('#messageSuccess').removeClass('d-none');
-                for (var i = 0; i < arrayId.length; i++) {
-                    $('#row-' + arrayId[i]).remove();
+    swal({
+        title: "Xóa sản phẩm!",
+        text: "Bạn có chắc muốn xoá sản phẩm những sản phẩm đã chọn không?",
+        icon: "warning",
+        buttons: true,
+        dangerMode: true,
+    }).then((willDelete) => {
+        if (willDelete) {
+            $.ajax({
+                method: 'DELETE',
+                url: '/admin/destroy-many/product',
+                data: {
+                    '_token': $('meta[name="csrf-token"]').attr('content'),
+                    'ids': arrayId
+                },
+                success: function (resp) {
+                    swal("Thành công!", "Sản phẩm được chọn đã bị xoá!", "success");
+                    $('#messageSuccess').text('Action success!');
+                    $('#messageSuccess').removeClass('d-none');
+                    for (var i = 0; i < arrayId.length; i++) {
+                        $('#row-' + arrayId[i]).remove();
+                    }
+
+                    if($('.check-item').length == 0){
+                        setTimeout(function(){
+                            window.location.reload(1);
+                        }, 3*1000);
+                    }
+                },
+                error: function () {
+                    $('#messageError').removeClass('d-none');
+                    $('#messageError').text('Action fails! Please try again later!');
+                    swal("Có lỗi xảy ra!", "Vui lòng thử lại sau", "error");
                 }
-                if($('.check-item').length == 0){
-                    setTimeout(function(){
-                        window.location.reload(1);
-                    }, 3*1000);
-                }
-            },
-            error: function () {
-                $('#messageError').removeClass('d-none');
-                $('#messageError').text('Action fails! Please try again later!');
-            }
-        });
-    }
+            });
+        } else {
+        }
+    });
 }
 
