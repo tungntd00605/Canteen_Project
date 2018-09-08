@@ -17,6 +17,7 @@ Route::get('/layout', function () {
     return view('layout.client');
 });
 
+Route::get('/admin/', 'DashboardController@index');
 Route::resource('admin/category', 'CategoryController');
 Route::resource('admin/product', 'ProductController');
 Route::get('/admin/order', 'OrderController@index');

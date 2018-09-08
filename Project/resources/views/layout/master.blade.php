@@ -17,6 +17,11 @@
     <!-- Material Design Bootstrap -->
     <link rel="stylesheet" href="{{asset('mdb/css/mdb.min.css')}}">
     <script src="{{asset('mdb/js/jquery-3.3.1.min.js')}}"></script>
+    <!-- Daterangepicker script -->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/jquery/latest/jquery.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
 
     <!-- Your custom styles (optional) -->
     <style>
@@ -51,7 +56,7 @@
             <!-- Side navigation links -->
             <li>
                 <ul class="collapsible collapsible-accordion">
-                    <li><a class="collapsible-header waves-effect arrow-r"><i class="fa fa-tachometer"></i> Home<i class="fa fa-angle-down rotate-icon"></i></a>
+                    <li><a href="/admin/" class="collapsible-header waves-effect arrow-r {{$current_page == 'home_page'?'active':''}}"><i class="fa fa-tachometer"></i> Home<i class="fa fa-angle-down rotate-icon"></i></a>
                     </li>
                     <li><a href="/admin/product" class="collapsible-header waves-effect arrow-r {{$current_page == 'product_page'?'active':''}}"><i class="fa fa-photo"></i>Product<i class="fa fa-angle-down rotate-icon"></i></a>
                        
