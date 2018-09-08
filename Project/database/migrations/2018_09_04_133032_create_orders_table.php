@@ -17,6 +17,9 @@ class CreateOrdersTable extends Migration
             $table->increments('id');
             $table->integer('user_id');
             $table->integer('total_price');
+            $table->string('ship_name');
+            $table->string('ship_address');
+            $table->string('ship_phone');
             $table->timestamps();
             $table->integer('status')->default(0); // -1. huỷ | 0. đang chờ xử lý | 1. đã nhận đơn hàng | 2. hoàn thành.
         });
