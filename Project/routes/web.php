@@ -27,6 +27,7 @@ Route::get('/', 'ClientPageController@showHome');
 Route::get('/cart', 'ShoppingCartController@showCart');
 Route::post('/api-them-gio-hang', 'ShoppingCartController@addToCartApi');
 Route::get('/xoa-gio-hang', 'ShoppingCartController@destroyCart');
+Route::post('/gui-don-hang', 'ShoppingCartController@checkoutCart');
 
 
 

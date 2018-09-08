@@ -41,48 +41,52 @@
 
                             <!-- Table body -->
                             <tbody>
-                            @foreach($shopping_cart->items as $item)
-                                <!-- First row -->
+                            @if(count($shopping_cart->items) <= 0)
                                 <tr>
-                                    <th scope="row" class="text-center">
-                                        {{--<div style='background-image: url("{{$item->product->thumbnail}}");background-size: cover' class="imgProduct">--}}
-
-                                        {{--</div>--}}
-                                        <img src="{{$item->product->thumbnail}}" alt=""
-                                             class="img-fluid z-depth-0 imgProduct img-thumbnail">
-                                    </th>
-                                    <td class="text-center">
-                                        <h6 class="mt-3" style="color: #5d5d5d">
-                                            <strong>{{$item->product->name}}</strong>
-                                        </h6>
-                                    </td>
-                                    <td class="text-center">{{$item->product->discountPriceString}}</td>
-                                    <td class="text-center text-md-left">
-
-                                        <div class="btn-group radio-group ml-2 text-center" data-toggle="buttons"
-                                             style="padding-left: 26%; width: 100%">
-                                            <label class="btn btn-sm btn-primary btn-rounded btn-">
-                                                <input type="radio" name="options" id="option1">--
-                                            </label>
-                                            <span class="qty">{{$item->quantity}}</span>
-                                            <label class="btn btn-sm btn-primary btn-rounded">
-                                                <input type="radio" name="options" id="option2">+
-                                            </label>
-                                        </div>
-                                    </td>
-                                    <td class="font-weight-bold text-center">
-                                        <strong>{{$item->quantity * $item->product->discountPrice}}</strong>
-                                    </td>
-                                    <td class="text-center">
-                                        <button type="button" class="btn btn-sm btn-primary btn-delete"
-                                                data-toggle="tooltip" data-placement="top" title="Remove item"
-                                                style="border-radius: 15px">
-                                            X
-                                        </button>
-                                    </td>
+                                    <td colspan="6" class="text-center font-weight-bold">Hiện giỏ hàng không có sản phẩm nào</td>
                                 </tr>
-                                <!-- /.First row -->
-                            @endforeach
+                            @else
+                                @foreach($shopping_cart->items as $item)
+                                    <!-- First row -->
+                                    <tr>
+                                        <th scope="row" class="text-center">
+                                            <img src="{{$item->product->thumbnail}}" alt=""
+                                                 class="img-fluid z-depth-0 imgProduct img-thumbnail">
+                                        </th>
+                                        <td class="text-center">
+                                            <h6 class="mt-3" style="color: #5d5d5d">
+                                                <strong>{{$item->product->name}}</strong>
+                                            </h6>
+                                        </td>
+                                        <td class="text-center">{{$item->product->discountPriceString}}</td>
+                                        <td class="text-center text-md-left">
+
+                                            <div class="btn-group radio-group ml-2 text-center" data-toggle="buttons"
+                                                 style="padding-left: 26%; width: 100%">
+                                                <label class="btn btn-sm btn-primary btn-rounded btn-">
+                                                    <input type="radio" name="options" id="option1">--
+                                                </label>
+                                                <span class="qty">{{$item->quantity}}</span>
+                                                <label class="btn btn-sm btn-primary btn-rounded">
+                                                    <input type="radio" name="options" id="option2">+
+                                                </label>
+                                            </div>
+                                        </td>
+                                        <td class="font-weight-bold text-center">
+                                            <strong>{{$item->quantity * $item->product->discountPrice}}</strong>
+                                        </td>
+                                        <td class="text-center">
+                                            <button type="button" class="btn btn-sm btn-primary btn-delete"
+                                                    data-toggle="tooltip" data-placement="top" title="Remove item"
+                                                    style="border-radius: 15px">
+                                                X
+                                            </button>
+                                        </td>
+                                    </tr>
+                                    <!-- /.First row -->
+                                @endforeach
+                            @endif
+
 
                             </tbody>
                             <!-- /.Table body -->
@@ -266,13 +270,15 @@
                                     <hr>
                                     <dl class="row">
                                         <dd class="col-sm-7">
-                                            {{$item->product->name}}
+                                            {{$item->product->name}} x {{$item->quantity}}
                                         </dd>
                                         <dd class="col-sm-5">
                                             {{$item->product->discountPriceString}}
                                         </dd>
                                     </dl>
                                 @endforeach
+                                <hr>
+                                <div class="text-right"><span>Tổng cộng: {{$shopping_cart->getTotalMoneyString()}}</span></div>
                             </div>
 
                         </div>
@@ -291,32 +297,5 @@
     </div>
     <!-- /.Main Container -->
 
-    <script>
-        $(document).ready(function () {
-            $('#btn-order').on('click', function () {
-                $.ajax({
-                    'url': '/gui-don-hang',
-                    'method': 'POST',
-                    'data': {
-                        'customer_name': $('input[name="customer_name"]').val(),
-                        'ship_name': $('input[name="ship_name"]').val(),
-                        'ship_phone': $('input[name="ship_phone"]').val(),
-                        'ship_address': $('input[name="ship_address"]').val(),
-                        'message': $('textarea[name="message"]').val(),
-                        '_token': $('meta[name="csrf-token"]').attr('content')
-                    },
-                    success: function (response) {
-                        swal("Thành công!", "Đơn hàng của bạn đã được gửi đi!", "success");
-                        setTimeout(function () {
-                            window.location.reload();
-                        }, 2*1000);
-                    },
-                    error: function () {
-                        swal("Có lỗi xảy ra!", "Vui lòng thử lại sau", "error");
-                    }
-                });
-            })
-        })
-
-    </script>
+    <script src="{{asset('js/shopping-cart.js')}}"></script>
 @endsection
