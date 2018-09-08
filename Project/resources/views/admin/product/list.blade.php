@@ -7,21 +7,28 @@
     <div class="card">
         <h3 class="card-header text-center font-weight-bold text-uppercase py-4">Product table</h3>
         <div class="card-body">
-            <div id="table" class="table-editable">
+            <div id="table" class="table-editable" style="position: relative">
                 @if (Session::has('message'))
                     <div class="alert {{ Session::get('message-class') }}">{{ Session::get('message') }}</div>
                 @endif
-                <div class="row ml-5 mb-0 custom-control-inline">
-                    <form action="/admin/product" method="GET" name="category-form">
-                        <select class="mdb-select colorful-select dropdown-primary" name="categoryId">
-                            <option value="" choosed>Choose category</option>
-                            @foreach ($list_category as $item)
-                                <option value="{{$item->id}}" {{$item->id==$choosedCategory?'selected':''}}>{{$item->name}}</option>
-                            @endforeach
-                        </select>
-                    </form>
-                    <span class="table-add float-right ml-5"><a href="/admin/product/create" class="text-success"><i
-                                    class="fa fa-plus fa-2x" aria-hidden="true"></i></a></span>
+                <div class="row  mb-0 " >
+                    <div class="col-md-8">
+                        <form action="/admin/product" method="GET" name="category-form" style="width: 40%">
+                            <select class="mdb-select colorful-select dropdown-primary" name="categoryId">
+                                <option value="" choosed>Choose category</option>
+                                @foreach ($list_category as $item)
+                                    <option value="{{$item->id}}" {{$item->id==$choosedCategory?'selected':''}}>{{$item->name}}</option>
+                                @endforeach
+                            </select>
+                        </form>
+                    </div>
+                    <div class="col-md-4">
+                        <span class="table-add float-right mt-3 ml-5">
+                            <a href="/admin/product/create" class="text-success">
+                                <i class="fa fa-plus fa-2x" aria-hidden="true"></i>
+                            </a>
+                        </span>
+                    </div>
                 </div>
 
                 @if(count($list_obj) > 0)
@@ -67,19 +74,26 @@
                             </tr>
                         @endforeach
                     </table>
-                    <div class="custom-control-inline ml-3">
-                        <div class="custom-control custom-checkbox">
-                            <input type="checkbox" class="custom-control-input" id="checkAll">
-                            <label class="custom-control-label" for="checkAll">Check All</label>
+                    <div class="row mt-3">
+                        <div class="col-md-8">
+                            <div class="custom-control-inline">
+                                <div class="custom-control custom-checkbox ml-2">
+                                    <input type="checkbox" class="custom-control-input" id="checkAll">
+                                    <label class="custom-control-label" for="checkAll">Check All</label>
+                                </div>
+                                <div class="col mr-5">
+                                    <button type="button" class="btn btn-danger btn-rounded btn-sm my-0" id="btn-apply">Remove
+                                        Selected
+                                    </button>
+                                </div>
+                            </div>
                         </div>
-                        <div class="col mr-5">
-                            <button type="button" class="btn btn-danger btn-rounded btn-sm my-0" id="btn-apply">Remove
-                                Selected
-                            </button>
+                        <div class="col-md-4">
+                            <div class="float-right ml-5">
+                                {{ $list_obj->links() }}
+                            </div>
                         </div>
-                        <div class="float-right ml-5">
-                            {{ $list_obj->links() }}
-                        </div>
+
                     </div>
 
                 @else
