@@ -9,6 +9,7 @@
         #errorUser,#errorDescription { color: red }
         .succes{border-color: blue}
     </style>
+    <link rel="stylesheet" href="{{asset('css/style.css')}}">
     <section class="section card mb-5">
 
         <div class="card-body">
@@ -25,7 +26,7 @@
                             <div class="md-form">
                                 <input type="text" name="name" class="form-control">
                                 <label class="">Name </label>
-                                <span id="errorUser" ></span>
+                                <span id="errorUser" class="font-small"></span>
                             </div>
                         </div>
                         <!--Grid column-->
@@ -41,7 +42,7 @@
                             <div class="md-form">
                                 <textarea type="text" id="description" name="description" class="md-textarea form-control" rows="2"></textarea>
                                 <label for="description">Description</label>
-                                <span id="errorDescription" ></span>
+                                <span id="errorDescription" class="font-small"></span>
                             </div>
                         </div>
                         <!--Grid column-->
@@ -87,6 +88,36 @@
 
     <script>
         $(document).ready(function () {
+            $('input[name = "name"]').focusout(function(){
+                if ($('input[name = "name"]').val() == null || $('input[name = "name"]').val().length == 0){
+                    $('input[name = "name"]').addClass('error');
+                    $('#errorUser').text("Không được để trống phần User");
+                }else if ($('input[name = "name"]').val().length >= 20) {
+                    $('input[name = "name"]').addClass('error');
+                    $('#errorUser').text("User không được để quá 20 kí tự");
+                } else {
+                    $('input[name = "name"]').removeClass('error');
+                    $('#errorUser').text("");
+                }
+            });
+
+            $('#description').focusout(function(){
+                if ($('#description').val() == null || $('#description').val().length == 0){
+                    $('textarea[name = "description"]').addClass('error');
+                    $('#errorDescription').text("Không được để trống phần Description");
+                }else if ($('#description').val().length >= 300) {
+                    $('textarea[name = "description"]').addClass('error');
+                    $('#errorDescription').text("Description không được để quá 300 kí tự");
+                } else {
+                    $('textarea[name = "description"]').removeClass('error');
+                    $('#errorDescription').text("");
+                }
+            });
+        })
+    </script>
+
+    <script>
+        $(document).ready(function () {
             //Reset preview image
             $('button[type="reset"]').click(function () {
                 $('#preview-img').attr('src', 'https://mdbootstrap.com/img/Photos/Others/placeholder.jpg');
@@ -106,43 +137,5 @@
             }
         }
     </script>
-    <script type="text/javascript">
-        window.onload = function () {
-            validationform();
-        }
 
-        function validationform() {
-            var inputUser = document.forms['form-validation']['name'];
-            inputUser.onblur = function() {
-                if (inputUser.value == ''){
-                    inputUser.classList.add('invalid');
-                    document.getElementById('errorUser').innerHTML = 'Vui lòng không để trống Name.';
-                }
-            };
-
-            inputUser.onfocus = function() {
-                if (this.classList.contains('invalid')) {
-                    // remove the "error" indication, because the user wants to re-enter something
-                    this.classList.remove('invalid');
-                    document.getElementById('errorUser').innerHTML ='';
-                }
-            }
-
-            var inputDescription = document.forms['form-validation']['description'];
-            inputDescription.onblur = function() {
-                if (inputDescription.value == ''){
-                    inputDescription.classList.add('invalid');
-                    document.getElementById('errorDescription').innerHTML = 'Vui lòng không để trống Description.';
-                }
-            };
-
-            inputDescription.onfocus = function() {
-                if (this.classList.contains('invalid')) {
-                    // remove the "error" indication, because the user wants to re-enter something
-                    this.classList.remove('invalid');
-                    document.getElementById('errorDescription').innerHTML ='';
-                }
-            }
-        }
-    </script>
 @endsection
