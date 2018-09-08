@@ -21,6 +21,7 @@
 
     <!-- JQuery -->
     <script type="text/javascript" src="{{asset('mdb/js/jquery-3.3.1.min.js')}}"></script>
+    <link rel="stylesheet" href="{{asset('css/styleHome.css')}}">
 
 </head>
 
@@ -30,7 +31,8 @@
     <!-- Navbar -->
     <nav class="navbar fixed-top navbar-expand-lg  navbar-light scrolling-navbar white">
         <div class="container">
-            <a class="navbar-brand font-weight-bold" href="/"><strong>FPT Canteen</strong></a>
+            <a class="navbar-brand font-weight-bold" href="/"><img src="{{asset('img/logo.png')}}" alt="LOGO" style="max-width: 65px"></a> <b style="line-height: 200%; margin-top: 10px; font-size: 19px; font-weight: bold">FPT
+                <small class="text-muted" style="font-size: 13px">Canteen</small></b>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent-4" aria-controls="navbarSupportedContent-4"
                     aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -111,10 +113,9 @@
 <div class="modal fade cart-modal" id="cart-modal-ex" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
         <!--Content-->
-        <div class="modal-content">
+        <div class="modal-content" id="style-4">
             <!--Header-->
-            <div class="modal-header">
-
+            <div class="modal-header" >
                 <h4 class="modal-title font-weight-bold dark-grey-text" id="myModalLabel">Giỏ hàng của bạn</h4>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
@@ -122,7 +123,6 @@
             </div>
             <!--Body-->
             <div class="modal-body">
-
                 <table class="table table-hover" >
                     <thead>
                     <tr>
@@ -136,7 +136,7 @@
                     @if(count(\App\ShoppingCart::getCart()->items)>0)
                             @foreach(\App\ShoppingCart::getCart()->items as $item)
                                 <tr>
-                                    <th scope="row"><img src="{{$item->product->thumbnail}}" class="img-fluid img-thumbnail" width="110px" alt=""></th>
+                                    <th scope="row"><img src="{{$item->product->thumbnail}}" class="img-fluid img-thumbnail imgProductCart" width="110px" alt=""></th>
                                     <td>{{$item->product->name}}</td>
                                     <td>{{$item->quantity}}</td>
                                     <td>{{$item->product->discountPriceString}}</td>
@@ -149,7 +149,8 @@
                     @endif
                     </tbody>
                 </table>
-                <div class="text-right">
+                <hr>
+                <div class="text-right" style="font-weight: bold">
                     Tổng cộng: <span
                             id="cart-total">{{\App\ShoppingCart::getCart()->getTotalMoneyString()}}</span>
                 </div>
@@ -157,6 +158,9 @@
             <!--Footer-->
             <div class="modal-footer">
                 <button type="button" class="btn btn-grey btn-rounded btn-sm" data-dismiss="modal">Close</button>
+                <a href="/cart">
+                    <button type="button" class="btn btn-rounded btn-sm btn-cart">Xem giỏ hàng</button>
+                </a>
             </div>
         </div>
         <!--/.Content-->
