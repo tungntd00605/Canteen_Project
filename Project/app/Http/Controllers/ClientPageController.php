@@ -26,4 +26,15 @@ class ClientPageController extends Controller
                 'others'=> $others
             ]);
     }
+
+    public function productDetail($id){
+        $obj = Product::find($id);
+        if ($obj == null){
+            return view('error.404');
+        }
+        return view('client.productDetail')->with('obj',$obj);
+    }
+    public function categoryList(){
+
+    }
 }
