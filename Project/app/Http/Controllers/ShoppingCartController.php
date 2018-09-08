@@ -9,6 +9,7 @@ use App\Product;
 use App\ShoppingCart;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\Session;
 
@@ -95,11 +96,13 @@ class ShoppingCartController extends Controller
                 $ship_name = Input::get('ship_name');
                 $ship_address = Input::get('ship_address');
                 $ship_phone = Input::get('ship_phone');
+                $message = Input::get('message');
                 $order = new Order();
                 $order->customer_name = $customer_name;
                 $order->ship_name = $ship_name;
                 $order->ship_address = $ship_address;
                 $order->ship_phone = $ship_phone;
+                $order->message = $message;
                 $order->total_price = 0;
                 $order->save();
                 $order_id = $order->id;
