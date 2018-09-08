@@ -3,7 +3,7 @@
     'current_page'=>'cart_page',
 ])
 @section('content')
-
+    <link rel="stylesheet" href="{{asset('css/styleCart.css')}}">
 <div class="container">
 
     <!-- Section cart -->
@@ -18,24 +18,21 @@
                     <table class="table product-table">
 
                         <!-- Table head -->
-                        <thead class="mdb-color lighten-5">
+                        <thead class="mdb-color light-blue darken-2">
                         <tr>
                             <th></th>
-                            <th class="font-weight-bold">
-                                <strong>Sản phẩm</strong>
+                            <th class="font-weight-bold text-center">
+                                Sản phẩm
                             </th>
-                            <th class="font-weight-bold">
-                                <strong>Color</strong>
+                            <th class="font-weight-bold text-center">
+                                Đơn giá
                             </th>
-                            <th></th>
-                            <th class="font-weight-bold">
-                                <strong>Đơn giá</strong>
+                            <th class="font-weight-bold text-center">
+                                Số lượng
                             </th>
-                            <th class="font-weight-bold">
-                                <strong>Số lượng</strong>
-                            </th>
-                            <th class="font-weight-bold">
-                                <strong>Thành tiền</strong>
+
+                            <th class="font-weight-bold text-center">
+                                Thành tiền
                             </th>
                             <th></th>
                         </tr>
@@ -47,33 +44,36 @@
                         @foreach($shopping_cart->items as $item)
                         <!-- First row -->
                         <tr>
-                            <th scope="row">
-                                <img src="{{$item->product->thumbnail}}" alt="" class="img-fluid z-depth-0">
+                            <th scope="row" class="text-center">
+                                {{--<div style='background-image: url("{{$item->product->thumbnail}}");background-size: cover' class="imgProduct">--}}
+
+                                {{--</div>--}}
+                                <img src="{{$item->product->thumbnail}}" alt="" class="img-fluid z-depth-0 imgProduct img-thumbnail">
                             </th>
-                            <td>
-                                <h5 class="mt-3">
+                            <td class="text-center">
+                                <h6 class="mt-3" style="color: #5d5d5d">
                                     <strong>{{$item->product->name}}</strong>
-                                </h5>
+                                </h6>
                             </td>
-                            <td>White</td>
-                            <td></td>
-                            <td>{{$item->product->discountPriceString}}</td>
+                            <td class="text-center">{{$item->product->discountPriceString}}</td>
                             <td class="text-center text-md-left">
-                                <span class="qty">{{$item->quantity}}</span>
-                                <div class="btn-group radio-group ml-2" data-toggle="buttons">
-                                    <label class="btn btn-sm btn-primary btn-rounded">
-                                        <input type="radio" name="options" id="option1">&mdash;
+
+                                <div class="btn-group radio-group ml-2 text-center" data-toggle="buttons" style="padding-left: 26%; width: 100%">
+                                    <label class="btn btn-sm btn-primary btn-rounded btn-">
+                                        <input type="radio" name="options" id="option1">--
                                     </label>
+                                    <span class="qty">{{$item->quantity}}</span>
                                     <label class="btn btn-sm btn-primary btn-rounded">
                                         <input type="radio" name="options" id="option2">+
                                     </label>
                                 </div>
                             </td>
-                            <td class="font-weight-bold">
+                            <td class="font-weight-bold text-center">
                                 <strong>{{$item->quantity * $item->product->discountPrice}}</strong>
                             </td>
-                            <td>
-                                <button type="button" class="btn btn-sm btn-primary" data-toggle="tooltip" data-placement="top" title="Remove item">X
+                            <td class="text-center">
+                                <button type="button" class="btn btn-sm btn-primary btn-delete" data-toggle="tooltip" data-placement="top" title="Remove item" style="border-radius: 15px">
+                                    X
                                 </button>
                             </td>
                         </tr>
@@ -103,7 +103,7 @@
             <div class="row">
 
                 <!--Grid column-->
-                <div class="col-lg-8 mb-4">
+                <div class="col-lg-7 mb-4">
 
                     <!-- Pills navs -->
                     <ul class="nav md-pills nav-justified pills-primary font-weight-bold">
@@ -128,114 +128,46 @@
                                 <div class="row">
 
                                     <!--Grid column-->
-                                    <div class="col-md-6 mb-4">
-
-                                        <!--firstName-->
-                                        <label for="firstName" class="">First name</label>
-                                        <input type="text" id="firstName" class="form-control">
-
-                                    </div>
-                                    <!--Grid column-->
-
-                                    <!--Grid column-->
-                                    <div class="col-md-6 mb-2">
-
-                                        <!--lastName-->
-                                        <label for="lastName" class="">Last name</label>
-                                        <input type="text" id="lastName" class="form-control">
-
-                                    </div>
-                                    <!--Grid column-->
-
-                                </div>
-                                <!--Grid row-->
-
-                                <!--Username-->
-                                <div class="input-group mb-4">
-                                    <div class="input-group-prepend">
-                                        <span class="input-group-text" id="basic-addon1">@</span>
-                                    </div>
-                                    <input type="text" class="form-control py-0" placeholder="Username" aria-describedby="basic-addon1">
-                                </div>
-
-                                <!--email-->
-                                <label for="email" class="">Email (optional)</label>
-                                <input type="text" id="email" class="form-control mb-4" placeholder="youremail@example.com">
-
-                                <!--address-->
-                                <label for="address" class="">Address</label>
-                                <input type="text" id="address" class="form-control mb-4" placeholder="1234 Main St">
-
-                                <!--address-2-->
-                                <label for="address-2" class="">Address 2 (optional)</label>
-                                <input type="text" id="address-2" class="form-control mb-4" placeholder="Apartment or suite">
-
-                                <!--Grid row-->
-                                <div class="row">
-
-                                    <!--Grid column-->
-                                    <div class="col-lg-4 col-md-12 mb-4">
-
-                                        <label for="country">Country</label>
-                                        <select class="custom-select d-block w-100" id="country" required>
-                                            <option value="">Choose...</option>
-                                            <option>United States</option>
-                                        </select>
-                                        <div class="invalid-feedback">
-                                            Please select a valid country.
+                                    <div class="col-md-12">
+                                        <div class="md-form" style="margin-bottom: 10px">
+                                            <input type="text" id="cusName" name="customer_name" class="form-control">
+                                            <label for="cusName">Người gửi</label>
                                         </div>
-
                                     </div>
                                     <!--Grid column-->
 
                                     <!--Grid column-->
-                                    <div class="col-lg-4 col-md-6 mb-4">
-
-                                        <label for="state">State</label>
-                                        <select class="custom-select d-block w-100" id="state" required>
-                                            <option value="">Choose...</option>
-                                            <option>California</option>
-                                        </select>
-                                        <div class="invalid-feedback">
-                                            Please provide a valid state.
+                                    <div class="col-md-12">
+                                        <div class="md-form" style="margin-bottom: 10px">
+                                            <input type="text" id="shipName" name="ship_name" class="form-control">
+                                            <label for="shipName">Người nhận</label>
                                         </div>
-
                                     </div>
                                     <!--Grid column-->
-
-                                    <!--Grid column-->
-                                    <div class="col-lg-4 col-md-6 mb-4">
-
-                                        <label for="zip">Zip</label>
-                                        <input type="text" class="form-control" id="zip" placeholder="" required>
-                                        <div class="invalid-feedback">
-                                            Zip code required.
+                                    <div class="col-md-12">
+                                        <div class="md-form" style="margin-bottom: 10px">
+                                            <input type="text" id="ship_phone" name="ship_phone" class="form-control">
+                                            <label for="ship_phone">Số điện thoại</label>
                                         </div>
-
                                     </div>
-                                    <!--Grid column-->
+
+                                    <div class="col-md-12">
+                                        <div class="md-form" style="margin-bottom: 15px">
+                                            <input type="text" id="ship_address" name="ship_address" class="form-control">
+                                            <label for="ship_address">Số phòng</label>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-12">
+                                        <div class="md-form">
+                                            <textarea type="text" id="message" class="md-textarea form-control" rows="3" name="message"></textarea>
+                                            <label for="message">Lời nhắn</label>
+                                        </div>
+                                    </div>
 
                                 </div>
-                                <!--Grid row-->
 
-                                <hr>
-
-                                <div class="mb-1">
-                                    <input type="checkbox" class="form-check-input filled-in" id="chekboxRules">
-                                    <label class="form-check-label" for="chekboxRules">I accept the terms and conditions</label>
-                                </div>
-                                <div class="mb-1">
-                                    <input type="checkbox" class="form-check-input filled-in" id="safeTheInfo">
-                                    <label class="form-check-label" for="safeTheInfo">Save this information for next time</label>
-                                </div>
-                                <div class="mb-1">
-                                    <input type="checkbox" class="form-check-input filled-in" id="subscribeNewsletter">
-                                    <label class="form-check-label" for="subscribeNewsletter">Subscribe to the newsletter</label>
-                                </div>
-
-                                <hr>
-
-                                <button class="btn btn-primary btn-lg btn-block" type="submit">Next step</button>
+                                <button class="btn btn-primary btn-lg btn-block" type="submit">Đặt hàng</button>
 
                             </form>
 
@@ -307,60 +239,25 @@
                 <!--Grid column-->
 
                 <!--Grid column-->
-                <div class="col-lg-4 mb-4">
-
-                    <button class="btn btn-primary btn-lg btn-block" type="submit">Place order</button>
+                <div class="col-lg-5 mb-4">
 
                     <!--Card-->
                     <div class="card">
 
                         <!--Card content-->
                         <div class="card-body">
-                            <h4 class="mb-4 mt-1 h5 text-center font-weight-bold">Summary</h4>
-
-                            <hr>
-
-                            <dl class="row">
-                                <dd class="col-sm-8">
-                                    MDBootstrap UI KIT (jQuery version) - License 6-10 poeple + unlimited projects
-                                </dd>
-                                <dd class="col-sm-4">
-                                    $ 2000
-                                </dd>
-                            </dl>
-
-                            <hr>
-
-                            <dl class="row">
-                                <dd class="col-sm-8">
-                                    Premium support - 2 years
-                                </dd>
-                                <dd class="col-sm-4">
-                                    $ 2000
-                                </dd>
-                            </dl>
-
-                            <hr>
-
-                            <dl class="row">
-                                <dd class="col-sm-8">
-                                    MDB Membership - 2 years
-                                </dd>
-                                <dd class="col-sm-4">
-                                    $ 2000
-                                </dd>
-                            </dl>
-
-                            <hr>
-
-                            <dl class="row">
-                                <dt class="col-sm-8">
-                                    Total
-                                </dt>
-                                <dt class="col-sm-4">
-                                    $ 2000
-                                </dt>
-                            </dl>
+                            <h4 class="mb-4 mt-1 h5 text-center font-weight-bold">HÓA ĐƠN</h4>
+                            @foreach($shopping_cart->items as $item)
+                                <hr>
+                                <dl class="row">
+                                    <dd class="col-sm-7">
+                                        {{$item->product->name}}
+                                    </dd>
+                                    <dd class="col-sm-5">
+                                        {{$item->product->discountPriceString}}
+                                    </dd>
+                                </dl>
+                            @endforeach
                         </div>
 
                     </div>
