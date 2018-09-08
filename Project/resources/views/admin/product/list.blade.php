@@ -93,9 +93,7 @@
                                 {{ $list_obj->links() }}
                             </div>
                         </div>
-
                     </div>
-
                 @else
                     <div class="text-center">Hiện không có danh mục nào để hiển thị</div>
                 @endif
@@ -103,10 +101,5 @@
         </div>
     </div>
     <!-- Editable table -->
-    <script>
-        $('form[name="category-form"] select[name="categoryId"]').change(() => {
-            window.location.href = $('form[name="category-form"]').attr('action') + '?categoryId=' + $('[name="categoryId"]').val();
-        });
-    </script>
     <script src="{{asset('js/product.js')}}"></script>
 @endsection
