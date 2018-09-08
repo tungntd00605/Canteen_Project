@@ -2,6 +2,10 @@ $(document).ready(function () {
     $('.btn-delete').on('click', function () {
         deleteOne(this);
     });
+  
+    $("#checkAll").click(function () {
+      $('input:checkbox').not(this).prop('checked', this.checked);
+    });
 });
 
 function deleteOne(button) {
