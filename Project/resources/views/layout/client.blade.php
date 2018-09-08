@@ -113,7 +113,7 @@
 <div class="modal fade cart-modal" id="cart-modal-ex" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
         <!--Content-->
-        <div class="modal-content" id="style-4">
+        <div class="modal-content" >
             <!--Header-->
             <div class="modal-header" >
                 <h4 class="modal-title font-weight-bold dark-grey-text" id="myModalLabel">Giỏ hàng của bạn</h4>
@@ -122,7 +122,7 @@
                 </button>
             </div>
             <!--Body-->
-            <div class="modal-body">
+            <div class="modal-body" id="style-4">
                 <table class="table table-hover" >
                     <thead>
                     <tr>
@@ -157,7 +157,7 @@
             </div>
             <!--Footer-->
             <div class="modal-footer">
-                <button type="button" class="btn btn-grey btn-rounded btn-sm" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-grey btn-rounded btn-sm" data-dismiss="modal">Đóng</button>
                 <a href="/cart">
                     <button type="button" class="btn btn-rounded btn-sm btn-cart">Xem giỏ hàng</button>
                 </a>
