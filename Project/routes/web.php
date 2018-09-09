@@ -23,6 +23,8 @@ Route::resource('admin/product', 'ProductController');
 Route::get('/admin/order', 'OrderController@index');
 
 Route::get('/', 'ClientPageController@showHome');
+Route::get('/category', 'ClientPageController@showCategory');
+Route::get('/product/{id}', 'ClientPageController@showProductDetail');
 
 Route::get('/cart', 'ShoppingCartController@showCart');
 Route::post('/api-them-gio-hang', 'ShoppingCartController@addToCartApi');

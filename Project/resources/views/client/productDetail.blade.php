@@ -1,4 +1,6 @@
-@extends('layout.client')
+@extends('layout.client', [
+    'page_title' => 'Product Detail | FPT Canteen'
+])
 @section('content')
 <!-- /.Navigation -->
 
