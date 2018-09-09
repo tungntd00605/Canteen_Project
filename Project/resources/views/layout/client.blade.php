@@ -42,8 +42,9 @@
                         <a class="nav-link dropdown-toggle waves-effect waves-light dark-grey-text font-weight-bold" id="navbarDropdownMenuLink-4" data-toggle="dropdown"
                            aria-haspopup="true" aria-expanded="false"><i class="fas fa-utensils blue-text"></i> Danh mục </a>
                         <div class="dropdown-menu dropdown-menu-right dropdown-cyan" aria-labelledby="navbarDropdownMenuLink-4">
-                            <a class="dropdown-item waves-effect waves-light" href="#">My account</a>
-                            <a class="dropdown-item waves-effect waves-light" href="#">Log out</a>
+                            @foreach($nav_category as $item)
+                            <a class="dropdown-item waves-effect waves-light" href="/category?categoryId={{$item->id}}">{{$item->name}}</a>
+                            @endforeach
                         </div>
                     </li>
                     <li class="nav-item ">

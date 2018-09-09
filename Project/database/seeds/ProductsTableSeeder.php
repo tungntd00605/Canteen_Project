@@ -329,7 +329,7 @@ class ProductsTableSeeder extends Seeder
                 'categoryId'=>3,
                 'thumbnail'=>'http://www.hoangcuong.online/images/detailed/7/image003-3.jpg?t=1468746921',
                 'price'=>9000,
-                'description'=>'Bộ lắp ghép mô hình kĩ thuật lớp 5',
+                'description'=>'Vở dùng giấy chất lượng tốt',
                 'created_at' => date('Y-m-d H:i:s'),
                 'updated_at' => date('Y-m-d H:i:s'),
 
