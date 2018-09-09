@@ -31,11 +31,10 @@ class ShoppingCartController extends Controller
         if (Session::has('cart')) {
             $shopping_cart = Session::get('cart');
             if (array_key_exists($id, $shopping_cart->items)) {
-                if($shopping_cart->items[$id]->quantity > 1){
                     $quantity += $shopping_cart->items[$id]->quantity;
-                } else{
-                    $quantity = 1;
-                }
+                    if($quantity <= 0){
+                        $quantity = 1;
+                    }
             }
         }
         $item = new CartItem();
