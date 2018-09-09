@@ -59,7 +59,7 @@ class ShoppingCart
         return sprintf('%s', number_format($this->getTotalMoney(), 0));
     }
 
-        function getTotalMoneyString()
+    function getTotalMoneyString()
     {
         return sprintf('%s (vnd)', number_format($this->getTotalMoney(), 0));
     }
