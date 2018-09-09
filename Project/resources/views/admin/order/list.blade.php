@@ -11,14 +11,13 @@
                 @if (Session::has('message'))
                     <div class="alert {{ Session::get('message-class') }}">{{ Session::get('message') }}</div>
                 @endif
-                <span class="table-add float-right mb-3 mr-2"><a href="/admin/category/create" class="text-success"><i
-                                class="fa fa-plus fa-2x" aria-hidden="true"></i></a></span>
                 @if(count($list_obj) > 0)
                 <table class="table table-bordered table-responsive-md table-striped text-center">
                     <tr>
                         <th class="text-center id-col">ID</th>
                         <th class="text-center">Customer Name</th>
                         <th class="text-center">Receiver Name</th>
+                        <th class="text-center">Phone</th>
                         <th class="text-center">Order time</th>
                         <th class="text-center">Detail</th>
                         <th class="text-center">Status</th>
@@ -28,6 +27,7 @@
                         <tr>
                             <td class="pt-3-half id-col">{{$item->id}}</td>
                             <td class="pt-3-half">{{$item->customer_name}}</td>
+                            <td class="pt-3-half">{{$item->ship_phone}}</td>
                             <td class="pt-3-half">{{$item->ship_name}}</td>
                             <td class="pt-3-half">{{$item->created_at}}</td>
                             <td class="pt-3-half">
