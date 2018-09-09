@@ -7,7 +7,7 @@
     <div class="container">
 
         <!-- Section cart -->
-        <section class="section my-5 pb-5">
+        <section class="section mt-5 pt-5 pb-5">
 
             <div class="card card-ecommerce">
                 <div class="card-body">
@@ -63,20 +63,20 @@
 
                                             <div class="btn-group radio-group ml-2 text-center" data-toggle="buttons"
                                                  style="padding-left: 26%; width: 100%">
-                                                <label class="btn btn-sm btn-primary btn-rounded btn-">
-                                                    <input type="radio" name="options" id="option1">--
+                                                <label class="btn btn-sm btn-primary btn-rounded btn-minus" >
+                                                    <input type="radio" name="options" >--
                                                 </label>
-                                                <span class="qty">{{$item->quantity}}</span>
-                                                <label class="btn btn-sm btn-primary btn-rounded">
-                                                    <input type="radio" name="options" id="option2">+
+                                                <span class="qty product-qty-{{$item->product->id}}">{{$item->quantity}}</span>
+                                                <label class="btn btn-sm btn-primary btn-rounded btn-add" >
+                                                    <input type="radio" name="options" >+
                                                 </label>
                                             </div>
                                         </td>
                                         <td class="font-weight-bold text-center">
-                                            <strong>{{$item->quantity * $item->product->discountPrice}}</strong>
+                                            <strong class="product-total-price-{{$item->product->id}}">{{$item->getTotalPriceString()}}</strong>
                                         </td>
                                         <td class="text-center">
-                                            <button type="button" class="btn btn-sm btn-primary btn-delete"
+                                            <button type="button" class="btn btn-sm btn-primary btn-delete" id="product-{{$item->product->id}}"
                                                     data-toggle="tooltip" data-placement="top" title="Remove item"
                                                     style="border-radius: 15px">
                                                 X
@@ -270,15 +270,15 @@
                                     <hr>
                                     <dl class="row">
                                         <dd class="col-sm-7">
-                                            {{$item->product->name}} x {{$item->quantity}}
+                                            <span>{{$item->product->name}}</span> x <span class="product-qty-{{$item->product->id}}">{{$item->quantity}}</span>
                                         </dd>
                                         <dd class="col-sm-5">
-                                            {{$item->product->discountPriceString}}
+                                            <span class="product-total-price-{{$item->product->id}}">{{$item->getTotalPriceString()}}</span>
                                         </dd>
                                     </dl>
                                 @endforeach
                                 <hr>
-                                <div class="text-right"><span>Tổng cộng: {{$shopping_cart->getTotalMoneyString()}}</span></div>
+                                <div class="text-right"><span>Tổng cộng: </span><strong id="total-cart-price">{{$shopping_cart->getTotalMoneyString()}}</strong></div>
                             </div>
 
                         </div>
