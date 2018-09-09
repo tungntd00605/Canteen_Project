@@ -1,4 +1,6 @@
-@extends('layout.client')
+@extends('layout.client',[
+    'page_title' => 'Category Page | FPT Canteen'
+])
 @section('content')
 <!-- Main Container -->
 <div class="container mt-5 pt-3">
@@ -609,9 +611,6 @@
     new WOW().init();
 
     // Tooltips Initialization
-    $(function () {
-        $('[data-toggle="tooltip"]').tooltip()
-    })
 </script>
 <script>
     var slider = $("#calculatorSlider");
@@ -673,15 +672,5 @@
             calculate(license.dev.price, $(this).val());
         }
     })
-</script>
-<script>
-    // Material Select Initialization
-    $(document).ready(function () {
-        $('.mdb-select').material_select();
-    });
-</script>
-<script>
-    // SideNav Initialization
-    $(".button-collapse").sideNav();
 </script>
 @endsection

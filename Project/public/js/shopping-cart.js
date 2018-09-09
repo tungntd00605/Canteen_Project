@@ -1,6 +1,6 @@
 $(document).ready(function () {
     $('#btn-order').on('click', function () {
-        if($('tbody').has('img')){
+        if (!$('tbody').find('img').length > 0) {
             swal('Giỏ hàng trống', 'Vui lòng thêm sản phẩm vào giỏ hàng', 'error');
         } else {
             $.ajax({
@@ -18,7 +18,7 @@ $(document).ready(function () {
                     swal("Thành công!", "Đơn hàng của bạn đã được gửi đi!", "success");
                     setTimeout(function () {
                         window.location.reload();
-                    }, 2*1000);
+                    }, 2 * 1000);
                 },
                 error: function () {
                     swal("Có lỗi xảy ra!", "Vui lòng thử lại sau", "error");

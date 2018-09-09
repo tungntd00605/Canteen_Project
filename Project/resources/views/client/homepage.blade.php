@@ -4,51 +4,8 @@
 ])
 @section('content')
     <link rel="stylesheet" href="{{asset('css/styleHome.css')}}">
-    <!-- Mega menu -->
-    <div class="container mt-5 pt-2">
-
-        <!--Navbar-->
-        <nav class="navbar navbar-expand-lg navbar-dark primary-color mt-5">
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#basicExampleNav"
-                    aria-controls="basicExampleNav"
-                    aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-
-            <!-- Collapsible content -->
-            <div class="collapse navbar-collapse" id="basicExampleNav">
-
-                <!-- Links -->
-                <ul class="navbar-nav mr-auto">
-                    <li class="nav-item active">
-                        <a class="nav-link" href="#">Trang Chủ
-                            <span class="sr-only">(current)</span>
-                        </a>
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link">Đồ Ăn</a>
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link">Đồ Uống</a>
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link ">Nước Hoa Quả</a>
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link">Bánh Ngọt</a>
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link ">Đồ Uống Có Gas</a>
-                    </li>
-                    <!-- Dropdown -->
-                </ul>
-            </div>
-            <!-- Collapsible content -->
-        </nav>
-        <!--/.Navbar-->
-    </div>
     <!-- /.Main Container -->
-    <div class="container">
+    <div class="container mt-5 pt-3">
         <div class="row pt-3">
             <!-- Content -->
             <div class="col-lg-12">
@@ -90,9 +47,7 @@
                                 <ul class="list-group z-depth-1">
                                     @foreach ($categories as $item)
                                         <li class="list-group-item d-flex justify-content-between align-items-center">
-                                            <a class="dark-grey-text font-small"><i
-                                                        class="fa fa-laptop dark-grey-text mr-2"
-                                                        aria-hidden="true"></i> {{$item->name}}</a>
+                                            <a href="/category?categoryId={{$item->id}}" class="dark-grey-text font-small"><i class="far fa-list-alt mr-1"></i><span class="font-weight-bold">{{$item->name}}</span></a>
                                         </li>
                                     @endforeach
                                 </ul>

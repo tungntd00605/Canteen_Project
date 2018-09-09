@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -39,6 +38,14 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarSupportedContent-4">
                 <ul class="navbar-nav ml-auto">
+                    <li class="nav-item dropdown ml-3">
+                        <a class="nav-link dropdown-toggle waves-effect waves-light dark-grey-text font-weight-bold" id="navbarDropdownMenuLink-4" data-toggle="dropdown"
+                           aria-haspopup="true" aria-expanded="false"><i class="fas fa-utensils blue-text"></i> Danh mục </a>
+                        <div class="dropdown-menu dropdown-menu-right dropdown-cyan" aria-labelledby="navbarDropdownMenuLink-4">
+                            <a class="dropdown-item waves-effect waves-light" href="#">My account</a>
+                            <a class="dropdown-item waves-effect waves-light" href="#">Log out</a>
+                        </div>
+                    </li>
                     <li class="nav-item ">
                         <a class="nav-link dark-grey-text font-weight-bold waves-effect waves-light" href="#" data-toggle="modal" data-target="#cart-modal-ex">
                             <span id="cart-count-icon" class="badge {{\App\ShoppingCart::getTotalItem() == 0?'grey':'danger-color'}}">{{\App\ShoppingCart::getTotalItem()}}</span>
@@ -49,14 +56,7 @@
                     <li class="nav-item">
                         <a class="nav-link waves-effect waves-light dark-grey-text font-weight-bold" href="#"><i class="fa fa-envelope blue-text"></i> Giới Thiệu<span class="sr-only">(current)</span></a>
                     </li>
-                    <li class="nav-item dropdown ml-3">
-                        <a class="nav-link dropdown-toggle waves-effect waves-light dark-grey-text font-weight-bold" id="navbarDropdownMenuLink-4" data-toggle="dropdown"
-                           aria-haspopup="true" aria-expanded="false"><i class="fa fa-user blue-text"></i> Tài Khoản </a>
-                        <div class="dropdown-menu dropdown-menu-right dropdown-cyan" aria-labelledby="navbarDropdownMenuLink-4">
-                            <a class="dropdown-item waves-effect waves-light" href="#">My account</a>
-                            <a class="dropdown-item waves-effect waves-light" href="#">Log out</a>
-                        </div>
-                    </li>
+
                 </ul>
             </div>
         </div>
