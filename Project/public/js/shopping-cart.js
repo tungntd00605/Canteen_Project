@@ -25,5 +25,44 @@ $(document).ready(function () {
                 }
             });
         }
-    })
+    });
+
+    $('.btn-add').each(function () {
+        $(this).click(function () {
+
+            var button = $(this);
+            var product_id = button.closest('tr').find('button.btn-delete').attr('id').replace('product-', '');
+            updateQuantity(product_id, 1, button)
+        });
+    });
+
+    $('.btn-minus').each(function () {
+        $(this).click(function () {
+            var button = $(this);
+            var product_id = button.closest('tr').find('button.btn-delete').attr('id').replace('product-', '');
+            updateQuantity(product_id, -1, button)
+        });
+    });
 })
+
+function updateQuantity(id, quantity, button) {
+    $.ajax({
+        url: '/api-them-gio-hang',
+        method: 'post',
+        data: {
+            id: id,
+            quantity: quantity,
+            _token: $('meta[name="csrf-token"]').attr('content')
+        },
+        success: function (resp) {
+            var qty_element = '.product-qty-' + id;
+            var product_total_ele = '.product-total-price-' + id;
+            $(qty_element).text(resp.new_item.new_qty);
+            $(product_total_ele).text(resp.new_item.new_total_price);
+            $('#total-cart-price').text(resp.new_cart_price);
+        },
+        error: function (error) {
+            swal('Thao tác thất bại', "Vui lòng thử lại sau", 'error');
+        }
+    });
+}
