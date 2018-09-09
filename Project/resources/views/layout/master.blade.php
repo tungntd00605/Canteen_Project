@@ -93,25 +93,30 @@
                 <li class="nav-item dropdown notifications-nav">
                     <a class="nav-link dropdown-toggle waves-effect" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true"
                         aria-expanded="false">
-                        <span class="badge red">3</span> <i class="fa fa-bell"></i>
+                        <span class="badge red" id="notify-number">0</span> <i class="fa fa-bell"></i>
                         <span class="d-none d-md-inline-block">Notifications</span>
                     </a>
-                    <div class="dropdown-menu dropdown-info" aria-labelledby="navbarDropdownMenuLink">
-                        <a class="dropdown-item" href="#">
-                            <i class="fa fa-money mr-2" aria-hidden="true"></i>
-                            <span>New order received</span>
-                            <span class="float-right"><i class="fa fa-clock-o" aria-hidden="true"></i> 13 min</span>
-                        </a>
-                        <a class="dropdown-item" href="#">
-                            <i class="fa fa-money mr-2" aria-hidden="true"></i>
-                            <span>New order received</span>
-                            <span class="float-right"><i class="fa fa-clock-o" aria-hidden="true"></i> 33 min</span>
-                        </a>
-                        <a class="dropdown-item" href="#">
-                            <i class="fa fa-line-chart mr-2" aria-hidden="true"></i>
-                            <span>Your campaign is about to end</span>
-                            <span class="float-right"><i class="fa fa-clock-o" aria-hidden="true"></i> 53 min</span>
-                        </a>
+                    <div class="dropdown-menu dropdown-info" aria-labelledby="navbarDropdownMenuLink" id="messages" style="width : 200%;">
+                        <div>
+                            <a class="dropdown-item" href="#">
+                                <div class="float-left">
+                                    <img src="https://api.adorable.io/avatars/285/abott@adorable.png" alt="" class="rounded-circle" alt="50x50" style="width: 70px; height: 70px;">
+                                </div>
+                                <div class="float-right">
+                                    <i class="fa fa-money mr-2" aria-hidden="true"></i>
+                                    Name : <span>New order received</span>
+                                    <br>
+                                    <i class="fa fa-phone mr-2" aria-hidden="true"></i>
+                                    Phone : <span>12345678</span>
+                                    <br>
+                                    <i class="fa fa-house mr-2" aria-hidden="true"></i>
+                                    Room : <span>208</span>
+                                    <br>
+                                    <i class="fa fa-clock-o" aria-hidden="true"></i> 13 min</span>
+                                    <span>  Status : New Order</span>
+                                </div>
+                            </a>
+                        </div>
                     </div>
                 </li>
                 <li class="nav-item">
@@ -206,6 +211,50 @@
 
         // Hide back to top button
 
+    </script>
+    <script src="https://js.pusher.com/3.1/pusher.min.js"></script>
+    <script>
+      //instantiate a Pusher object with our Credential's key
+      var pusher = new Pusher('{{env('PUSHER_APP_KEY')}}', {
+          cluster: 'ap1',
+          encrypted: true
+      });
+
+      //Subscribe to the channel we specified in our Laravel Event
+      var channel = pusher.subscribe('canteen');
+
+      //Bind a function to a Event (the full Laravel class)
+      channel.bind('App\\Events\\OrderNotifyEvent', addMessage);
+
+      function addMessage(data) {
+        var avatar = Math.floor(Math.random() * (71 - 20 + 1)) + 20;
+        var notifyContent = null;
+        
+        notifyContent += '<div>';
+        notifyContent += '                <a class="dropdown-item" href="#">';
+        notifyContent += '                    <div class="float-left">';
+        notifyContent += '                    <img src="https://api.adorable.io/avatars/71/' + avatar + '.png" alt="" class="rounded-circle" alt="50x50" style="width: 70px; height: 70px;">';
+        notifyContent += '                    </div>';
+        notifyContent += '                    <div class="float-right">';
+        notifyContent += '                       <i class="fa fa-money mr-2" aria-hidden="true"></i>';
+        notifyContent += '                        Name : <span>'+ data.customer_name + '</span>';
+        notifyContent += '                        <br>';
+        notifyContent += '                        <i class="fa fa-phone mr-2" aria-hidden="true"></i>';
+        notifyContent += '                        Phone : <span>'+data.ship_phone+'</span>';
+        notifyContent += '                        <br>';
+        notifyContent += '                        <i class="fa fa-house mr-2" aria-hidden="true"></i>';
+        notifyContent += '                        Room : <span>'+data.room+'</span>';
+        notifyContent += '                        <br>';
+        notifyContent += '                        <i class="fa fa-clock-o" aria-hidden="true"></i> 13 min</span>';
+        notifyContent += '                        <span>  Status : New Order</span>';
+        notifyContent += '                    </div>';
+        notifyContent += '                  </a>';
+        notifyContent += '</div>';
+        
+
+        $('#messages').prepend(notifyContent);
+        
+      }
     </script>
 
 </body>

@@ -34,3 +34,8 @@ Route::post('/gui-don-hang', 'ShoppingCartController@checkoutCart');
 
 
 Route::delete('admin/destroy-many/product', 'ProductController@destroyMany');
+
+Route::get('/pusher', function() {
+    event(new App\Events\OrderNotifyEvent('Hi there Pusher!'));
+    return "Event has been sent!";
+});
