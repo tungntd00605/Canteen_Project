@@ -11,8 +11,24 @@
                 @if (Session::has('message'))
                     <div class="alert {{ Session::get('message-class') }}">{{ Session::get('message') }}</div>
                 @endif
-                <span class="table-add float-right mb-3 mr-2" data-toggle="tooltip" data-placement="top" title="Thêm mới danh mục"><a href="/admin/category/create" class="text-success"><i
-                                class="fa fa-plus fa-2x" aria-hidden="true"></i></a></span>
+                <div class="row">
+                    <div class="col-md-2">
+                        <select class="mdb-select colorful-select dropdown-primary pl-2" >
+                            <option value="" disabled>Rows number</option>
+                            <option value="1" selected>5 rows</option>
+                            <option value="2">25 rows</option>
+                            <option value="3">50 rows</option>
+                            <option value="4">100 rows</option>
+                        </select>
+                    </div>
+                    <div class="col-md-10">
+                        <span class="table-add float-right pt-3 mr-2" data-toggle="tooltip" data-placement="top" title="Thêm mới danh mục">
+                            <a href="/admin/category/create" class="text-success">
+                                <i class="fa fa-plus fa-2x" aria-hidden="true"></i>
+                            </a>
+                        </span>
+                    </div>
+                </div>
                 @if(count($list_obj) > 0)
                     <table class="table table-bordered table-responsive-md table-striped text-center">
                         <tr>

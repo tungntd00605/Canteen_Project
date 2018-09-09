@@ -12,7 +12,19 @@
                     <div class="alert {{ Session::get('message-class') }}">{{ Session::get('message') }}</div>
                 @endif
                 <div class="row  mb-0 " >
-                    <div class="col-md-8">
+                    <div class="col-md-1" >
+                        <div>
+                            <select class="mdb-select colorful-select dropdown-primary " >
+                                <option value="" disabled>Rows number</option>
+                                <option value="1" selected>5 rows</option>
+                                <option value="2">25 rows</option>
+                                <option value="3">50 rows</option>
+                                <option value="4">100 rows</option>
+                            </select>
+                        </div>
+
+                    </div>
+                    <div class="col-md-7">
                         <form action="/admin/product" method="GET" name="category-form" style="width: 40%">
                             <select class="mdb-select colorful-select dropdown-primary" name="categoryId">
                                 <option value="" choosed>Choose category</option>
@@ -23,7 +35,7 @@
                         </form>
                     </div>
                     <div class="col-md-4">
-                        <span class="table-add float-right mt-3 ml-5">
+                        <span class="table-add float-right mt-3 mr-2">
                             <a href="/admin/product/create" class="text-success">
                                 <i class="fa fa-plus fa-2x" aria-hidden="true"></i>
                             </a>
