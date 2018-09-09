@@ -7,6 +7,7 @@ use App\Order;
 use App\OrderDetail;
 use App\Product;
 use App\ShoppingCart;
+use App\Events\OrderNotifyEvent;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\DB;
@@ -124,6 +125,10 @@ class ShoppingCartController extends Controller
                 }
                 $order->save();
                 DB::commit();
+                $data['ship_phone'] = $ship_phone;
+                $data['customer_name'] = $customer_name;
+                $data['room'] = $ship_address;
+                event(new OrderNotifyEvent($data));
                 // clear session cart.
                 Session::remove('cart');
                 // send mail or sms.
