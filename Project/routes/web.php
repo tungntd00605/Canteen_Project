@@ -11,9 +11,24 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+
+
+Route::get('/layout', function () {
+    return view('layout.client');
 });
 
+Route::get('/admin/', 'DashboardController@index');
 Route::resource('admin/category', 'CategoryController');
 Route::resource('admin/product', 'ProductController');
+Route::get('/admin/order', 'OrderController@index');
+
+Route::get('/', 'ClientPageController@showHome');
+
+Route::get('/cart', 'ShoppingCartController@showCart');
+Route::post('/api-them-gio-hang', 'ShoppingCartController@addToCartApi');
+Route::get('/xoa-gio-hang', 'ShoppingCartController@destroyCart');
+Route::post('/gui-don-hang', 'ShoppingCartController@checkoutCart');
+
+
+
+Route::delete('admin/destroy-many/product', 'ProductController@destroyMany');

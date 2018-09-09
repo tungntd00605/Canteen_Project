@@ -8,7 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    <title>Material Design Bootstrap</title>
+    <title>{{$page_title}}</title>
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
     <link rel="stylesheet" href="{{asset('mdb/css/font-awesome.min.css')}}">
@@ -17,6 +17,11 @@
     <!-- Material Design Bootstrap -->
     <link rel="stylesheet" href="{{asset('mdb/css/mdb.min.css')}}">
     <script src="{{asset('mdb/js/jquery-3.3.1.min.js')}}"></script>
+    <!-- Daterangepicker script -->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/jquery/latest/jquery.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
 
     <!-- Your custom styles (optional) -->
     <style>
@@ -32,33 +37,33 @@
         <div id="slide-out" class="side-nav sn-bg-4 fixed">
             <ul class="custom-scrollbar">
             <!-- Logo -->
-            <li class="logo-sn waves-effect">
+            <li class="logo-sn waves-effect"  style="height: 230px;">
                 <div class="text-center">
-                    <a href="#" class="pl-0"><img src="{{asset('mdb/img/mdb-transaprent-noshadows.png')}}" class=""></a>
+                    <a href="#" class="pl-0"><img src="{{asset('img/logo.png')}}" class="img-fluid" ></a>
                 </div>
             </li>
             <!--/. Logo -->
 
             <!--Search Form-->
-            <li>
-                <form class="search-form" role="search">
-                    <div class="form-group md-form mt-0 pt-1 waves-light">
-                        <input type="text" class="form-control" placeholder="Search">
-                    </div>
-                </form>
-            </li>
+            {{--<li>--}}
+                {{--<form class="search-form" role="search">--}}
+                    {{--<div class="form-group md-form mt-0 pt-1 waves-light">--}}
+                        {{--<input type="text" class="form-control" placeholder="Search">--}}
+                    {{--</div>--}}
+                {{--</form>--}}
+            {{--</li>--}}
             <!--/.Search Form-->
             <!-- Side navigation links -->
             <li>
                 <ul class="collapsible collapsible-accordion">
-                    <li><a class="collapsible-header waves-effect arrow-r"><i class="fa fa-tachometer"></i> Home<i class="fa fa-angle-down rotate-icon"></i></a>
+                    <li><a href="/admin/" class="collapsible-header waves-effect arrow-r {{$current_page == 'home_page'?'active':''}}"><i class="fa fa-tachometer"></i> Home<i class="fa fa-angle-down rotate-icon"></i></a>
                     </li>
                     <li><a href="/admin/product" class="collapsible-header waves-effect arrow-r {{$current_page == 'product_page'?'active':''}}"><i class="fa fa-photo"></i>Product<i class="fa fa-angle-down rotate-icon"></i></a>
                        
                     </li>
                     <li><a href="/admin/category" class="collapsible-header waves-effect arrow-r {{$current_page == 'category_page'?'active':''}}"><i class="fa fa-user"></i>Category<i class="fa fa-angle-down rotate-icon"></i></a>
                     </li>
-                    <li><a class="collapsible-header waves-effect arrow-r"><i class="fa fa-css3"></i> Order<i class="fa fa-angle-down rotate-icon"></i></a>
+                    <li><a href="/admin/order" class="collapsible-header waves-effect arrow-r {{$current_page == 'order_page'?'active':''}}"><i class="fa fa-css3"></i> Order<i class="fa fa-angle-down rotate-icon"></i></a>
                     </li>
                     <li><a class="collapsible-header waves-effect arrow-r"><i class="fa fa-th"></i>User<i class="fa fa-angle-down rotate-icon"></i></a>              
                     </li>

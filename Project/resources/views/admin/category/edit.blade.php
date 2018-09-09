@@ -1,5 +1,5 @@
 @extends('layout.master', [
-    'page_title'=>'Thêm danh mục sản phẩm | FPTcanteen Admin Page',
+    'page_title'=>'Sửa danh mục sản phẩm | FPTcanteen Admin Page',
     'current_page'=>'category_page',
 ])
 @section('content')
@@ -15,6 +15,16 @@
 
             <!--Section heading-->
             <h1 class="text-center my-5 h1">Sửa Danh Mục</h1>
+            
+            @if ($errors->any())
+                <div class="alert alert-danger">
+                    <ul>
+                        @foreach ($errors->all() as $error)
+                            <li>{{ $error }}</li>
+                        @endforeach
+                    </ul>
+                </div>
+            @endif
             <form action="/admin/category/{{$obj->id}}" method="POST" enctype="multipart/form-data" id="form-validation">
             {{ csrf_field() }}
             @method('PUT')
@@ -122,9 +132,9 @@
             };
 
             inputUser.onblur = function() {
-                if (inputUser.size >= 20){
+                if (inputUser.size >= 50){
                     inputUser.classList.add('invalid');
-                    document.getElementById('errorUser').innerHTML = 'Name không được để quá 20 kí tự.';
+                    document.getElementById('errorUser').innerHTML = 'Name không được để quá 50 kí tự.';
                 }
             };
 

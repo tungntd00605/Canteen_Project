@@ -16,7 +16,17 @@
 
             <!--Section heading-->
             <h1 class="text-center my-5 h1">Tạo Danh Mục</h1>
-            <form action="/admin/category" method="POST" enctype="multipart/form-data" id="form-validation">
+            ">
+            @if ($errors->any())
+                <div class="alert alert-danger">
+                    <ul>
+                        @foreach ($errors->all() as $error)
+                            <li>{{ $error }}</li>
+                        @endforeach
+                    </ul>
+                </div>
+            @endif
+            <form action="/admin/category" method="POST" enctype="multipart/form-data" id="form-validation
             {{ csrf_field() }}
             <!--Grid row-->
                 <div class="row">
@@ -92,9 +102,9 @@
                 if ($('input[name = "name"]').val() == null || $('input[name = "name"]').val().length == 0){
                     $('input[name = "name"]').addClass('error');
                     $('#errorUser').text("Không được để trống phần User");
-                }else if ($('input[name = "name"]').val().length >= 20) {
+                }else if ($('input[name = "name"]').val().length >= 50) {
                     $('input[name = "name"]').addClass('error');
-                    $('#errorUser').text("User không được để quá 20 kí tự");
+                    $('#errorUser').text("User không được để quá 50 kí tự");
                 } else {
                     $('input[name = "name"]').removeClass('error');
                     $('#errorUser').text("");
@@ -105,9 +115,6 @@
                 if ($('#description').val() == null || $('#description').val().length == 0){
                     $('textarea[name = "description"]').addClass('error');
                     $('#errorDescription').text("Không được để trống phần Description");
-                }else if ($('#description').val().length >= 300) {
-                    $('textarea[name = "description"]').addClass('error');
-                    $('#errorDescription').text("Description không được để quá 300 kí tự");
                 } else {
                     $('textarea[name = "description"]').removeClass('error');
                     $('#errorDescription').text("");
