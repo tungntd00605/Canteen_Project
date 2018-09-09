@@ -31,11 +31,7 @@ class ShoppingCartController extends Controller
         if (Session::has('cart')) {
             $shopping_cart = Session::get('cart');
             if (array_key_exists($id, $shopping_cart->items)) {
-                if($shopping_cart->items[$id]->quantity > 1){
-                    $quantity += $shopping_cart->items[$id]->quantity;
-                } else{
-                    $quantity = 1;
-                }
+                $quantity += $shopping_cart->items[$id]->quantity;
             }
         }
         $item = new CartItem();
@@ -46,11 +42,7 @@ class ShoppingCartController extends Controller
         $shopping_cart->count = ShoppingCart::calculateTotalItem($shopping_cart);
         $shopping_cart->total_money = $shopping_cart->getTotalMoneyString();
         Session::put('cart', $shopping_cart);
-        return response()->json(['msg' => 'Thêm vào giỏ hàng thành công',
-            'new_item'=> ['new_qty'=> $quantity,
-                            'new_total_price' => $item->getTotalPriceString()
-                         ] , 'new_cart_price' =>  $shopping_cart->getTotalMoneyString(),
-            'shopping_cart' => $shopping_cart], 200);
+        return response()->json(['msg' => 'Thêm vào giỏ hàng thành công', 'shopping_cart' => $shopping_cart], 200);
     }
 
     public function removeFromCart()
