@@ -25,14 +25,12 @@
 
                     </div>
                     <div class="col-md-7">
-                        <form action="/admin/product" method="GET" name="category-form" style="width: 40%">
-                            <select class="mdb-select colorful-select dropdown-primary" name="categoryId">
-                                <option value="" choosed>Choose category</option>
-                                @foreach ($list_category as $item)
-                                    <option value="{{$item->id}}" {{$item->id==$choosedCategory?'selected':''}}>{{$item->name}}</option>
-                                @endforeach
-                            </select>
-                        </form>
+                        <select class="mdb-select colorful-select dropdown-primary" name="categoryId">
+                            <option value="" choosed>Choose category</option>
+                            @foreach ($list_category as $item)
+                                <option value="{{$item->id}}" {{$item->id==$choosedCategory?'selected':''}}>{{$item->name}}</option>
+                            @endforeach
+                        </select>
                     </div>
                     <div class="col-md-4">
                         <span class="table-add float-right mt-3 mr-2">
