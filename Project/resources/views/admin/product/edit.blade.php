@@ -26,7 +26,7 @@
                             <div class="md-form">
                                 <input type="text" name="name" class="form-control" value="{{$obj->name}}">
                                 <label class="">Name </label>
-                                <span id="errorUser" ></span>
+                                <span id="errorUser" class="font-small"></span>
                             </div>
                         </div>
                         <!--Grid column-->
@@ -56,7 +56,7 @@
                             <div class="md-form">
                                 <input type="text" name="price" class="form-control" value="{{$obj->price}}">
                                 <label class="">Price </label>
-                                <span id="errorPrice" ></span>
+                                <span id="errorPrice" class="font-small"></span>
                             </div>
                         </div>
                         <!--Grid column-->
@@ -70,7 +70,7 @@
                             <div class="md-form">
                                 <input type="text" name="discount" class="form-control" value="{{$obj->discount}}">
                                 <label class="">Discount </label>
-                                <span id="errorDiscount" ></span>
+                                <span id="errorDiscount" class="font-small" ></span>
                             </div>
                         </div>
                         <!--Grid column-->
@@ -85,7 +85,7 @@
                             <div class="md-form">
                                 <textarea type="text" id="description" name="description" class="md-textarea form-control" rows="2">{{$obj->description}}</textarea>
                                 <label for="description">Description</label>
-                                <span id="errorDescription" ></span>
+                                <span id="errorDescription"class="font-small" ></span>
                             </div>
                         </div>
                         <!--Grid column-->

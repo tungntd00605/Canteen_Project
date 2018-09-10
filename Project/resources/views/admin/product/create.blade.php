@@ -9,6 +9,7 @@
         #errorUser,#errorPrice,#errorDiscount,#errorDescription { color: red }
         .succes{border-color: blue}
     </style>
+    <link rel="stylesheet" href="{{asset('css/style.css')}}">
     <section class="section card mb-5">
 
         <div class="card-body">

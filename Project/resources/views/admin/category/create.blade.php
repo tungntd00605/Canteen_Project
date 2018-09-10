@@ -122,7 +122,7 @@
             $('button[type="reset"]').click(function () {
                 $('#preview-img').attr('src', 'https://mdbootstrap.com/img/Photos/Others/placeholder.jpg');
             })
-        })
+        });
 
         // get preview image on change
         function readURL(input) {
@@ -131,7 +131,7 @@
 
                 reader.onload = function (e) {
                     $('#preview-img').attr('src', e.target.result);
-                }
+                };
 
                 reader.readAsDataURL(input.files[0]);
             }

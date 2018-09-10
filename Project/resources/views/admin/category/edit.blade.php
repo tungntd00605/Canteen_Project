@@ -26,6 +26,7 @@
                             <div class="md-form">
                                 <input type="text" name="name" class="form-control" value="{{$obj->name}}" id="name">
                                 <label class="">Name </label>
+                                <span id="errorUser" class="font-small"></span>
                             </div>
                         </div>
                         <!--Grid column-->
@@ -40,6 +41,7 @@
                             <div class="md-form">
                                 <textarea type="text" id="description" name="description" class="md-textarea form-control" rows="2">{{$obj->description}}</textarea>
                                 <label for="description">Description</label>
+                                <span id="errorDescription" class="font-small"></span>
                             </div>
                         </div>
                         <!--Grid column-->
@@ -118,13 +120,6 @@
                 if (inputUser.value == ''){
                     inputUser.classList.add('invalid');
                     document.getElementById('errorUser').innerHTML = 'Vui lòng không để trống Name.';
-                }
-            };
-
-            inputUser.onblur = function() {
-                if (inputUser.size >= 20){
-                    inputUser.classList.add('invalid');
-                    document.getElementById('errorUser').innerHTML = 'Name không được để quá 20 kí tự.';
                 }
             };
 

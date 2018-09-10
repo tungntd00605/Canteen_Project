@@ -1,0 +1,12 @@
+#form-validation input[name="name"].error{
+    border-bottom: 2px solid red;
+}
+#form-validation #description.error{
+    border-bottom: 2px solid red;
+}
+#form-validation input[name="price"].error{
+    border-bottom: 2px solid red;
+}
+#form-validation input[name="discount"].error{
+    border-bottom: 2px solid red;
+}
