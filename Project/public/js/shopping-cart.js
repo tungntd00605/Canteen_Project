@@ -3,6 +3,7 @@ $(document).ready(function () {
         if (!$('tbody').find('img').length > 0) {
             swal('Giỏ hàng trống', 'Vui lòng thêm sản phẩm vào giỏ hàng', 'error');
         } else {
+            $(this).prop('disabled', true);
             $.ajax({
                 'url': '/gui-don-hang',
                 'method': 'POST',
@@ -15,13 +16,15 @@ $(document).ready(function () {
                     '_token': $('meta[name="csrf-token"]').attr('content')
                 },
                 success: function (response) {
-                    swal("Thành công!", "Đơn hàng của bạn đã được gửi đi!", "success");
-                    setTimeout(function () {
-                        window.location.reload();
-                    }, 2 * 1000);
+                    swal("Thành công!", "Đơn hàng của bạn đã được gửi đi!", "success")
+                        .then((value) => {
+                            window.location.reload();
+                        });
+                    $(this).prop('disabled', false);
                 },
                 error: function () {
                     swal("Có lỗi xảy ra!", "Vui lòng thử lại sau", "error");
+                    $(this).prop('disabled', false);
                 }
             });
         }
