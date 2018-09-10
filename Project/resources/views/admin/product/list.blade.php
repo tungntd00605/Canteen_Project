@@ -14,12 +14,12 @@
                 <div class="row  mb-0 " >
                     <div class="col-md-1" >
                         <div>
-                            <select class="mdb-select colorful-select dropdown-primary " >
-                                <option value="" disabled>Rows number</option>
-                                <option value="1" selected>5 rows</option>
-                                <option value="2">25 rows</option>
-                                <option value="3">50 rows</option>
-                                <option value="4">100 rows</option>
+                            <select class="mdb-select colorful-select dropdown-primary pl-2" name="limit">
+                                <option value="0" disabled>Rows number</option>
+                                <option value="5" {{$limit == 5? 'selected':''}}>5 rows</option>
+                                <option value="25" {{$limit == 25? 'selected':''}}>25 rows</option>
+                                <option value="50" {{$limit == 50? 'selected':''}}>50 rows</option>
+                                <option value="100" {{$limit == 100? 'selected':''}}>100 rows</option>
                             </select>
                         </div>
 

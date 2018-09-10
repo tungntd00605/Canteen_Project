@@ -13,6 +13,9 @@ $(document).ready(function () {
         window.location.href = $('form[name="category-form"]').attr('action') + '?categoryId=' +  $('[name="categoryId"]').val();
     });
 
+    $('select[name="limit"]').change(function () {
+        window.location.href = '/admin/product?limit=' +  $(this).val();
+    })
 
     $('.btn-delete').on('click', function () {
         deleteOne(this);

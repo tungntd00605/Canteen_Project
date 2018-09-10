@@ -8,6 +8,7 @@ use App\Product;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Input;
+use Illuminate\Validation\Rules\In;
 use JD\Cloudder\Facades\Cloudder;
 
 class CategoryController extends Controller
@@ -21,8 +22,11 @@ class CategoryController extends Controller
     {
         //
         $limit = 5;
+        if(Input::get('limit') != null || Input::get('limit') != 0){
+            $limit = Input::get('limit');
+        }
         $list_obj = Category::where('status', 1)->paginate($limit);
-        return view('admin.category.list')->with('list_obj', $list_obj);
+        return view('admin.category.list')->with('list_obj', $list_obj)->with('limit', $limit);
     }
 
     /**
@@ -68,11 +72,21 @@ class CategoryController extends Controller
     public function show($id)
     {
         //
-        $obj = Category::find($id);
-        if ($obj == null){
+        $limit = 5;
+        if(Input::get('limit') != null || Input::get('limit') != 0){
+            $limit = Input::get('limit');
+        }
+        $list_category = Category::all();
+        $choosedCategory = $id;
+        $list_obj = Product::where('status', '!=' , 0)->where('categoryId', $choosedCategory)->paginate($limit);
+        if ($list_obj == null){
             return view('error.404');
         }
-        return view('admin.category.show')->with('obj',$obj);
+        return view('admin.product.list')
+            ->with('limit', $limit)
+            ->with('list_obj', $list_obj)
+            ->with('list_category', $list_category)
+            ->with('choosedCategory', $choosedCategory);
     }
 
     /**

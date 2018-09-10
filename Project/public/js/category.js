@@ -6,6 +6,10 @@ $(document).ready(function () {
     $("#checkAll").click(function () {
       $('input:checkbox').not(this).prop('checked', this.checked);
     });
+    
+    $('select[name="limit"]').change(function () {
+        window.location.href = '/admin/category?limit=' +  $(this).val();
+    })
 });
 
 function deleteOne(button) {

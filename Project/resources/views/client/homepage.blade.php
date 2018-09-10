@@ -25,9 +25,11 @@
                                     <div class="dark-grey-text d-flex align-items-center pt-4 ml-3 pl-3">
                                         <div>
                                             <a><span class="badge badge-primary"><strong>New</strong></span></a>
-                                            <h2 class="card-title font-weight-bold pt-2 text-dark"><strong>Sản phẩm của Canteen</strong></h2>
+                                            <h2 class="card-title font-weight-bold pt-2 text-dark"><strong>Sản phẩm của
+                                                    Canteen</strong></h2>
                                             <p class="text-dark">Đồ uống ngon</p>
-                                            <a class="btn btn-danger btn-sm btn-rounded clearfix d-none d-md-inline-block">Read more</a>
+                                            <a class="btn btn-danger btn-sm btn-rounded clearfix d-none d-md-inline-block">Read
+                                                more</a>
                                         </div>
                                     </div>
                                 </div>
@@ -47,7 +49,10 @@
                                 <ul class="list-group z-depth-1">
                                     @foreach ($categories as $item)
                                         <li class="list-group-item d-flex justify-content-between align-items-center">
-                                            <a href="/category?categoryId={{$item->id}}" class="dark-grey-text font-small"><i class="far fa-list-alt mr-1"></i><span class="font-weight-bold">{{$item->name}}</span></a>
+                                            <a href="/category?categoryId={{$item->id}}"
+                                               class="dark-grey-text font-small"><i
+                                                        class="far fa-list-alt mr-1"></i><span
+                                                        class="font-weight-bold">{{$item->name}}</span></a>
                                         </li>
                                     @endforeach
                                 </ul>
@@ -76,7 +81,8 @@
                                                         <!--Card image-->
                                                         <!--Lệch do ảnh dài ngắn khác nhau-->
                                                         <div class="view overlay">
-                                                            <img src="{{$item->thumbnail}}" class="img-fluid product-thumb imgProduct" alt="">
+                                                            <img src="{{$item->thumbnail}}"
+                                                                 class="img-fluid product-thumb imgProduct" alt="">
                                                             <a>
                                                                 <div class="mask rgba-white-slight"></div>
                                                             </a>
@@ -93,23 +99,20 @@
                                                             <h6 class="card-title mb-1"><strong><a href=""
                                                                                                    class="dark-grey-text">{{$item->name}}</a></strong>
                                                             </h6>
-                                                            <span class="badge badge-danger mb-2"><strong>{{$item->price}}
+                                                            <span class="badge badge-danger mb-2"><strong>{{$item->originalPrice}}
                                                                     VND</strong></span>
                                                             <!-- Rating -->
 
                                                             <!--Card footer-->
                                                             <div class="card-footer pb-0">
                                                                 <div class="row mb-0">
-                                                                    {{--<span class="float-left"></span>--}}
-                                                                    {{--<span class="float-right">--}}
-                                                            {{--<a class="" data-toggle="tooltip" data-placement="top"--}}
-                                                               {{--title="Add to card"><i class="fas fa-cart-plus fa-2x"></i></a>--}}
-                                                            {{--</span>--}}
-                                                                    <button type="button" title="Add to cart" class="btn btn-outline-primary btn-sm waves-effect text-center btn-add-cart" id="add-cart-{{$item->id}}">
-                                                                        <strong style="font-size: 14px;">Thêm</strong> <i class="fas fa-cart-plus fa-2x"></i></button>
+                                                                    <button type="button" title="Add to cart"
+                                                                            class="btn btn-outline-primary btn-sm waves-effect text-center btn-add-cart"
+                                                                            id="add-cart-{{$item->id}}">
+                                                                        <strong style="font-size: 14px;">Thêm</strong>
+                                                                        <i class="fas fa-cart-plus fa-2x"></i></button>
                                                                 </div>
                                                             </div>
-
                                                         </div>
                                                         <!--Card content-->
                                                     </div>
@@ -135,47 +138,11 @@
                     <section class="mb-5">
                         <div class="row">
                             <!-- New Products-->
-                            <div class="col-lg-4 col-md-12 col-12 pt-4 " >
+                            <div class="col-lg-4 col-md-12 col-12 pt-4 ">
                                 <hr>
                                 <h5 class="text-center font-weight-bold dark-grey-text"><strong>Đồ Ăn</strong></h5>
                                 <hr>
-                                @foreach ($foods as $item)
-                                    <!-- First row -->
-                                    <div class="row mt-5 py-2 mb-4 hoverable align-items-center">
-
-                                        <div class="col-6">
-                                            <a><img src="{{$item->thumbnail}}" class="img-fluid imgProduct"></a>
-                                        </div>
-                                        <div class="col-6 align-items-center">
-
-                                            <!-- Title -->
-                                            <a><strong>{{$item->name}}</strong></a>
-
-                                            <!-- Price -->
-                                            <h6 class="h6-responsive font-weight-bold dark-grey-text mt-1">
-                                                <strong class="badge badge-danger">{{$item->price}} vnđ</strong>
-                                            </h6>
-                                            <hr>
-                                            <button type="button" title="Add to cart" class="btn btn-outline-primary btn-sm waves-effect text-center btn-add-cart" id="add-cart-{{$item->id}}">
-                                                <strong style="font-size: 10px;">Thêm</strong>
-                                                <i class="fas fa-cart-plus fa-1x"></i>
-                                            </button>
-                                        </div>
-                                    </div>
-                                    <!-- /.First row -->
-                                @endforeach
-                                <a href="" type="button" class="btn btn-primary">View More</a>
-                            </div>
-                            <!-- /.New Products-->
-
-                            <!-- Top Sellers-->
-                            <div class="col-lg-4 col-md-12 pt-4">
-
-                                <hr>
-                                <h5 class="text-center font-weight-bold dark-grey-text"><strong>Đồ uống</strong></h5>
-                                <hr>
-
-                            @foreach ($drinks as $item)
+                            @foreach ($foods as $item)
                                 <!-- First row -->
                                     <div class="row mt-5 py-2 mb-4 hoverable align-items-center">
 
@@ -189,19 +156,57 @@
 
                                             <!-- Price -->
                                             <h6 class="h6-responsive font-weight-bold dark-grey-text mt-1">
-                                                <strong class="badge badge-danger">{{$item->price}} vnđ</strong>
+                                                <strong class="badge badge-danger">{{$item->originalPrice}} VND</strong>
                                             </h6>
                                             <hr>
-                                            <button type="button" title="Add to cart" class="btn btn-outline-primary btn-sm waves-effect text-center btn-add-cart" id="add-cart-{{$item->id}}">
+                                            <button type="button" title="Add to cart"
+                                                    class="btn btn-outline-primary btn-sm waves-effect text-center btn-add-cart"
+                                                    id="add-cart-{{$item->id}}">
                                                 <strong style="font-size: 10px;">Thêm</strong>
                                                 <i class="fas fa-cart-plus fa-1x"></i>
                                             </button>
                                         </div>
+                                    </div>
+                                <!-- /.First row -->
+                            @endforeach
+                                <a href="" type="button" class="btn btn-primary">Xem thêm menu</a>
+                            </div>
+                            <!-- /.New Products-->
 
+                            <!-- Top Sellers-->
+                            <div class="col-lg-4 col-md-12 pt-4">
+
+                                <hr>
+                                <h5 class="text-center font-weight-bold dark-grey-text"><strong>Đồ uống</strong></h5>
+                                <hr>
+
+                            @foreach ($drinks as $item)
+                                <!-- First row -->
+                                    <div class="row mt-5 py-2 mb-4 hoverable align-items-center">
+                                        <div class="col-6">
+                                            <a><img src="{{$item->thumbnail}}" class="img-fluid imgProduct"></a>
+                                        </div>
+                                        <div class="col-6 align-items-center">
+
+                                            <!-- Title -->
+                                            <a><strong>{{$item->name}}</strong></a>
+
+                                            <!-- Price -->
+                                            <h6 class="h6-responsive font-weight-bold dark-grey-text mt-1">
+                                                <strong class="badge badge-danger">{{$item->price}} vnđ</strong>
+                                            </h6>
+                                            <hr>
+                                            <button type="button" title="Add to cart"
+                                                    class="btn btn-outline-primary btn-sm waves-effect text-center btn-add-cart"
+                                                    id="add-cart-{{$item->id}}">
+                                                <strong style="font-size: 10px;">Thêm</strong>
+                                                <i class="fas fa-cart-plus fa-1x"></i>
+                                            </button>
+                                        </div>
                                     </div>
                                     <!-- /.First row -->
                                 @endforeach
-                                <a href="" type="button" class="btn btn-primary">View More</a>
+                                <a href="" type="button" class="btn btn-primary">Xem thêm menu</a>
                             </div>
                             <!-- /.Top Sellers -->
 
@@ -229,7 +234,9 @@
                                                 <strong class="badge badge-danger">{{$item->price}} vnđ</strong>
                                             </h6>
                                             <hr>
-                                            <button type="button" title="Add to cart" class="btn btn-outline-primary btn-sm waves-effect text-center btn-add-cart" id="add-cart-{{$item->id}}">
+                                            <button type="button" title="Add to cart"
+                                                    class="btn btn-outline-primary btn-sm waves-effect text-center btn-add-cart"
+                                                    id="add-cart-{{$item->id}}">
                                                 <strong style="font-size: 10px;">Thêm</strong>
                                                 <i class="fas fa-cart-plus fa-1x"></i>
                                             </button>
@@ -239,7 +246,7 @@
                                     <!-- /.First row -->
                                 @endforeach
 
-                                <a href="" type="button" class="btn btn-primary">View More</a>
+                                <a href="" type="button" class="btn btn-primary">Xem thêm menu</a>
 
                             </div>
                             <!-- /.Random Products -->

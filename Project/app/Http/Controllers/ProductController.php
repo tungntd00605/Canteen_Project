@@ -21,7 +21,10 @@ class ProductController extends Controller
     public function index()
     {
         //
-        $limit = 10;
+        $limit = 5;
+        if(Input::get('limit') != null || Input::get('limit') != 0){
+            $limit = Input::get('limit');
+        }
         $list_obj = null;
         $list_category = Category::all();
         $choosedCategory = Input::get('categoryId');
@@ -32,6 +35,7 @@ class ProductController extends Controller
             $list_obj = Product::where('status', '!=' , 0)->where('categoryId', $choosedCategory)->paginate($limit);
         }
         return view('admin.product.list')
+            ->with('limit', $limit)
             ->with('list_obj', $list_obj)
             ->with('list_category', $list_category)
             ->with('choosedCategory', $choosedCategory);

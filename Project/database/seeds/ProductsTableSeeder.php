@@ -20,7 +20,7 @@ class ProductsTableSeeder extends Seeder
                 'name'=> 'Mỳ tôm trứng',
                 'categoryId'=>1,
                 'thumbnail'=>'http://caynhalavuon.net/wp-content/uploads/2016/08/my-tom.jpg',
-                'price'=>150000,
+                'price'=>15000,
                 'description'=>'Mỳ tôm trứng chua cay',
                 'created_at' => date('Y-m-d H:i:s'),
                 'updated_at' => date('Y-m-d H:i:s'),
