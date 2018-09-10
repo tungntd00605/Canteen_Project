@@ -6,6 +6,7 @@ use App\Category;
 use App\Product;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Input;
 
 class ClientPageController extends Controller
 {
@@ -36,7 +37,21 @@ class ClientPageController extends Controller
     }
 
     public function showCategory(){
+        $limit = 12;
+        $choosed_category = Input::get('categoryId');
+        if($choosed_category == null || $choosed_category == 0){
+            $list_product = Product::where('status', '=' , 1)->paginate($limit);
+        }
+        else {
+            $list_product = Product::where('status', '=' , 1)->where('categoryId', $choosed_category)->paginate($limit);
+        }
+        $list_category = Category::all();
 
-        return view('client.categoryPage');
+        return view('client.categoryPage')
+            ->with([
+                'list_product' => $list_product,
+                'list_category' => $list_category,
+                'choosed_category' => $choosed_category
+            ]);
     }
 }

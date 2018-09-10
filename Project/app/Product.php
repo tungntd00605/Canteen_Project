@@ -32,11 +32,6 @@ class Product extends Model
         }
     }
 
-    public function getDiscountPriceAttribute()
-    {
-        return $this->price - ($this->price * $this->discount / 100);
-    }
-
     public function getDiscountPriceStringAttribute()
     {
         if ($this->discount == 0) {
@@ -44,10 +39,17 @@ class Product extends Model
         }
         return sprintf('%s (vnd)', number_format(($this->price - ($this->price * $this->discount / 100)), 0));
     }
+    public function getDiscountPriceWithFormatAttribute()
+    {
+        if ($this->discount == 0) {
+            return sprintf('%s', number_format($this->price, 0));
+        }
+        return sprintf('%s', number_format(($this->price - ($this->price * $this->discount / 100)), 0));
+    }
 
     public function getOriginalPriceStringAttribute()
     {
-        if ($this->price == 0) {
+        if ($this->discount == 0) {
             return '';
         }
         return sprintf('%s (vnd)', number_format($this->price, 0));
@@ -55,9 +57,14 @@ class Product extends Model
 
     public function getOriginalPriceAttribute()
     {
-        if ($this->price == 0) {
+        if ($this->discount == 0) {
             return '';
         }
         return sprintf('%s', number_format($this->price, 0));
+    }
+
+    public function getDiscountPriceAttribute()
+    {
+        return $this->price - ($this->price * $this->discount / 100);
     }
 }

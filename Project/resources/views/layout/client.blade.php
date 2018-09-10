@@ -42,6 +42,7 @@
                         <a class="nav-link dropdown-toggle waves-effect waves-light dark-grey-text font-weight-bold" id="navbarDropdownMenuLink-4" data-toggle="dropdown"
                            aria-haspopup="true" aria-expanded="false"><i class="fas fa-utensils blue-text"></i> Danh mục </a>
                         <div class="dropdown-menu dropdown-menu-right dropdown-cyan" aria-labelledby="navbarDropdownMenuLink-4">
+                            <a class="dropdown-item waves-effect waves-light" href="/category">Tất cả</a>
                             @foreach($nav_category as $item)
                             <a class="dropdown-item waves-effect waves-light" href="/category?categoryId={{$item->id}}">{{$item->name}}</a>
                             @endforeach
@@ -69,7 +70,7 @@
 @show()
 
 <!--Footer-->
-<footer class="page-footer text-center text-md-left stylish-color-dark pt-0">
+<footer class="page-footer text-center text-md-left stylish-color-dark pt-0" id="stopSticky">
 
     <div style="background-color: #4285f4;">
         <div class="container">
@@ -189,26 +190,7 @@
 <!-- Custome script -->
 <script type="text/javascript" src="{{asset('js/client.js')}}"></script>
 
-<script type="text/javascript">
-    /* WOW.js init */
-    new WOW().init();
 
-    // Tooltips Initialization
-    $(function () {
-        $('[data-toggle="tooltip"]').tooltip()
-    })
-</script>
-
-<script>
-    // Material Select Initialization
-    $(document).ready(function () {
-        $('.mdb-select').material_select();
-    });
-</script>
-<script>
-    // SideNav Initialization
-    $(".button-collapse").sideNav();
-</script>
 </body>
 
 </html>

@@ -10,10 +10,11 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>{{$page_title}}</title>
     <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css"
+          integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
     <link rel="stylesheet" href="{{asset('mdb/css/font-awesome.min.css')}}">
     <!-- Bootstrap core CSS -->
-    <link rel="stylesheet" href="{{asset('mdb/css/bootstrap.min.css')}}"> 
+    <link rel="stylesheet" href="{{asset('mdb/css/bootstrap.min.css')}}">
     <!-- Material Design Bootstrap -->
     <link rel="stylesheet" href="{{asset('mdb/css/mdb.min.css')}}">
     <script src="{{asset('mdb/js/jquery-3.3.1.min.js')}}"></script>
@@ -21,7 +22,7 @@
     <script type="text/javascript" src="https://cdn.jsdelivr.net/jquery/latest/jquery.min.js"></script>
     <script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
-    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css"/>
 
     <!-- Your custom styles (optional) -->
     <style>
@@ -30,206 +31,213 @@
 
 <body class="fixed-sn white-skin">
 
-    <!--Main Navigation-->
-    <header>
+<!--Main Navigation-->
+<header>
 
-        <!-- Sidebar navigation -->
-        <div id="slide-out" class="side-nav sn-bg-4 fixed">
-            <ul class="custom-scrollbar">
+    <!-- Sidebar navigation -->
+    <div id="slide-out" class="side-nav sn-bg-4 fixed">
+        <ul class="custom-scrollbar">
             <!-- Logo -->
-            <li class="logo-sn waves-effect"  style="height: 230px;">
+            <li class="logo-sn waves-effect" style="height: 230px;">
                 <div class="text-center">
-                    <a href="#" class="pl-0"><img src="{{asset('img/logo.png')}}" class="img-fluid" ></a>
+                    <a href="/admin" class="pl-0"><img src="{{asset('img/logo.png')}}" class="img-fluid"></a>
                 </div>
             </li>
             <!--/. Logo -->
-
-            <!--Search Form-->
-            {{--<li>--}}
-                {{--<form class="search-form" role="search">--}}
-                    {{--<div class="form-group md-form mt-0 pt-1 waves-light">--}}
-                        {{--<input type="text" class="form-control" placeholder="Search">--}}
-                    {{--</div>--}}
-                {{--</form>--}}
-            {{--</li>--}}
-            <!--/.Search Form-->
+            <hr>
             <!-- Side navigation links -->
             <li>
                 <ul class="collapsible collapsible-accordion">
-                    <li><a href="/admin/" class="collapsible-header waves-effect arrow-r {{$current_page == 'home_page'?'active':''}}"><i class="fa fa-tachometer"></i> Home<i class="fa fa-angle-down rotate-icon"></i></a>
+                    <li><a href="/admin/"
+                           class="collapsible-header waves-effect arrow-r {{$current_page == 'home_page'?'active':''}}"><i
+                                    class="fa fa-tachometer"></i> Home<i class="fa fa-angle-down rotate-icon"></i></a>
                     </li>
-                    <li><a href="/admin/product" class="collapsible-header waves-effect arrow-r {{$current_page == 'product_page'?'active':''}}"><i class="fa fa-photo"></i>Product<i class="fa fa-angle-down rotate-icon"></i></a>
-                       
+                    <li><a href="/admin/product"
+                           class="collapsible-header waves-effect arrow-r {{$current_page == 'product_page'?'active':''}}"><i
+                                    class="fa fa-photo"></i>Product<i class="fa fa-angle-down rotate-icon"></i></a>
+
                     </li>
-                    <li><a href="/admin/category" class="collapsible-header waves-effect arrow-r {{$current_page == 'category_page'?'active':''}}"><i class="fa fa-user"></i>Category<i class="fa fa-angle-down rotate-icon"></i></a>
+                    <li><a href="/admin/category"
+                           class="collapsible-header waves-effect arrow-r {{$current_page == 'category_page'?'active':''}}"><i
+                                    class="fa fa-user"></i>Category<i class="fa fa-angle-down rotate-icon"></i></a>
                     </li>
-                    <li><a href="/admin/order" class="collapsible-header waves-effect arrow-r {{$current_page == 'order_page'?'active':''}}"><i class="fa fa-css3"></i> Order<i class="fa fa-angle-down rotate-icon"></i></a>
+                    <li><a href="/admin/order"
+                           class="collapsible-header waves-effect arrow-r {{$current_page == 'order_page'?'active':''}}"><i
+                                    class="fa fa-css3"></i> Order<i class="fa fa-angle-down rotate-icon"></i></a>
                     </li>
-                    <li><a class="collapsible-header waves-effect arrow-r"><i class="fa fa-th"></i>User<i class="fa fa-angle-down rotate-icon"></i></a>              
+                    <li><a class="collapsible-header waves-effect arrow-r"><i class="fa fa-th"></i>User<i
+                                    class="fa fa-angle-down rotate-icon"></i></a>
                     </li>
                 </ul>
             </li>
             <!--/. Side navigation links -->
-            </ul>
-            <div class="sidenav-bg mask-strong"></div>
+        </ul>
+        <div class="sidenav-bg mask-strong"></div>
+    </div>
+    <!--/. Sidebar navigation -->
+
+    <!-- Navbar -->
+    <nav class="navbar fixed-top navbar-expand-lg scrolling-navbar double-nav">
+        <!-- SideNav slide-out button -->
+        <div class="float-left">
+            <a href="#" data-activates="slide-out" class="button-collapse black-text"><i class="fa fa-bars"></i></a>
         </div>
-        <!--/. Sidebar navigation -->
+        <!-- Breadcrumb-->
+        <div class="breadcrumb-dn mr-auto">
+            <p>Admin Dashboard</p>
+        </div>
 
-        <!-- Navbar -->
-        <nav class="navbar fixed-top navbar-expand-lg scrolling-navbar double-nav">
-            <!-- SideNav slide-out button -->
-            <div class="float-left">
-                <a href="#" data-activates="slide-out" class="button-collapse black-text"><i class="fa fa-bars"></i></a>
-            </div>
-            <!-- Breadcrumb-->
-            <div class="breadcrumb-dn mr-auto">
-                <p>Admin Dashboard</p>
-            </div>
+        <!--Navbar links-->
+        <ul class="nav navbar-nav nav-flex-icons ml-auto">
 
-            <!--Navbar links-->
-            <ul class="nav navbar-nav nav-flex-icons ml-auto">
-
-                <!-- Dropdown -->
-                <li class="nav-item dropdown notifications-nav">
-                    <a class="nav-link dropdown-toggle waves-effect" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true"
-                        aria-expanded="false">
-                        <span class="badge red" id="notify-number">0</span> <i class="fa fa-bell"></i>
-                        <span class="d-none d-md-inline-block">Notifications</span>
-                    </a>
-                    <div class="dropdown-menu dropdown-info" aria-labelledby="navbarDropdownMenuLink" id="messages" style="width : 200%;">
-                        <div>
-                            <a class="dropdown-item" href="#">
-                                <div class="float-left">
-                                    <img src="https://api.adorable.io/avatars/285/abott@adorable.png" alt="" class="rounded-circle" alt="50x50" style="width: 70px; height: 70px;">
-                                </div>
-                                <div class="float-right">
-                                    <i class="fa fa-money mr-2" aria-hidden="true"></i>
-                                    Name : <span>New order received</span>
-                                    <br>
-                                    <i class="fa fa-phone mr-2" aria-hidden="true"></i>
-                                    Phone : <span>12345678</span>
-                                    <br>
-                                    <i class="fa fa-house mr-2" aria-hidden="true"></i>
-                                    Room : <span>208</span>
-                                    <br>
-                                    <i class="fa fa-clock-o" aria-hidden="true"></i> 13 min</span>
-                                    <span>  Status : New Order</span>
-                                </div>
-                            </a>
-                        </div>
+            <!-- Dropdown -->
+            <li class="nav-item dropdown notifications-nav">
+                <a class="nav-link dropdown-toggle waves-effect" id="navbarDropdownMenuLink" data-toggle="dropdown"
+                   aria-haspopup="true"
+                   aria-expanded="false">
+                    <span class="badge red" id="notify-number">0</span> <i class="fa fa-bell"></i>
+                    <span class="d-none d-md-inline-block">Notifications</span>
+                </a>
+                <div class="dropdown-menu dropdown-info" aria-labelledby="navbarDropdownMenuLink" id="messages"
+                     style="width : 200%;">
+                    <div>
+                        <a class="dropdown-item" href="#">
+                            <div class="float-left">
+                                <img src="https://api.adorable.io/avatars/285/abott@adorable.png" alt=""
+                                     class="rounded-circle" alt="50x50" style="width: 70px; height: 70px;">
+                            </div>
+                            <div class="float-right">
+                                <i class="fa fa-money mr-2" aria-hidden="true"></i>
+                                Name : <span>New order received</span>
+                                <br>
+                                <i class="fa fa-phone mr-2" aria-hidden="true"></i>
+                                Phone : <span>12345678</span>
+                                <br>
+                                <i class="fa fa-house mr-2" aria-hidden="true"></i>
+                                Room : <span>208</span>
+                                <br>
+                                <i class="fa fa-clock-o" aria-hidden="true"></i> 13 min</span>
+                                <span>  Status : New Order</span>
+                            </div>
+                        </a>
                     </div>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link waves-effect"><i class="fa fa-envelope"></i> <span class="clearfix d-none d-sm-inline-block">Contact</span></a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link waves-effect"><i class="fa fa-comments-o"></i> <span class="clearfix d-none d-sm-inline-block">Support</span></a>
-                </li>
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle waves-effect" href="#" id="userDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        <i class="fa fa-user"></i> <span class="clearfix d-none d-sm-inline-block">Profile</span></a>
-                    </a>
-                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
-                        <a class="dropdown-item" href="#">Log Out</a>
-                        <a class="dropdown-item" href="#">My account</a>
-                    </div>
-                </li>
+                </div>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link waves-effect"><i class="fa fa-envelope"></i> <span
+                            class="clearfix d-none d-sm-inline-block">Contact</span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link waves-effect"><i class="fa fa-comments-o"></i> <span
+                            class="clearfix d-none d-sm-inline-block">Support</span></a>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle waves-effect" href="#" id="userDropdown" data-toggle="dropdown"
+                   aria-haspopup="true" aria-expanded="false">
+                    <i class="fa fa-user"></i> <span class="clearfix d-none d-sm-inline-block">Profile</span></a>
+                </a>
+                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
+                    <a class="dropdown-item" href="#">Log Out</a>
+                    <a class="dropdown-item" href="#">My account</a>
+                </div>
+            </li>
 
-            </ul>
-            <!--/Navbar links-->
-        </nav>
-        <!-- /.Navbar -->
+        </ul>
+        <!--/Navbar links-->
+    </nav>
+    <!-- /.Navbar -->
 
-        <!-- Fixed button -->
-        <div class="fixed-action-btn smooth-scroll" style="bottom: 45px; right: 24px;" id="backToTop">
-            <a href="#top-section" class="btn-floating btn-large red">
-                <i class="fa fa-arrow-up"></i>
-            </a>
+    <!-- Fixed button -->
+    <div class="fixed-action-btn smooth-scroll" style="bottom: 45px; right: 24px;" id="backToTop">
+        <a href="#top-section" class="btn-floating btn-large red">
+            <i class="fa fa-arrow-up"></i>
+        </a>
+    </div>
+    <!-- Fixed button -->
+
+</header>
+<!--Main Navigation-->
+
+<main id="top-section">
+    <div class="container-fluid">
+        @section('content')
+        @show()
+    </div>
+</main>
+
+<!--Footer-->
+<footer class="page-footer pt-0 mt-5 rgba-stylish-light" id="stopSticky">
+
+    <!--Copyright-->
+    <div class="footer-copyright py-3 text-center">
+        <div class="container-fluid">
+            © 2018 Copyright: <a href="https://mdbootstrap.com/bootstrap-tutorial/" target="_blank">
+                MDBootstrap.com </a>
+
         </div>
-        <!-- Fixed button -->
+    </div>
+    <!--/.Copyright-->
 
-    </header>
-    <!--Main Navigation-->
+</footer>
+<!--/.Footer-->
 
-    <main id="top-section">
-        <div class="container-fluid" >
-                @section('content')
-                @show()
-        </div>
-    </main>
+<!-- SCRIPTS -->
+<!-- JQuery -->
 
-    <!--Footer-->
-    <footer class="page-footer pt-0 mt-5 rgba-stylish-light">
+<!-- Bootstrap tooltips -->
+<script type="text/javascript" src="{{asset('mdb/js/popper.min.js')}}"></script>
+<!-- Bootstrap core JavaScript -->
+<script type="text/javascript" src="{{asset('mdb/js/bootstrap.js')}}"></script>
+<!-- MDB core JavaScript -->
+<script type="text/javascript" src="{{asset('mdb/js/mdb.min.js')}}"></script>
+<!-- Sweet alert JavaScript -->
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+<!--Initializations-->
+<script>
+    // SideNav Initialization
+    $(".button-collapse").sideNav();
 
-        <!--Copyright-->
-        <div class="footer-copyright py-3 text-center">
-              <div class="container-fluid">
-                 © 2018 Copyright: <a href="https://mdbootstrap.com/bootstrap-tutorial/" target="_blank"> MDBootstrap.com </a>
+    var container = document.querySelector('.custom-scrollbar');
+    Ps.initialize(container, {
+        wheelSpeed: 2,
+        wheelPropagation: true,
+        minScrollbarLength: 20
+    });
 
-            </div>
-        </div>
-        <!--/.Copyright-->
+    // Data Picker Initialization
+    $('.datepicker').pickadate();
 
-    </footer>
-    <!--/.Footer-->
+    // Material Select Initialization
+    $(document).ready(function () {
+        $('.mdb-select').material_select();
+    });
 
-    <!-- SCRIPTS -->
-    <!-- JQuery -->
+    // Tooltips Initialization
+    $(function () {
+        $('[data-toggle="tooltip"]').tooltip()
+    })
 
-    <!-- Bootstrap tooltips -->
-    <script type="text/javascript" src="{{asset('mdb/js/popper.min.js')}}"></script>
-    <!-- Bootstrap core JavaScript -->
-    <script type="text/javascript" src="{{asset('mdb/js/bootstrap.js')}}"></script>
-    <!-- MDB core JavaScript -->
-    <script type="text/javascript" src="{{asset('mdb/js/mdb.min.js')}}"></script>
-    <!-- Sweet alert JavaScript -->
-    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-    <!--Initializations-->
-    <script>
-        // SideNav Initialization
-        $(".button-collapse").sideNav();
+    // Hide back to top button
 
-        var container = document.querySelector('.custom-scrollbar');
-        Ps.initialize(container, {
-            wheelSpeed: 2,
-            wheelPropagation: true,
-            minScrollbarLength: 20
-        });
+</script>
+<script src="https://js.pusher.com/3.1/pusher.min.js"></script>
+<script>
+    //instantiate a Pusher object with our Credential's key
+    var pusher = new Pusher('{{env('PUSHER_APP_KEY')}}', {
+        cluster: 'ap1',
+        encrypted: true
+    });
 
-        // Data Picker Initialization
-        $('.datepicker').pickadate();
+    //Subscribe to the channel we specified in our Laravel Event
+    var channel = pusher.subscribe('canteen');
 
-        // Material Select Initialization
-        $(document).ready(function () {
-            $('.mdb-select').material_select();
-        });
+    //Bind a function to a Event (the full Laravel class)
+    channel.bind('App\\Events\\OrderNotifyEvent', addMessage);
 
-        // Tooltips Initialization
-        $(function () {
-            $('[data-toggle="tooltip"]').tooltip()
-        })
-
-        // Hide back to top button
-
-    </script>
-    <script src="https://js.pusher.com/3.1/pusher.min.js"></script>
-    <script>
-      //instantiate a Pusher object with our Credential's key
-      var pusher = new Pusher('{{env('PUSHER_APP_KEY')}}', {
-          cluster: 'ap1',
-          encrypted: true
-      });
-
-      //Subscribe to the channel we specified in our Laravel Event
-      var channel = pusher.subscribe('canteen');
-
-      //Bind a function to a Event (the full Laravel class)
-      channel.bind('App\\Events\\OrderNotifyEvent', addMessage);
-
-      function addMessage(data) {
+    function addMessage(data) {
         var avatar = Math.floor(Math.random() * (71 - 20 + 1)) + 20;
         var notifyContent = null;
-        
+
         notifyContent += '<div>';
         notifyContent += '                <a class="dropdown-item" href="#">';
         notifyContent += '                    <div class="float-left">';
@@ -237,25 +245,25 @@
         notifyContent += '                    </div>';
         notifyContent += '                    <div class="float-right">';
         notifyContent += '                       <i class="fa fa-money mr-2" aria-hidden="true"></i>';
-        notifyContent += '                        Name : <span>'+ data.customer_name + '</span>';
+        notifyContent += '                        Name : <span>' + data.customer_name + '</span>';
         notifyContent += '                        <br>';
         notifyContent += '                        <i class="fa fa-phone mr-2" aria-hidden="true"></i>';
-        notifyContent += '                        Phone : <span>'+data.ship_phone+'</span>';
+        notifyContent += '                        Phone : <span>' + data.ship_phone + '</span>';
         notifyContent += '                        <br>';
         notifyContent += '                        <i class="fa fa-house mr-2" aria-hidden="true"></i>';
-        notifyContent += '                        Room : <span>'+data.room+'</span>';
+        notifyContent += '                        Room : <span>' + data.room + '</span>';
         notifyContent += '                        <br>';
         notifyContent += '                        <i class="fa fa-clock-o" aria-hidden="true"></i> 13 min</span>';
         notifyContent += '                        <span>  Status : New Order</span>';
         notifyContent += '                    </div>';
         notifyContent += '                  </a>';
         notifyContent += '</div>';
-        
+
 
         $('#messages').prepend(notifyContent);
-        
-      }
-    </script>
+
+    }
+</script>
 
 </body>
 

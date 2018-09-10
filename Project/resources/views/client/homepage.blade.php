@@ -99,7 +99,7 @@
                                                             <h6 class="card-title mb-1"><strong><a href=""
                                                                                                    class="dark-grey-text">{{$item->name}}</a></strong>
                                                             </h6>
-                                                            <span class="badge badge-danger mb-2"><strong>{{$item->originalPrice}}
+                                                            <span class="badge badge-danger mb-2"><strong>{{$item->discountPriceWithFormat}}
                                                                     VND</strong></span>
                                                             <!-- Rating -->
 
@@ -156,7 +156,7 @@
 
                                             <!-- Price -->
                                             <h6 class="h6-responsive font-weight-bold dark-grey-text mt-1">
-                                                <strong class="badge badge-danger">{{$item->originalPrice}} VND</strong>
+                                                <strong class="badge badge-danger">{{$item->discountPriceWithFormat}} VND</strong>
                                             </h6>
                                             <hr>
                                             <button type="button" title="Add to cart"
@@ -193,7 +193,7 @@
 
                                             <!-- Price -->
                                             <h6 class="h6-responsive font-weight-bold dark-grey-text mt-1">
-                                                <strong class="badge badge-danger">{{$item->price}} vnđ</strong>
+                                                <strong class="badge badge-danger">{{$item->discountPriceWithFormat}} VND</strong>
                                             </h6>
                                             <hr>
                                             <button type="button" title="Add to cart"
@@ -231,7 +231,7 @@
 
                                             <!-- Price -->
                                             <h6 class="h6-responsive font-weight-bold dark-grey-text mt-1">
-                                                <strong class="badge badge-danger">{{$item->price}} vnđ</strong>
+                                                <strong class="badge badge-danger">{{$item->discountPriceWithFormat}} VND</strong>
                                             </h6>
                                             <hr>
                                             <button type="button" title="Add to cart"
