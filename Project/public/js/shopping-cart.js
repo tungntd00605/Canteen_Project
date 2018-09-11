@@ -57,6 +57,33 @@ $(document).ready(function () {
             updateQuantity(product_id, -1, button)
         });
     });
+    
+    $('.btn-delete').each(function () {
+        $(this).click(function () {
+            var button = $(this);
+            var remove_id = button.attr('id').replace('product-', '');
+            button.prop('disabled', true);
+            $.ajax({
+                url: '/api-xoa-san-pham',
+                method: 'POST',
+                data: {
+                    remove_id: remove_id,
+                    _token: $('meta[name="csrf-token"]').attr('content')
+                },
+                success: function (resp) {
+                    swal("Thành công!", "Đơn hàng của bạn đã được gửi đi!", "success")
+                        .then((value) => {
+                            window.location.reload();
+                        });
+                    button.prop('disabled', false);
+                },
+                error: function (error) {
+                    swal('Thao tác thất bại', "Vui lòng thử lại sau", 'error');
+                    button.prop('disabled', false);
+                }
+            });
+        })
+    })
 })
 
 function updateQuantity(id, quantity, button) {

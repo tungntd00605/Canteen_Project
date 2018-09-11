@@ -56,7 +56,18 @@ class ShoppingCartController extends Controller
 
     public function removeFromCart()
     {
-
+        $remove_id = Input::get('remove_id');
+        if (Session::has('cart')) {
+            $shopping_cart = Session::get('cart');
+            if (array_key_exists($remove_id, $shopping_cart->items)) {
+                unset($shopping_cart->items[$remove_id]);
+            }
+            Session::put('cart', $shopping_cart);
+        } else {
+            return response()->json(['error' => 'Không tìm thấy id'], 404);
+        }
+        return response()->json(['msg' => 'Xóa thành công sản phẩm khỏi giỏ hàng',
+                                'remove_id' => $remove_id], 200);
     }
 
     public function showCart()
@@ -66,28 +77,6 @@ class ShoppingCartController extends Controller
             $shopping_cart = Session::get('cart');
         }
         return view('client.cart')->with('shopping_cart', $shopping_cart);
-    }
-
-    public function updateCart()
-    {
-        $shopping_cart = new ShoppingCart();
-
-        $products = Input::get('products');
-
-        if (is_array($products)) {
-            foreach (array_keys($products) as $key) {
-                $product = Product::find($key);
-                if ($product == null || $product->status != 1) {
-                    return view('error.404');
-                }
-                $item = new CartItem();
-                $item->product = $product;
-                $item->quantity = $products[$key];
-                $shopping_cart->items[$key] = $item;
-            }
-        }
-        Session::put('cart', $shopping_cart);
-        return redirect('/xem-gio-hang');
     }
 
     public function destroyCart()
