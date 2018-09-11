@@ -26,9 +26,11 @@ Route::get('/admin/order', 'OrderController@index');
 Route::get('/', 'ClientPageController@showHome');
 Route::get('/category', 'ClientPageController@showCategory');
 Route::get('/product/{id}', 'ClientPageController@showProductDetail');
+Route::get('/contact', 'ClientPageController@showContact');
 
 Route::get('/cart', 'ShoppingCartController@showCart');
 Route::post('/api-them-gio-hang', 'ShoppingCartController@addToCartApi');
+Route::post('/api-xoa-san-pham', 'ShoppingCartController@removeFromCart');
 Route::get('/xoa-gio-hang', 'ShoppingCartController@destroyCart');
 Route::post('/gui-don-hang', 'ShoppingCartController@checkoutCart');
 

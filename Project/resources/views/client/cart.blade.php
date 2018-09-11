@@ -136,6 +136,14 @@
                                 <!--Grid row-->
                                     <div class="row">
 
+                                        {{--Error alert--}}
+                                        <div class="hidden" id="validate-msg">
+                                            <ul>
+
+                                            </ul>
+                                        </div>
+
+
                                         <!--Grid column-->
                                         <div class="col-md-12">
                                             <div class="md-form" style="margin-bottom: 10px">

@@ -66,7 +66,7 @@
                                     <!--Card image-->
                                     <div class="view overlay">
                                         <img src="{{$item->thumbnail}}" class="img-fluid" alt="">
-                                        <a>
+                                        <a href="/product/{{$item->id}}" >
                                             <div class="mask rgba-white-slight"></div>
                                         </a>
                                     </div>
@@ -78,15 +78,15 @@
 
                                         <h5 class="card-title mb-1">
                                             <strong>
-                                                <a href="" class="dark-grey-text">{{$item->name}}</a>
+                                                <a href="/product/{{$item->id}}" class="dark-grey-text">{{$item->name}}</a>
                                             </strong>
                                         </h5>
-                                        <span class="badge badge-danger mb-2">bestseller</span>
+                                        <span class="badge badge-danger mb-2">{{$item->category->name}}</span>
                                         <!--Card footer-->
                                         <div class="card-footer pb-0">
                                             <div class="row mb-0">
                                                 <div class="price">
-                                                    <strong>{{$item->discountPrice}} VND</strong>
+                                                    <strong>{{$item->discountPriceWithFormat}} VND</strong>
                                                 </div>
                                                 <div class="add-cart">
                                                     <button type="button" title="Add to cart"

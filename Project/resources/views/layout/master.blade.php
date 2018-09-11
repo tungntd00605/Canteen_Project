@@ -251,7 +251,7 @@
 
     function addMessage(data) {
         var avatar = Math.floor(Math.random() * (71 - 20 + 1)) + 20;
-        var notifyContent = null;
+        var notifyContent = "";
 
         notifyContent += '<div>';
         notifyContent += '<a class="dropdown-item" href="#">';
