@@ -123,7 +123,7 @@
                             </div>
                             <div class="float-right">
                                 <i class="fa fa-money mr-2" aria-hidden="true"></i>
-                                Name : <span>N</span>
+                                Name : <span>Nguyen Duc Minh</span>
                                 <br>
                                 <i class="fa fa-phone mr-2" aria-hidden="true"></i>
                                 Phone : <span>12345678</span>
@@ -253,6 +253,7 @@
         var notifyContent = "";
 
         notifyContent += '<div>';
+
         notifyContent += '<a class="dropdown-item" href="#">';
         notifyContent += '<div class="float-left">';
         notifyContent += '<img src="https://api.adorable.io/avatars/71/' + avatar + '.png" alt="" class="rounded-circle" alt="50x50" style="width: 70px; height: 70px;">';
