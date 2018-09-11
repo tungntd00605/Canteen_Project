@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\CartItem;
+use App\Http\Requests\StoreOrderRequest;
 use App\Order;
 use App\OrderDetail;
 use App\Product;
@@ -94,8 +95,14 @@ class ShoppingCartController extends Controller
         Session::remove('cart');
     }
 
-    public function checkoutCart()
+    public function checkoutCart(StoreOrderRequest $request)
     {
+        if ($request->validated()) {
+            dd($request);
+            return response()->json(['msg' => 'Thông tin không hợp lệ, vui lòng điền lại thông tin chính xác',
+                'errors' => $request->errors()], 422);
+        }
+
         if (Session::has('cart')) {
             try {
                 DB::beginTransaction();
