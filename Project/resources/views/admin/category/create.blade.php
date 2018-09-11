@@ -16,7 +16,16 @@
 
             <!--Section heading-->
             <h1 class="text-center my-5 h1">Tạo Danh Mục</h1>
-            <form action="/admin/category" method="POST" enctype="multipart/form-data" id="form-validation">
+            @if ($errors->any())
+                <div class="alert alert-danger">
+                    <ul>
+                        @foreach ($errors->all() as $error)
+                            <li>{{ $error }}</li>
+                        @endforeach
+                    </ul>
+                </div>
+            @endif
+            <form action="/admin/category" method="POST" enctype="multipart/form-data">
             {{ csrf_field() }}
             <!--Grid row-->
                 <div class="row">
@@ -40,7 +49,7 @@
                         <!--Grid column-->
                         <div class="col-md-6 mb-4">
                             <div class="md-form">
-                                <textarea type="text" id="description" name="description" class="md-textarea form-control" rows="2"></textarea>
+                                <textarea type="text" name="description" class="md-textarea form-control" rows="2"></textarea>
                                 <label for="description">Description</label>
                                 <span id="errorDescription" class="font-small"></span>
                             </div>
@@ -101,11 +110,11 @@
                 }
             });
 
-            $('#description').focusout(function(){
-                if ($('#description').val() == null || $('#description').val().length == 0){
+            $('textarea[name = "description"]').focusout(function(){
+                if ($('textarea[name = "description"]').val() == null || $('textarea[name = "description"]').val().length == 0){
                     $('textarea[name = "description"]').addClass('error');
                     $('#errorDescription').text("Không được để trống phần Description");
-                }else if ($('#description').val().length >= 300) {
+                }else if ($('textarea[name = "description"]').val().length >= 300) {
                     $('textarea[name = "description"]').addClass('error');
                     $('#errorDescription').text("Description không được để quá 300 kí tự");
                 } else {

@@ -17,6 +17,7 @@ class CreateOrderDetailsTable extends Migration
             $table->integer('order_id');
             $table->integer('product_id');
             $table->primary(['order_id', 'product_id']);
+            $table->integer('quantity');
             $table->integer('unit_price');
         });
     }

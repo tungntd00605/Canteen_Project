@@ -14,4 +14,7 @@ class CartItem
     public function getTotalPriceWithFormat(){
         return sprintf('%s', number_format($this->product->discountPrice * $this->quantity, 0));
     }
+    public function getTotalPriceString(){
+        return sprintf('%s (vnd)', number_format($this->product->discountPrice * $this->quantity, 0));
+    }
 }

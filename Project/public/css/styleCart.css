@@ -1,0 +1,32 @@
+.qty{
+    height: 100%;
+    padding: 0 10px;
+    line-height: 250%;
+    font-size: 11px;
+    border-bottom: 1px solid #dbdcdc;
+    border-top: 1px solid #dbdcdc;
+    font-weight: bold;
+}
+
+.imgProduct{
+    height: 120px;
+    width: 120px;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.product-table th{
+    font-size: 16px;
+    text-transform: uppercase;
+    color: #fff;
+}
+
+.btn-delete{
+    opacity: 0.6;
+    transition: .5s;
+}
+
+.btn-delete:hover{
+    opacity: 1;
+    background: rgba(150, 49, 27, 0.82) !important;
+}

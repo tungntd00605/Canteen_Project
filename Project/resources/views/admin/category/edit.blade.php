@@ -1,5 +1,5 @@
 @extends('layout.master', [
-    'page_title'=>'Thêm danh mục sản phẩm | FPTcanteen Admin Page',
+    'page_title'=>'Sửa danh mục sản phẩm | FPTcanteen Admin Page',
     'current_page'=>'category_page',
 ])
 @section('content')
@@ -9,13 +9,23 @@
         #errorUser,#errorDescription { color: red }
         .succes{border-color: blue}
     </style>
+    <link rel="stylesheet" href="{{asset('css/style.css')}}">
     <section class="section card mb-5">
 
         <div class="card-body">
 
             <!--Section heading-->
             <h1 class="text-center my-5 h1">Sửa Danh Mục</h1>
-            <form action="/admin/category/{{$obj->id}}" method="POST" enctype="multipart/form-data" id="form-validation">
+            @if ($errors->any())
+                <div class="alert alert-danger">
+                    <ul>
+                        @foreach ($errors->all() as $error)
+                            <li>{{ $error }}</li>
+                        @endforeach
+                    </ul>
+                </div>
+            @endif
+            <form action="/admin/category/{{$obj->id}}" method="POST" enctype="multipart/form-data">
             {{ csrf_field() }}
             @method('PUT')
             <!--Grid row-->
@@ -39,7 +49,7 @@
                         <!--Grid column-->
                         <div class="col-md-6 mb-4">
                             <div class="md-form">
-                                <textarea type="text" id="description" name="description" class="md-textarea form-control" rows="2">{{$obj->description}}</textarea>
+                                <textarea type="text" name="description" class="md-textarea form-control" rows="2">{{$obj->description}}</textarea>
                                 <label for="description">Description</label>
                                 <span id="errorDescription" class="font-small"></span>
                             </div>
@@ -109,43 +119,33 @@
         }
 
     </script>
-    <script type="text/javascript">
-        window.onload = function () {
-            validationform();
-        }
-
-        function validationform() {
-            var inputUser = document.forms['form-validation']['name'];
-            inputUser.onblur = function() {
-                if (inputUser.value == ''){
-                    inputUser.classList.add('invalid');
-                    document.getElementById('errorUser').innerHTML = 'Vui lòng không để trống Name.';
+    <script>
+        $(document).ready(function () {
+            $('input[name = "name"]').focusout(function(){
+                if ($('input[name = "name"]').val() == null || $('input[name = "name"]').val().length == 0){
+                    $('input[name = "name"]').addClass('error');
+                    $('#errorUser').text("Không được để trống phần User");
+                }else if ($('input[name = "name"]').val().length >= 20) {
+                    $('input[name = "name"]').addClass('error');
+                    $('#errorUser').text("User không được để quá 20 kí tự");
+                } else {
+                    $('input[name = "name"]').removeClass('error');
+                    $('#errorUser').text("");
                 }
-            };
+            });
 
-            inputUser.onfocus = function() {
-                if (this.classList.contains('invalid')) {
-                    // remove the "error" indication, because the user wants to re-enter something
-                    this.classList.remove('invalid');
-                    document.getElementById('errorUser').innerHTML ='';
+            $('textarea[name = "description"]').focusout(function(){
+                if ($('textarea[name = "description"]').val() == null || $('textarea[name = "description"]').val().length == 0){
+                    $('textarea[name = "description"]').addClass('error');
+                    $('#errorDescription').text("Không được để trống phần Description");
+                }else if ($('textarea[name = "description"]').val().length >= 300) {
+                    $('textarea[name = "description"]').addClass('error');
+                    $('#errorDescription').text("Description không được để quá 300 kí tự");
+                } else {
+                    $('textarea[name = "description"]').removeClass('error');
+                    $('#errorDescription').text("");
                 }
-            }
-
-            var inputDescription = document.forms['form-validation']['description'];
-            inputDescription.onblur = function() {
-                if (inputDescription.value == ''){
-                    inputDescription.classList.add('invalid');
-                    document.getElementById('errorDescription').innerHTML = 'Vui lòng không để trống Description.';
-                }
-            };
-
-            inputDescription.onfocus = function() {
-                if (this.classList.contains('invalid')) {
-                    // remove the "error" indication, because the user wants to re-enter something
-                    this.classList.remove('invalid');
-                    document.getElementById('errorDescription').innerHTML ='';
-                }
-            }
-        }
+            });
+        })
     </script>
 @endsection
