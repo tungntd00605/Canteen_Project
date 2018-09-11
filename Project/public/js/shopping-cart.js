@@ -3,7 +3,8 @@ $(document).ready(function () {
         if (!$('tbody').find('img').length > 0) {
             swal('Giỏ hàng trống', 'Vui lòng thêm sản phẩm vào giỏ hàng', 'error');
         } else {
-            $(this).prop('disabled', true);
+            button = $(this)
+            button.prop('disabled', true);
             $.ajax({
                 'url': '/gui-don-hang',
                 'method': 'POST',
@@ -20,11 +21,22 @@ $(document).ready(function () {
                         .then((value) => {
                             window.location.reload();
                         });
-                    $(this).prop('disabled', false);
+                    button.prop('disabled', false);
                 },
-                error: function () {
-                    swal("Có lỗi xảy ra!", "Vui lòng thử lại sau", "error");
-                    $(this).prop('disabled', false);
+                error: function (response) {
+                    var errors = response.responseJSON;
+                    console.log();
+                    var errorsHtml = '';
+                    $.each(errors.errors, function( key, value ) {
+                        errorsHtml += '<li class="text-danger">' + value[0] + '</li>';
+                    });
+                    console.log(errorsHtml);
+                    $('#validate-msg ul').html(errorsHtml);
+
+                    swal("Có lỗi xảy ra!", "Vui lòng thử lại sau", "error").
+                    then((value) => {
+                    });
+                    button.prop('disabled', false);
                 }
             });
         }

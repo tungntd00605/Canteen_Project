@@ -13,7 +13,7 @@ class StoreOrderRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -25,6 +25,21 @@ class StoreOrderRequest extends FormRequest
     {
         return [
             //
+            'customer_name' => 'required',
+            'ship_name' => 'required',
+            'ship_address' => 'required',
+            'ship_phone' => 'required|numeric',
+        ];
+    }
+
+    public function messages()
+    {
+        return [
+            'customer_name.required' => 'Vui lòng nhập tên người đặt',
+            'ship_name.required' => 'Vui lòng nhập tên người nhận',
+            'ship_address.required' => 'Vui lòng nhập số phòng',
+            'ship_phone.required' => 'Vui lòng nhập số điện thoại',
+            'ship_phone.numeric' => 'Số điện thoại phải ở dạng số'
         ];
     }
 }
