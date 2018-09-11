@@ -2,6 +2,7 @@
     'page_title' => 'Category Page | FPT Canteen'
 ])
 @section('content')
+    <link rel="stylesheet" href="{{asset('css/category.css')}}">
     <!-- Main Container -->
     <div class="container mt-5 pt-5">
         <div class="row pt-4">
@@ -49,50 +50,18 @@
 
             <!-- Content -->
             <div class="col-lg-9">
-
-                <!-- Filter Area -->
-                <div class="row">
-
-                    <div class="col-md-4 mt-3">
-
-                        <!-- Sort by -->
-                        <select class="mdb-select grey-text" multiple>
-                            <option value="" disabled selected>Choose your option</option>
-                            <option value="1">Option 1</option>
-                            <option value="2">Option 2</option>
-                            <option value="3">Option 3</option>
-                        </select>
-                        <label>Example label</label>
-                        <button class="btn-save btn btn-primary btn-sm">Save</button>
-                        <!-- /.Sort by -->
-
-                    </div>
-                    <div class="col-md-8 text-right">
-
-                        <!-- View Switcher -->
-                        <a class="btn btn-blue-grey btn-sm"><i class="fa fa-th mr-2" aria-hidden="true"></i><strong>
-                                Grid</strong></a>
-                        <a class="btn btn-blue-grey btn-sm"><i class="fa fa-th-list mr-2"
-                                                               aria-hidden="true"></i><strong> List</strong></a>
-                        <!-- /.View Switcher -->
-
-                    </div>
-
-                </div>
-                <!-- /.Filter Area -->
-
                 <!-- Products Grid -->
-                <section class="section pt-4">
+                <section class="section pt-4" id="product-list">
 
                     <!-- Grid row -->
                     <div class="row">
 
                     @foreach($list_product as $item)
                         <!--Grid column-->
-                            <div class="col-lg-4 col-md-6 mb-4">
+                            <div class="col-lg-4 col-md-6 mb-4 product">
 
                                 <!--Card-->
-                                <div class="card card-ecommerce">
+                                <div class="card card-ecommerce product-card">
 
                                     <!--Card image-->
                                     <div class="view overlay">
@@ -113,36 +82,19 @@
                                             </strong>
                                         </h5>
                                         <span class="badge badge-danger mb-2">bestseller</span>
-                                        <!-- Rating -->
-                                        <ul class="rating">
-                                            <li>
-                                                <i class="fa fa-star blue-text"></i>
-                                            </li>
-                                            <li>
-                                                <i class="fa fa-star blue-text"></i>
-                                            </li>
-                                            <li>
-                                                <i class="fa fa-star blue-text"></i>
-                                            </li>
-                                            <li>
-                                                <i class="fa fa-star blue-text"></i>
-                                            </li>
-                                            <li>
-                                                <i class="fa fa-star blue-text"></i>
-                                            </li>
-                                        </ul>
-
                                         <!--Card footer-->
                                         <div class="card-footer pb-0">
                                             <div class="row mb-0">
-                                                <span class="float-left">
+                                                <div class="price">
                                                     <strong>{{$item->discountPrice}} VND</strong>
-                                                </span>
-                                                <button type="button" title="Add to cart"
-                                                        class="btn btn-outline-primary btn-sm waves-effect text-center btn-add-cart"
-                                                        id="add-cart-{{$item->id}}">
-                                                    <strong style="font-size: 12px;">Thêm</strong>
-                                                    <i class="fas fa-cart-plus"></i></button>
+                                                </div>
+                                                <div class="add-cart">
+                                                    <button type="button" title="Add to cart"
+                                                            class="btn btn-outline-primary btn-sm waves-effect text-center btn-add-cart"
+                                                            id="add-cart-{{$item->id}}">
+                                                        <strong style="font-size: 12px;">Thêm</strong>
+                                                        <i class="fas fa-cart-plus"></i></button>
+                                                </div>
                                             </div>
                                         </div>
 
@@ -177,7 +129,5 @@
 
     </div>
     <!-- /.Main Container -->
-
-    </main>
 
 @endsection

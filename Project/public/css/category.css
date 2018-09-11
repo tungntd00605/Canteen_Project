@@ -1,0 +1,41 @@
+#product-list .product{
+    height: 420px;
+    position: relative;
+}
+
+#product-list .product .product-card{
+    position: absolute;
+    box-sizing: border-box;
+    height: 100% !important;
+    width: 248px;
+    overflow: hidden;
+}
+
+#product-list .product .product-card .price,
+#product-list .product .product-card .add-cart{
+    display: block;
+    text-align: center;
+    width: 100%;
+}
+
+#product-list .product .product-card .card-footer{
+    position: absolute;
+    bottom: 10px;
+}
+
+#product-list .product .product-card img {
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    box-sizing: border-box;
+}
+
+#product-list .product .product-card .view
+{
+    position: relative;
+    height: 235px;
+    width: 100%;
+    text-align: center;
+    box-sizing: border-box;
+}
