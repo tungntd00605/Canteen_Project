@@ -115,8 +115,8 @@
                 </a>
                 <div class="dropdown-menu dropdown-info" aria-labelledby="navbarDropdownMenuLink" id="messages"
                      style="width : 200%;">
-                    <div>
-                        <a class="dropdown-item" href="#">
+                    <div class="">
+                        <a class="dropdown-item" href="/admin/order/" class="row">
                             <div class="float-left">
                                 <img src="https://api.adorable.io/avatars/285/abott@adorable.png" alt=""
                                      class="rounded-circle" alt="50x50" style="width: 70px; height: 70px;">
@@ -132,7 +132,6 @@
                                 Room : <span>208</span>
                                 <br>
                                 <i class="fa fa-clock-o" aria-hidden="true"></i> 13 min</span>
-                                <span>  Status : New Order</span>
                             </div>
                         </a>
                     </div>
@@ -254,25 +253,25 @@
         var notifyContent = "";
 
         notifyContent += '<div>';
-        notifyContent += '                <a class="dropdown-item" href="#">';
-        notifyContent += '                    <div class="float-left">';
-        notifyContent += '                    <img src="https://api.adorable.io/avatars/71/' + avatar + '.png" alt="" class="rounded-circle" alt="50x50" style="width: 70px; height: 70px;">';
-        notifyContent += '                    </div>';
-        notifyContent += '                    <div class="float-right">';
-        notifyContent += '                       <i class="fa fa-money mr-2" aria-hidden="true"></i>';
-        notifyContent += '                        Name : <span>' + data.customer_name + '</span>';
-        notifyContent += '                        <br>';
-        notifyContent += '                        <i class="fa fa-phone mr-2" aria-hidden="true"></i>';
-        notifyContent += '                        Phone : <span>' + data.ship_phone + '</span>';
-        notifyContent += '                        <br>';
-        notifyContent += '                        <i class="fa fa-home mr-2" aria-hidden="true"></i>';
-        notifyContent += '                        Room : <span>' + data.room + '</span>';
-        notifyContent += '                        <br>';
-        notifyContent += '                        <i class="fa fa-clock-o" aria-hidden="true"></i> 13 min</span>';
-        notifyContent += '                        <span>  Status : New Order</span>';
-        notifyContent += '                    </div>';
-        notifyContent += '                  </a>';
 
+        notifyContent += '<a class="dropdown-item" href="#">';
+        notifyContent += '<div class="float-left">';
+        notifyContent += '<img src="https://api.adorable.io/avatars/71/' + avatar + '.png" alt="" class="rounded-circle" alt="50x50" style="width: 70px; height: 70px;">';
+        notifyContent += '</div>';
+        notifyContent += '<div class="">';
+        notifyContent += '<i class="fa fa-money mr-2" aria-hidden="true"></i>';
+        notifyContent += 'Name : <span>' + data.customer_name + '</span>';
+        notifyContent += '<br>';
+        notifyContent += '<i class="fa fa-phone mr-2" aria-hidden="true"></i>';
+        notifyContent += 'Phone : <span>' + data.ship_phone + '</span>';
+        notifyContent += '<br>';
+        notifyContent += '<i class="fa fa-house mr-2" aria-hidden="true"></i>';
+        notifyContent += 'Room : <span>' + data.room + '</span>';
+        notifyContent += '<br>';
+        notifyContent += '<i class="fa fa-clock-o" aria-hidden="true"></i> 13 min</span>';
+        //notifyContent += '<span>  Status : New Order</span>';
+        notifyContent += '</div>';
+        notifyContent += '</a>';
         notifyContent += '</div>';
 
         $('#messages').prepend(notifyContent);

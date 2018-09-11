@@ -12,7 +12,7 @@ $(document).ready(function () {
                     'customer_name': $('input[name="customer_name"]').val(),
                     'ship_name': $('input[name="ship_name"]').val(),
                     'ship_phone': $('input[name="ship_phone"]').val(),
-                    'ship_address': $('input[name="ship_address"]').val(),
+                    'ship_address': $('#list-room').find(":selected").text(),
                     'message': $('textarea[name="message"]').val(),
                     '_token': $('meta[name="csrf-token"]').attr('content')
                 },
@@ -58,6 +58,14 @@ $(document).ready(function () {
         });
     });
 
+    //List Room
+    for(var i = 100; i<= 109; i++){
+        $("#list-room").append($("<option>").attr("value", i).text(i));
+    }
+    for(var i = 200; i<= 209; i++){
+        $("#list-room").append($("<option>").attr("value", i).text(i));
+    }
+
     //Validate form order
     var orderCusNameValidate = false;
     $('#cusName').focusout(function () {
@@ -79,20 +87,21 @@ $(document).ready(function () {
             orderShipNameValidate = false;
         } else {
             $('#errorCusName').html('');
+            $('#cusName').removeClass('error');
             orderShipNameValidate = true;
         }
     });
 
-    var orderShipAddressValidate = false;
-    $('#ship_address').focusout(function () {
-        if ($(this).val() == null || $(this).val().length == 0) {
-            $('#errorShipAddress').html('Vui lòng nhập sô phòng!');
-            orderShipAddressValidate = false;
-        } else {
-            $('#errorShipAddress').html('');
-            orderShipAddressValidate = true;
-        }
-    });
+    // var orderShipAddressValidate = false;
+    // $('#ship_address').focusout(function () {
+    //     if ($(this).val() == null || $(this).val().length == 0) {
+    //         $('#errorShipAddress').html('Vui lòng nhập sô phòng!');
+    //         orderShipAddressValidate = false;
+    //     } else {
+    //         $('#errorShipAddress').html('');
+    //         orderShipAddressValidate = true;
+    //     }
+    // });
 
     var orderShipNameValidate = false;
     $('#ship_name').focusout(function () {

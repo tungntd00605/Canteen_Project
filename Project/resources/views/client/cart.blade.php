@@ -175,10 +175,13 @@
 
                                         <div class="col-md-12">
                                             <div class="md-form" style="margin-bottom: 15px">
-                                                <input type="text" id="ship_address" name="ship_address"
-                                                       class="form-control">
-                                                <label for="ship_address">Số phòng <span style="color: #db1c13;font-size: 12px">*</span></label>
-                                                <div id="errorShipAddress"></div>
+                                                <select class="mdb-select md-form" id="list-room">
+                                                    <option value="" disabled selected>Choose your room</option>
+                                                    {{-- <option value="1">Option 1</option>
+                                                    <option value="2">Option 2</option>
+                                                    <option value="3">Option 3</option> --}}
+                                                </select>
+                                                <label>Phòng</label>
                                             </div>
                                         </div>
 
