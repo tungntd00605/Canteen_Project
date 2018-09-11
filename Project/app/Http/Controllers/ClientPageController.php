@@ -42,15 +42,41 @@ class ClientPageController extends Controller
 
     public function showCategory(){
         $limit = 12;
+        $orderOption = Input::get('order-by');
         $choosed_category = Input::get('categoryId');
-        if($choosed_category == null || $choosed_category == 0){
+        $list_product = null;
+        if($choosed_category == null && $orderOption == null){
             $list_product = Product::where('status', '=' , 1)->paginate($limit);
         }
-        else {
-            $list_product = Product::where('status', '=' , 1)->where('categoryId', $choosed_category)->paginate($limit);
+        else if($choosed_category != null && $orderOption == "priceUp"){
+            $list_product = Product::where('status', '=' , 1)->where('categoryId', $choosed_category)->orderBy('price', 'asc')->paginate($limit);
         }
-        $list_category = Category::all();
+        else if($choosed_category != null && $orderOption == "priceDown"){
+            $list_product = Product::where('status', '=' , 1)->where('categoryId', $choosed_category)->orderBy('price', 'desc')->paginate($limit);
+        }
+        else if($choosed_category == null && $orderOption == "priceUp") {
+            $list_product = Product::where('status', '=' , 1)->orderBy('price', 'asc')->paginate($limit);
+        }
+        else if($choosed_category == null && $orderOption == "priceDown") {
+            $list_product = Product::where('status', '=' , 1)->orderBy('price', 'desc')->paginate($limit);
+        }
 
+        // if($choosed_category == null || $choosed_category == 0){
+        //     $list_product = Product::where('status', '=' , 1)->paginate($limit);
+        // }
+        // else {
+        //     $list_product = Product::where('status', '=' , 1)->where('categoryId', $choosed_category)->paginate($limit);
+        // }
+
+        // if($orderOption == "priceUp") {
+        //     $list_product = Product::where('status', '=' , 1)->where('categoryId', $choosed_category)->orderBy('price', 'asc')->paginate($limit);
+        // }
+        
+        
+        $list_category = Category::all();
+        if($list_product == null){
+            return '404';
+        }
         return view('client.categoryPage')
             ->with([
                 'list_product' => $list_product,
