@@ -23,7 +23,7 @@ Route::resource('admin/category', 'CategoryController');
 Route::resource('admin/product', 'ProductController');
 Route::get('/admin/order', 'OrderController@index');
 Route::get('/admin/order/change-status', 'OrderController@changeStatus');
-Route::get('/admin/order/{id}', 'OrderController@destroy');
+Route::delete('/admin/order/{id}', 'OrderController@destroy');
 
 Route::get('/', 'ClientPageController@showHome');
 Route::get('/category', 'ClientPageController@showCategory');
