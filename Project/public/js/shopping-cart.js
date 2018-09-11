@@ -3,7 +3,8 @@ $(document).ready(function () {
         if (!$('tbody').find('img').length > 0) {
             swal('Giỏ hàng trống', 'Vui lòng thêm sản phẩm vào giỏ hàng', 'error');
         } else {
-            $(this).prop('disabled', true);
+            button = $(this)
+            button.prop('disabled', true);
             $.ajax({
                 'url': '/gui-don-hang',
                 'method': 'POST',
@@ -20,11 +21,22 @@ $(document).ready(function () {
                         .then((value) => {
                             window.location.reload();
                         });
-                    $(this).prop('disabled', false);
+                    button.prop('disabled', false);
                 },
-                error: function () {
-                    swal("Có lỗi xảy ra!", "Vui lòng thử lại sau", "error");
-                    $(this).prop('disabled', false);
+                error: function (response) {
+                    var errors = response.responseJSON;
+                    console.log();
+                    var errorsHtml = '';
+                    $.each(errors.errors, function( key, value ) {
+                        errorsHtml += '<li class="text-danger">' + value[0] + '</li>';
+                    });
+                    console.log(errorsHtml);
+                    $('#validate-msg ul').html(errorsHtml);
+
+                    swal("Có lỗi xảy ra!", "Vui lòng thử lại sau", "error").
+                    then((value) => {
+                    });
+                    button.prop('disabled', false);
                 }
             });
         }
@@ -45,7 +57,81 @@ $(document).ready(function () {
             updateQuantity(product_id, -1, button)
         });
     });
-})
+
+    //Validate form order
+    var orderCusNameValidate = false;
+    $('#cusName').focusout(function () {
+        if ($(this).val() == null || $(this).val().length == 0){
+            $('#errorCusName').html('Vui lòng nhập tên người gửi!');
+            $('#cusName').addClass('error');
+            orderValidate = false;
+        }else {
+            $('#errorCusName').html('');
+            $('#cusName').removeClass('error');
+            orderValidate = true;
+        }
+    });
+
+    var orderShipNameValidate = false;
+    $('#ship_phone').focusout(function () {
+        if ($(this).val() == null || $(this).val().length == 0) {
+            $('#errorShipPhone').html('Vui lòng nhập sô điện thoại!');
+            orderShipNameValidate = false;
+        } else {
+            $('#errorCusName').html('');
+            orderShipNameValidate = true;
+        }
+    });
+
+    var orderShipAddressValidate = false;
+    $('#ship_address').focusout(function () {
+        if ($(this).val() == null || $(this).val().length == 0) {
+            $('#errorShipAddress').html('Vui lòng nhập sô phòng!');
+            orderShipAddressValidate = false;
+        } else {
+            $('#errorShipAddress').html('');
+            orderShipAddressValidate = true;
+        }
+    });
+
+    var orderShipNameValidate = false;
+    $('#ship_name').focusout(function () {
+        if ($(this).val() == null || $(this).val().length == 0) {
+            $('#errorShipName').html('Vui lòng nhập người nhận!');
+            orderShipNameValidate = false;
+        } else {
+            $('#errorShipName').html('');
+            orderShipNameValidate = true;
+        }
+    });
+    
+    $('.btn-delete').each(function () {
+        $(this).click(function () {
+            var button = $(this);
+            var remove_id = button.attr('id').replace('product-', '');
+            button.prop('disabled', true);
+            $.ajax({
+                url: '/api-xoa-san-pham',
+                method: 'POST',
+                data: {
+                    remove_id: remove_id,
+                    _token: $('meta[name="csrf-token"]').attr('content')
+                },
+                success: function (resp) {
+                    swal("Thành công!", "Đơn hàng của bạn đã được gửi đi!", "success")
+                        .then((value) => {
+                            window.location.reload();
+                        });
+                    button.prop('disabled', false);
+                },
+                error: function (error) {
+                    swal('Thao tác thất bại', "Vui lòng thử lại sau", 'error');
+                    button.prop('disabled', false);
+                }
+            });
+        })
+    })
+});
 
 function updateQuantity(id, quantity, button) {
     $.ajax({

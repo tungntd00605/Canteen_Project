@@ -26,6 +26,22 @@
 
 <body class="homepage-v3 hidden-sn white-skin animated">
 
+<!-- 2 -->
+<div class="loader loader--style2">
+    <svg version="1.1" id="loader-1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+         width="50px" height="50px" viewBox="0 0 50 50" style="enable-background:new 0 0 50 50;" xml:space="preserve">
+          <path fill="#000" d="M25.251,6.461c-10.318,0-18.683,8.365-18.683,18.683h4.068c0-8.071,6.543-14.615,14.615-14.615V6.461z">
+              <animateTransform attributeType="xml"
+                                attributeName="transform"
+                                type="rotate"
+                                from="0 25 25"
+                                to="360 25 25"
+                                dur="0.6s"
+                                repeatCount="indefinite"/>
+          </path>
+        </svg>
+</div>
+
 <header>
     <!-- Navbar -->
     <nav class="navbar fixed-top navbar-expand-lg  navbar-light scrolling-navbar white">
@@ -70,7 +86,7 @@
 @show()
 
 <!--Footer-->
-<footer class="page-footer text-center text-md-left stylish-color-dark pt-0" id="stopSticky">
+<footer class="page-footer text-center text-md-left stylish-color-dark pt-0">
 
     <div style="background-color: #4285f4;">
         <div class="container">
@@ -79,18 +95,24 @@
 
                 <!--Grid column-->
                 <div class="col-md-6 col-lg-5 text-center text-md-left mb-4 mb-md-0">
-                    <h6 class="mb-0 white-text">Get connected with us on social networks!</h6>
+                    <h6 class="mb-0 white-text">Kết nối qua các trang xã hội!</h6>
                 </div>
                 <!--Grid column-->
 
                 <!--Grid column-->
                 <div class="col-md-6 col-lg-7 text-center text-md-right">
                     <!--Facebook-->
-                    <a class="fb-ic ml-0 px-2"><i class="fab fa-facebook white-text"></i></a>
+                    <a class="fb-ic ml-0 px-2">
+                        <i class="fab fa-facebook-f white-text"> </i>
+                    </a>
                     <!--Twitter-->
-                    <a class="tw-ic px-2"><i class="fab fa-twitter-square white-text"></i></a>
+                    <a class="tw-ic px-2">
+                        <i class="fab fa-twitter white-text"> </i>
+                    </a>
                     <!--Google +-->
-                    <a class="gplus-ic px-2"><i class="fab fa-google-plus-square white-text"></i></a>
+                    <a class="gplus-ic px-2">
+                        <i class="fab fa-google-plus white-text"> </i>
+                    </a>
                 </div>
                 <!--Grid column-->
 
@@ -100,15 +122,78 @@
         </div>
     </div>
 
+    <!--Footer Links-->
+    <div class="container mt-5 mb-4 text-center text-md-left">
+        <div class="row mt-3">
+
+            <!--First column-->
+            <div class="col-md-2 col-lg-2 col-xl-2 mb-4">
+                <h6 class="text-uppercase font-weight-bold">
+                    <strong>Giới Thiệu</strong>
+                </h6>
+                <hr class="blue mb-4 mt-0 d-inline-block mx-auto" style="width: 80px;">
+                <p><a href="/"><strong>Canteen-fpt</strong></a>. Phục vụ nhiệt tình chu đáo,có thể gọi đồ online.</p>
+            </div>
+            <!--/.First column-->
+
+            <!--Second column-->
+            <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
+                <h6 class="text-uppercase font-weight-bold">
+                    <strong>Nhóm Thực Hiện</strong>
+                </h6>
+                <hr class="blue mb-4 mt-0 d-inline-block mx-auto" style="width: 145px;">
+                <p>Nguyễn Thanh Tùng</p>
+                <p>Nguyễn Công Đoàn</p>
+                <p>Nguyễn Đức Minh</p>
+                <p>Lê Khang Hiếu</p>
+                <p>Support: Đào Hồng Luyến</p>
+            </div>
+            <!--/.Second column-->
+
+            <!--Third column-->
+            <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
+                <h6 class="text-uppercase font-weight-bold">
+                    <strong>Địa chỉ</strong>
+                </h6>
+                <hr class="blue mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
+                <p>
+                    Tòa nhà Detech, số 8a, Tôn Thất Thuyết, Cầu Giấy, Hà Nội.
+                </p>
+
+            </div>
+            <!--/.Third column-->
+
+            <!--Fourth column-->
+            <div class="col-md-4 col-lg-3 col-xl-3">
+                <h6 class="text-uppercase font-weight-bold">
+                    <strong>
+                        Hỗ trợ
+                    </strong>
+                </h6>
+                <hr class="blue mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
+                <p>
+                    <i class="fa fa-home mr-3"></i> Hà Nội</p>
+                <p>
+                    <i class="fa fa-envelope mr-3"></i> canteenfpt@gmail.com</p>
+                <p>
+                    <i class="fa fa-phone mr-3"></i> + 0166 807 7320</p>
+            </div>
+            <!--/.Fourth column-->
+
+        </div>
+    </div>
+    <!--/.Footer Links-->
+
     <!-- Copyright-->
     <div class="footer-copyright py-3 text-center">
         <div class="container-fluid">
-            © 2018 Copyright: <a href="https://mdbootstrap.com/bootstrap-tutorial/" target="_blank"> MDBootstrap.com </a>
+            © 2018 Copyright: <a href="https://mdbootstrap.com/bootstrap-tutorial/" target="_blank">Fpt-Aptech-T1708E</a>
         </div>
     </div>
     <!--/.Copyright -->
 
 </footer>
+
 <!--/.Footer-->
 
 <!-- Cart Modal -->
@@ -161,7 +246,7 @@
             <div class="modal-footer">
                 <button type="button" class="btn btn-grey btn-rounded btn-sm" data-dismiss="modal">Đóng</button>
                 <a href="/cart">
-                    <button type="button" class="btn btn-rounded btn-sm btn-cart">Xem giỏ hàng</button>
+                    <button type="button" class="btn btn-rounded btn-sm btn-cart">Thanh toán</button>
                 </a>
             </div>
         </div>
@@ -190,6 +275,11 @@
 <!-- Custome script -->
 <script type="text/javascript" src="{{asset('js/client.js')}}"></script>
 
+<script>
+    $(window).on('load',function () {
+        $('.loader').addClass('complete');
+    })
+</script>
 
 </body>
 

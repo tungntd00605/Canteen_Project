@@ -36,6 +36,10 @@ class ClientPageController extends Controller
         return view('client.productDetail')->with('obj',$obj);
     }
 
+    public function showContact(){
+        return view('client.contact');
+    }
+
     public function showCategory(){
         $limit = 12;
         $choosed_category = Input::get('categoryId');

@@ -136,12 +136,21 @@
                                 <!--Grid row-->
                                     <div class="row">
 
+                                        {{--Error alert--}}
+                                        <div class="hidden" id="validate-msg">
+                                            <ul>
+
+                                            </ul>
+                                        </div>
+
+
                                         <!--Grid column-->
                                         <div class="col-md-12">
                                             <div class="md-form" style="margin-bottom: 10px">
                                                 <input type="text" id="cusName" name="customer_name"
                                                        class="form-control">
-                                                <label for="cusName">Người gửi</label>
+                                                <label for="cusName" class="labelCusname">Người gửi <span style="color: #db1c13;font-size: 12px">*</span></label>
+                                                <div id="errorCusName"></div>
                                             </div>
                                         </div>
                                         <!--Grid column-->
@@ -149,8 +158,9 @@
                                         <!--Grid column-->
                                         <div class="col-md-12">
                                             <div class="md-form" style="margin-bottom: 10px">
-                                                <input type="text" id="shipName" name="ship_name" class="form-control">
-                                                <label for="shipName">Người nhận</label>
+                                                <input type="text" id="ship_name" name="ship_name" class="form-control">
+                                                <label for="shipName">Người nhận <span style="color: #db1c13;font-size: 12px">*</span></label>
+                                                <div id="errorShipName"></div>
                                             </div>
                                         </div>
                                         <!--Grid column-->
@@ -158,7 +168,8 @@
                                             <div class="md-form" style="margin-bottom: 10px">
                                                 <input type="text" id="ship_phone" name="ship_phone"
                                                        class="form-control">
-                                                <label for="ship_phone">Số điện thoại</label>
+                                                <label for="ship_phone">Số điện thoại <span style="color: #db1c13;font-size: 12px">*</span></label>
+                                                <div id="errorShipPhone"></div>
                                             </div>
                                         </div>
 
@@ -166,7 +177,8 @@
                                             <div class="md-form" style="margin-bottom: 15px">
                                                 <input type="text" id="ship_address" name="ship_address"
                                                        class="form-control">
-                                                <label for="ship_address">Số phòng</label>
+                                                <label for="ship_address">Số phòng <span style="color: #db1c13;font-size: 12px">*</span></label>
+                                                <div id="errorShipAddress"></div>
                                             </div>
                                         </div>
 

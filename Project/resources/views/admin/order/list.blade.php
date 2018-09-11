@@ -12,46 +12,62 @@
                     <div class="alert {{ Session::get('message-class') }}">{{ Session::get('message') }}</div>
                 @endif
                 @if(count($list_obj) > 0)
-                <table class="table table-bordered table-responsive-md table-striped text-center">
-                    <tr>
-                        <th class="text-center id-col">ID</th>
-                        <th class="text-center">Customer Name</th>
-                        <th class="text-center">Receiver Name</th>
-                        <th class="text-center">Phone</th>
-                        <th class="text-center">Order time</th>
-                        <th class="text-center">Detail</th>
-                        <th class="text-center">Status</th>
-                        <th class="text-center">Option</th>
-                    </tr>
-                    @foreach ($list_obj as $item)
+                    <table class="table table-bordered table-responsive-md table-striped text-center">
                         <tr>
-                            <td class="pt-3-half id-col">{{$item->id}}</td>
-                            <td class="pt-3-half">{{$item->customer_name}}</td>
-                            <td class="pt-3-half">{{$item->ship_phone}}</td>
-                            <td class="pt-3-half">{{$item->ship_name}}</td>
-                            <td class="pt-3-half">{{$item->created_at}}</td>
-                            <td class="pt-3-half">
-                                <ul>
-                                    @foreach($item->details as $order_detail)
-                                        <li>{{$order_detail->product->name}} - {{$order_detail->quantity}}</li>
-                                    @endforeach
-                                </ul>
-                            </td>
-                            <td class="pt-3-half">{{$item->statusLabel}}</td>
-                            <td>
-                                <a href="/admin/category/{{$item->id}}/edit" class="table-edit"><button type="button"
-                                   class="btn-floating btn-sm btn-info btn-edit"><i class="far fa-edit"></i></button></a>
-                                <span class="table-remove"><button type="button"
-                                   class="btn-floating btn-sm btn-danger btn-delete"><i class="far fa-trash-alt"></i></button></span>
-                            </td>
+                            <th class="text-center id-col">ID</th>
+                            <th class="text-center">Customer Name</th>
+                            <th class="text-center">Receiver Name</th>
+                            <th class="text-center">Phone</th>
+                            <th class="text-center">Order time</th>
+                            <th class="text-center">Detail</th>
+                            <th class="text-center">Status</th>
+                            <th class="text-center">Option</th>
                         </tr>
-                    @endforeach
-                </table>
-                <div class="float-right">
-                    {{ $list_obj->links() }}
-                </div>
+                        @foreach ($list_obj as $item)
+                            <tr>
+                                <td class="pt-3-half id-col">{{$item->id}}</td>
+                                <td class="pt-3-half">{{$item->customer_name}}</td>
+                                <td class="pt-3-half">{{$item->ship_phone}}</td>
+                                <td class="pt-3-half">{{$item->ship_name}}</td>
+                                <td class="pt-3-half">{{$item->created_at}}</td>
+                                <td class="pt-3-half">
+                                    <ul>
+                                        @foreach($item->details as $order_detail)
+                                            <li>{{$order_detail->product->name}} x {{$order_detail->quantity}}</li>
+                                        @endforeach
+                                    </ul>
+                                </td>
+                                <td class="pt-3-half">{{$item->statusLabel}}</td>
+                                <td>
+                                    @if($item->status==0)
+                                        <span
+                                           class="table-confirm" id="order-{{$item->id}}" title="Xác nhận đơn hàng">
+                                            <button type="button"
+                                                    class="btn-floating btn-sm btn-info btn-confirm"><i
+                                                        class="fas fa-check"></i></button>
+                                        </span>
+                                    @elseif($item->status==1)
+                                        <span
+                                           class="table-done" id="order-{{$item->id}}" title="Hoàn thành đơn hàng">
+                                            <button type="button"
+                                                    class="btn-floating btn-sm btn-success btn-confirm"><i
+                                                        class="fas fa-check-double"></i></button>
+                                        </span>
+                                    @endif
+                                    @if($item->status!=-1)
+                                    <span class="table-remove"><button type="button"
+                                                                       class="btn-floating btn-sm btn-danger btn-delete"><i
+                                                    class="far fa-trash-alt"></i></button></span>
+                                    @endif
+                                </td>
+                            </tr>
+                        @endforeach
+                    </table>
+                    <div class="float-right">
+                        {{ $list_obj->links() }}
+                    </div>
                 @else
-                <div class="text-center">Hiện không có đơn hàng nào để hiển thị</div>
+                    <div class="text-center">Hiện không có đơn hàng nào để hiển thị</div>
                 @endif
             </div>
         </div>
@@ -59,39 +75,5 @@
     <!-- Editable table -->
 
     <!-- Script -->
-    <script>
-        $(document).ready(function () {
-            $('.btn-delete').on('click', function () {
-                var thisButton = $(this);
-                swal({
-                    title: "Warning!",
-                    text: "Bạn có chắc muốn xoá danh mục này không?",
-                    icon: "warning",
-                    buttons: true,
-                    dangerMode: true,
-                }).then((willDelete) => {
-                    if (willDelete) {
-                        var id = thisButton.closest("tr").children(".id-col").text();
-                        $.ajax({
-                            'url': '/admin/category/' + id,
-                            'method': 'DELETE',
-                            'data': {
-                                '_token': $('meta[name="csrf-token"]').attr('content')
-                            },
-                            success: function (response) {
-                                swal("Thành công!", "Danh mục đã bị xoá!", "success");
-                                thisButton.closest('tr').remove();
-                            },
-                            error: function () {
-                                swal("Có lỗi xảy ra!", "Vui lòng thử lại sau", "error");
-                            }
-                        });
-                    } else {
-                    }
-                })
-                return false;
-            });
-        });
-
-    </script>
+    <script type="text/javascript" src="{{asset('js/order.js')}}"></script>
 @endsection

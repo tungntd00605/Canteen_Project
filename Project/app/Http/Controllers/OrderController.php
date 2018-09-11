@@ -40,4 +40,17 @@ class OrderController extends Controller
         $order->save();
         return redirect('/admin/order');
     }
+
+    public function destroy($id)
+    {
+        $obj = Order::find($id);
+        if ($obj == null) {
+            return response()->json(['message' => 'Đơn hàng không tồn tại hoặc đã bị xoá!',
+                'message-class' => 'alert alert-danger'], 404);
+        }
+        $obj->status = -1;
+        $obj->save();
+        return response()->json(['message' => 'Đã hủy đơn hàng',
+            'message-class' => 'alert alert-success'], 200);
+    }
 }

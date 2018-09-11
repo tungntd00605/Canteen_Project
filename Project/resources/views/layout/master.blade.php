@@ -23,6 +23,7 @@
     <script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css"/>
+    <link rel="stylesheet" href="{{asset('css/masterAdmin.css')}}">
 
     <!-- Your custom styles (optional) -->
     <style>
@@ -30,7 +31,21 @@
 </head>
 
 <body class="fixed-sn white-skin">
-
+<!-- 2 -->
+<div class="loader loader--style2">
+    <svg version="1.1" id="loader-1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+         width="50px" height="50px" viewBox="0 0 50 50" style="enable-background:new 0 0 50 50;" xml:space="preserve">
+          <path fill="#000" d="M25.251,6.461c-10.318,0-18.683,8.365-18.683,18.683h4.068c0-8.071,6.543-14.615,14.615-14.615V6.461z">
+              <animateTransform attributeType="xml"
+                                attributeName="transform"
+                                type="rotate"
+                                from="0 25 25"
+                                to="360 25 25"
+                                dur="0.6s"
+                                repeatCount="indefinite"/>
+          </path>
+        </svg>
+</div>
 <!--Main Navigation-->
 <header>
 
@@ -236,7 +251,7 @@
 
     function addMessage(data) {
         var avatar = Math.floor(Math.random() * (71 - 20 + 1)) + 20;
-        var notifyContent = null;
+        var notifyContent = "";
 
         notifyContent += '<div>';
         notifyContent += '                <a class="dropdown-item" href="#">';
@@ -257,14 +272,18 @@
         notifyContent += '                        <span>  Status : New Order</span>';
         notifyContent += '                    </div>';
         notifyContent += '                  </a>';
-        notifyContent += '</div>';
 
+        notifyContent += '</div>';
 
         $('#messages').prepend(notifyContent);
 
     }
 </script>
-
+<script>
+    $(window).on('load', function () {
+        $('.loader').addClass('complete');
+    })
+</script>
 </body>
 
 <!-- Mirrored from mdbootstrap.com/previews/templates/admin-dashboard/html/dashboards/v-1.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 27 Aug 2018 16:11:53 GMT -->
