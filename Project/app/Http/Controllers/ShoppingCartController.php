@@ -97,11 +97,7 @@ class ShoppingCartController extends Controller
 
     public function checkoutCart(StoreOrderRequest $request)
     {
-        if ($request->validated()) {
-            dd($request);
-            return response()->json(['msg' => 'Thông tin không hợp lệ, vui lòng điền lại thông tin chính xác',
-                'errors' => $request->errors()], 422);
-        }
+        $request->validated();
 
         if (Session::has('cart')) {
             try {

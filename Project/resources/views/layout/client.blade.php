@@ -132,7 +132,7 @@
                     <strong>Giới Thiệu</strong>
                 </h6>
                 <hr class="blue mb-4 mt-0 d-inline-block mx-auto" style="width: 80px;">
-                <p><a href="/"><strong>Cantin-fpt</strong></a>. Phục vụ nhiệt tình chu đáo,có thể gọi đồ online.</p>
+                <p><a href="/"><strong>Canteen-fpt</strong></a>. Phục vụ nhiệt tình chu đáo,có thể gọi đồ online.</p>
             </div>
             <!--/.First column-->
 
@@ -174,7 +174,7 @@
                 <p>
                     <i class="fa fa-home mr-3"></i> Hà Nội</p>
                 <p>
-                    <i class="fa fa-envelope mr-3"></i> cantinfpt@gmail.com</p>
+                    <i class="fa fa-envelope mr-3"></i> canteenfpt@gmail.com</p>
                 <p>
                     <i class="fa fa-phone mr-3"></i> + 0166 807 7320</p>
             </div>
@@ -246,7 +246,7 @@
             <div class="modal-footer">
                 <button type="button" class="btn btn-grey btn-rounded btn-sm" data-dismiss="modal">Đóng</button>
                 <a href="/cart">
-                    <button type="button" class="btn btn-rounded btn-sm btn-cart">Xem giỏ hàng</button>
+                    <button type="button" class="btn btn-rounded btn-sm btn-cart">Thanh toán</button>
                 </a>
             </div>
         </div>

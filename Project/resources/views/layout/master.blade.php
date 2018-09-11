@@ -251,27 +251,27 @@
 
     function addMessage(data) {
         var avatar = Math.floor(Math.random() * (71 - 20 + 1)) + 20;
-        var notifyContent = null;
+        var notifyContent = "";
 
         notifyContent += '<div>';
-        notifyContent += '                <a class="dropdown-item" href="#">';
-        notifyContent += '                    <div class="float-left">';
-        notifyContent += '                    <img src="https://api.adorable.io/avatars/71/' + avatar + '.png" alt="" class="rounded-circle" alt="50x50" style="width: 70px; height: 70px;">';
-        notifyContent += '                    </div>';
-        notifyContent += '                    <div class="float-right">';
-        notifyContent += '                       <i class="fa fa-money mr-2" aria-hidden="true"></i>';
-        notifyContent += '                        Name : <span>' + data.customer_name + '</span>';
-        notifyContent += '                        <br>';
-        notifyContent += '                        <i class="fa fa-phone mr-2" aria-hidden="true"></i>';
-        notifyContent += '                        Phone : <span>' + data.ship_phone + '</span>';
-        notifyContent += '                        <br>';
-        notifyContent += '                        <i class="fa fa-house mr-2" aria-hidden="true"></i>';
-        notifyContent += '                        Room : <span>' + data.room + '</span>';
-        notifyContent += '                        <br>';
-        notifyContent += '                        <i class="fa fa-clock-o" aria-hidden="true"></i> 13 min</span>';
-        notifyContent += '                        <span>  Status : New Order</span>';
-        notifyContent += '                    </div>';
-        notifyContent += '                  </a>';
+        notifyContent += '<a class="dropdown-item" href="#">';
+        notifyContent += '<div class="float-left">';
+        notifyContent += '<img src="https://api.adorable.io/avatars/71/' + avatar + '.png" alt="" class="rounded-circle" alt="50x50" style="width: 70px; height: 70px;">';
+        notifyContent += '</div>';
+        notifyContent += '<div class="float-right">';
+        notifyContent += '<i class="fa fa-money mr-2" aria-hidden="true"></i>';
+        notifyContent += 'Name : <span>' + data.customer_name + '</span>';
+        notifyContent += '<br>';
+        notifyContent += '<i class="fa fa-phone mr-2" aria-hidden="true"></i>';
+        notifyContent += 'Phone : <span>' + data.ship_phone + '</span>';
+        notifyContent += '<br>';
+        notifyContent += '<i class="fa fa-house mr-2" aria-hidden="true"></i>';
+        notifyContent += 'Room : <span>' + data.room + '</span>';
+        notifyContent += '<br>';
+        notifyContent += '<i class="fa fa-clock-o" aria-hidden="true"></i> 13 min</span>';
+        notifyContent += '<span>  Status : New Order</span>';
+        notifyContent += '</div>';
+        notifyContent += '</a>';
         notifyContent += '</div>';
 
 
