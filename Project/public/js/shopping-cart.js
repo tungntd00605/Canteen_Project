@@ -57,6 +57,53 @@ $(document).ready(function () {
             updateQuantity(product_id, -1, button)
         });
     });
+
+    //Validate form order
+    var orderCusNameValidate = false;
+    $('#cusName').focusout(function () {
+        if ($(this).val() == null || $(this).val().length == 0){
+            $('#errorCusName').html('Vui lòng nhập tên người gửi!');
+            $('#cusName').addClass('error');
+            orderValidate = false;
+        }else {
+            $('#errorCusName').html('');
+            $('#cusName').removeClass('error');
+            orderValidate = true;
+        }
+    });
+
+    var orderShipNameValidate = false;
+    $('#ship_phone').focusout(function () {
+        if ($(this).val() == null || $(this).val().length == 0) {
+            $('#errorShipPhone').html('Vui lòng nhập sô điện thoại!');
+            orderShipNameValidate = false;
+        } else {
+            $('#errorCusName').html('');
+            orderShipNameValidate = true;
+        }
+    });
+
+    var orderShipAddressValidate = false;
+    $('#ship_address').focusout(function () {
+        if ($(this).val() == null || $(this).val().length == 0) {
+            $('#errorShipAddress').html('Vui lòng nhập sô phòng!');
+            orderShipAddressValidate = false;
+        } else {
+            $('#errorShipAddress').html('');
+            orderShipAddressValidate = true;
+        }
+    });
+
+    var orderShipNameValidate = false;
+    $('#ship_name').focusout(function () {
+        if ($(this).val() == null || $(this).val().length == 0) {
+            $('#errorShipName').html('Vui lòng nhập người nhận!');
+            orderShipNameValidate = false;
+        } else {
+            $('#errorShipName').html('');
+            orderShipNameValidate = true;
+        }
+    });
     
     $('.btn-delete').each(function () {
         $(this).click(function () {
@@ -84,7 +131,7 @@ $(document).ready(function () {
             });
         })
     })
-})
+});
 
 function updateQuantity(id, quantity, button) {
     $.ajax({

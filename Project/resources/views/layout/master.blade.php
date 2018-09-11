@@ -274,7 +274,6 @@
         notifyContent += '</a>';
         notifyContent += '</div>';
 
-
         $('#messages').prepend(notifyContent);
 
     }
