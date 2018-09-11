@@ -108,12 +108,12 @@
                             </div>
                             <div class="float-right">
                                 <i class="fa fa-money mr-2" aria-hidden="true"></i>
-                                Name : <span>New order received</span>
+                                Name : <span>Nguyen Duc Minh</span>
                                 <br>
                                 <i class="fa fa-phone mr-2" aria-hidden="true"></i>
                                 Phone : <span>12345678</span>
                                 <br>
-                                <i class="fa fa-house mr-2" aria-hidden="true"></i>
+                                <i class="fa fa-home mr-2" aria-hidden="true"></i>
                                 Room : <span>208</span>
                                 <br>
                                 <i class="fa fa-clock-o" aria-hidden="true"></i> 13 min</span>
@@ -250,7 +250,7 @@
         notifyContent += '                        <i class="fa fa-phone mr-2" aria-hidden="true"></i>';
         notifyContent += '                        Phone : <span>' + data.ship_phone + '</span>';
         notifyContent += '                        <br>';
-        notifyContent += '                        <i class="fa fa-house mr-2" aria-hidden="true"></i>';
+        notifyContent += '                        <i class="fa fa-home mr-2" aria-hidden="true"></i>';
         notifyContent += '                        Room : <span>' + data.room + '</span>';
         notifyContent += '                        <br>';
         notifyContent += '                        <i class="fa fa-clock-o" aria-hidden="true"></i> 13 min</span>';
