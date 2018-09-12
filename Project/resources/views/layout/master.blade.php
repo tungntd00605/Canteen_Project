@@ -111,7 +111,7 @@
                 <a class="nav-link dropdown-toggle waves-effect" id="navbarDropdownMenuLink" data-toggle="dropdown"
                    aria-haspopup="true"
                    aria-expanded="false">
-                    <span class="badge red" id="notify-number">0</span> <i class="fa fa-bell"></i>
+                    <span class="badge" id="notify-number">0</span> <i class="fa fa-bell"></i>
                     <span class="d-none d-md-inline-block">Notifications</span>
                 </a>
                 <div class="dropdown-menu dropdown-info" aria-labelledby="navbarDropdownMenuLink" id="messages"
@@ -237,6 +237,11 @@
 </script>
 <script src="https://js.pusher.com/3.1/pusher.min.js"></script>
 <script>
+    var notifyNumber = parseInt($('#notify-number').html());
+    if(notifyNumber == 0){
+        $('#notify-number').attr('class', 'badge grey');
+    }
+    
     //instantiate a Pusher object with our Credential's key
     var pusher = new Pusher('{{env('PUSHER_APP_KEY')}}', {
         cluster: 'ap1',
@@ -276,8 +281,12 @@
         notifyContent += '</div>';
 
         $('#messages').prepend(notifyContent);
-
+        notifyNumber+=1;
+        $('#notify-number').text(notifyNumber);
+        $('#notify-number').attr('class', 'badge red');
     }
+
+    
 </script>
 <script>
     $(window).on('load', function () {
