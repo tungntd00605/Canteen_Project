@@ -85,36 +85,6 @@ class ClientPageController extends Controller
                     break;
            }
         }
-
-        // if($choosed_category == null && $orderOption == null){
-        //     $list_product = Product::where('status', '=' , 1)->paginate($limit);
-        // }
-        // else if ($choosed_category != null && $orderOption == null){
-        //     $list_product = Product::where('status', '=' , 1)->where('categoryId', $choosed_category)->paginate($limit);
-        // }
-        // else if($choosed_category != null && $orderOption == "priceUp"){
-        //     $list_product = Product::where('status', '=' , 1)->where('categoryId', $choosed_category)->orderBy('price', 'asc')->paginate($limit);
-        // }
-        // else if($choosed_category != null && $orderOption == "priceDown"){
-        //     $list_product = Product::where('status', '=' , 1)->where('categoryId', $choosed_category)->orderBy('price', 'desc')->paginate($limit);
-        // }
-        // else if($choosed_category == null && $orderOption == "priceUp") {
-        //     $list_product = Product::where('status', '=' , 1)->orderBy('price', 'asc')->paginate($limit);
-        // }
-        // else if($choosed_category == null && $orderOption == "priceDown") {
-        //     $list_product = Product::where('status', '=' , 1)->orderBy('price', 'desc')->paginate($limit);
-        // }
-
-        // if($choosed_category == null || $choosed_category == 0){
-        //     $list_product = Product::where('status', '=' , 1)->paginate($limit);
-        // }
-        // else {
-        //     $list_product = Product::where('status', '=' , 1)->where('categoryId', $choosed_category)->paginate($limit);
-        // }
-
-        // if($orderOption == "priceUp") {
-        //     $list_product = Product::where('status', '=' , 1)->where('categoryId', $choosed_category)->orderBy('price', 'asc')->paginate($limit);
-        // }
         
         
         $list_category = Category::all();
