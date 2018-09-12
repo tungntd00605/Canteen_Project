@@ -1,5 +1,5 @@
 @extends('layout.client',[
-    'page_title' => 'Category Page | FPT Canteen'
+    'page_title' => 'Danh mục | FPT Canteen'
 ])
 @section('content')
     <link rel="stylesheet" href="{{asset('css/category.css')}}">
@@ -18,10 +18,10 @@
 
                             <nav class="nav flex-column md-pills rgba-white-slight font-weight-bold">
                                 <h5 class="font-weight-bold dark-grey-text ml-3 mb-2"><strong>Sắp xếp theo</strong></h5>
-                                <a class="nav-link text-left active" href="#">Mặc định</a>
-                                <a class="nav-link text-left" href="/category?categoryId={{$choosed_category}}&order-by=mostBuy">Bán chạy</a>
-                                <a class="nav-link text-left" href="/category?categoryId={{$choosed_category}}&order-by=priceUp">Giá: thấp đến cao</a>
-                                <a class="nav-link text-left" href="/category?categoryId={{$choosed_category}}&order-by=priceDown">Giá: cao đến thấp</a>
+                                <a class="nav-link text-left {{$order_option != 'priceDown' && $order_option != 'priceUp' && $order_option != 'mostBuy'?'active':''}}" href="/category?categoryId={{$choosed_category}}">Mặc định</a>
+                                <a class="nav-link text-left {{$order_option == 'mostBuy'?'active':''}}"  href="/category?categoryId={{$choosed_category}}&order-by=mostBuy">Bán chạy</a>
+                                <a class="nav-link text-left {{$order_option == 'priceUp'?'active':''}}" href="/category?categoryId={{$choosed_category}}&order-by=priceUp">Giá: thấp đến cao</a>
+                                <a class="nav-link text-left {{$order_option == 'priceDown'?'active':''}}" href="/category?categoryId={{$choosed_category}}&order-by=priceDown">Giá: cao đến thấp</a>
                             </nav>
                             <!--/. Side navigation links -->
                         </div>

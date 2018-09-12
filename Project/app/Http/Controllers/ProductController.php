@@ -34,6 +34,9 @@ class ProductController extends Controller
         else {
             $list_obj = Product::where('status', '!=' , 0)->where('categoryId', $choosedCategory)->paginate($limit);
         }
+        if($list_obj == null){
+            return view('error.404');
+        }
         return view('admin.product.list')
             ->with('limit', $limit)
             ->with('list_obj', $list_obj)

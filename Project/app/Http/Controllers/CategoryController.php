@@ -122,7 +122,11 @@ class CategoryController extends Controller
             return view('error.404');
         }
         $obj->name = Input::get('name');
-        $obj->thumbnail = Input::get('thumbnail');
+        if(Input::hasFile('thumbnail')) {
+            $image_id = time();
+            Cloudder::upload(Input::file('thumbnail')->getRealPath(), $image_id);
+            $obj->thumbnail = Cloudder::secureShow($image_id);
+        }
         $obj->description = Input::get('description');
         $obj->save();
         return redirect('admin/category');

@@ -72,7 +72,7 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link waves-effect waves-light dark-grey-text font-weight-bold" href="#"><i class="fa fa-envelope blue-text"></i> Giới Thiệu<span class="sr-only">(current)</span></a>
+                        <a class="nav-link waves-effect waves-light dark-grey-text font-weight-bold" href="/contact"><i class="fa fa-envelope blue-text"></i> Liên hệ<span class="sr-only">(current)</span></a>
                     </li>
 
                 </ul>
@@ -146,7 +146,8 @@
                 <p>Nguyễn Công Đoàn</p>
                 <p>Nguyễn Đức Minh</p>
                 <p>Lê Khang Hiếu</p>
-                <p>Support: Đào Hồng Luyến</p>
+                <p>Support: Trịnh Quốc Việt</p>
+                <p>Advisor: Đào Hồng Luyến</p>
             </div>
             <!--/.Second column-->
 

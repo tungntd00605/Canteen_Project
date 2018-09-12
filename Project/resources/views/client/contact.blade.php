@@ -1,5 +1,5 @@
 @extends('layout.client',['page_title'=>'Contact',
-    'current_page'=>'Contactus',]);
+    'current_page'=>'Liên hệ | FPT Canteen',]);
 @section('content')
 <!--Main Layout-->
 <main >
@@ -117,7 +117,7 @@
                                                         <p><i class="fa fa-phone pr-2 mb-4"></i>+ 0166 807 7320</p>
                                                     </li>
                                                     <li>
-                                                        <p><i class="fa fa-envelope pr-2"></i>cantinfpt@gmail.com</p>
+                                                        <p><i class="fa fa-envelope pr-2"></i>canteenfpt@gmail.com</p>
                                                     </li>
                                                 </ul>
                                                 <hr class="hr-light my-4">

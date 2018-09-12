@@ -1,5 +1,5 @@
 @extends('layout.client', [
-    'page_title' => 'Product Detail | FPT Canteen'
+    'page_title' => str_slug($obj->name).' | FPT Canteen'
 ])
 @section('content')
 <!-- /.Navigation -->

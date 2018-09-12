@@ -12,6 +12,7 @@
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css"
           integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+    <link rel="icon" type="image/png" href="{{asset('img/logo.png')}}">
     <link rel="stylesheet" href="{{asset('mdb/css/font-awesome.min.css')}}">
     <!-- Bootstrap core CSS -->
     <link rel="stylesheet" href="{{asset('mdb/css/bootstrap.min.css')}}">

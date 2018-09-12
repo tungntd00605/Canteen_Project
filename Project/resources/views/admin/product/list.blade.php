@@ -63,7 +63,7 @@
                                         <label class="custom-control-label" for="check-{{$item->id}}"></label>
                                     </div>
                                 </td>
-                                <td class="pt-3-half">{{$item->id}}</td>
+                                <td class="pt-3-half id-col">{{$item->id}}</td>
                                 <td class="pt-3-half">{{$item->name}}</td>
                                 <td class="pt-3-half">{{$item->price}}</td>
                                 <td class="pt-3-half"><img src="{{$item->thumbnail}}" alt="" height="90px"

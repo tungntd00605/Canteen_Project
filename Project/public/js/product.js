@@ -49,7 +49,7 @@ function deleteOne(button) {
             });
         } else {
         }
-    })
+    });
     return false;
 }
 

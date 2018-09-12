@@ -86,16 +86,16 @@ class ClientPageController extends Controller
            }
         }
         
-        
         $list_category = Category::all();
         if($list_product == null){
-            return '404';
+            return view('error.404');
         }
         return view('client.categoryPage')
             ->with([
                 'list_product' => $list_product,
                 'list_category' => $list_category,
-                'choosed_category' => $choosed_category
+                'choosed_category' => $choosed_category,
+                'order_option' => $orderOption
             ]);
     }
 }

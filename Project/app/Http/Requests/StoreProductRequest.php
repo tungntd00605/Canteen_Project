@@ -26,7 +26,7 @@ class StoreProductRequest extends FormRequest
         return [
             //
             'categoryId' => 'required',
-            'name' => 'required|max:50|min:3|unique:products',
+            'name' => 'required|max:50|min:3',
             'thumbnail' => 'required',
             'discount' => 'numeric|max:100|min:0',
             'price' => 'required|numeric|min:0',
@@ -40,7 +40,6 @@ class StoreProductRequest extends FormRequest
             'name.required' => 'Vui lòng nhập tên bộ sưu tập.',
             'name.min' => 'Tên quá ngắn, vui lòng nhập ít nhất 3 ký tự.',
             'name.max' => 'Tên quá dài, vui lòng nhập nhiều nhất 50 ký tự.',
-            'name.unique' => 'Tên đã được sử dụng, vui lòng chọn tên khác.',
             'categoryId.required' => 'Vui lòng chọn danh mục cho sản phẩm',
             'discount.numeric' => 'Chỉ được nhập số cho mục giảm giá',
             'discount.min' => 'Giảm giá không được nhỏ hơn 0%',
