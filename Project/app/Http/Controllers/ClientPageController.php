@@ -45,32 +45,46 @@ class ClientPageController extends Controller
         $orderOption = Input::get('order-by');
         $choosed_category = Input::get('categoryId');
         $list_product = null;
-        if($choosed_category == null && $orderOption == null){
-            $list_product = Product::where('status', '=' , 1)->paginate($limit);
+        
+        if($choosed_category == null){
+           switch ($orderOption){
+                case "priceUp": 
+                    $list_product = Product::where('status', '=' , 1)->orderBy('price', 'asc')->paginate($limit);    
+                    break;
+                case "priceDown": 
+                    $list_product = Product::where('status', '=' , 1)->orderBy('price', 'desc')->paginate($limit);
+                    break;
+                case "mostBuy":
+                    $list_product = Product::where('status', '=' , 1)
+                    ->join('order_details', 'products.id', '=' ,'order_details.product_id')
+                    ->groupBy('product_id')
+                    ->orderByRaw('SUM(quantity) DESC')->paginate($limit);
+                    break;
+                default:
+                    $list_product = Product::where('status', '=' , 1)->paginate($limit);
+                    break;
+           }
         }
-        else if($choosed_category != null && $orderOption == "priceUp"){
-            $list_product = Product::where('status', '=' , 1)->where('categoryId', $choosed_category)->orderBy('price', 'asc')->paginate($limit);
+        else if($choosed_category != null){
+            switch ($orderOption){
+                case "priceUp": 
+                    $list_product = Product::where('status', '=' , 1)->where('categoryId', $choosed_category)->orderBy('price', 'asc')->paginate($limit);    
+                    break;
+                case "priceDown": 
+                    $list_product = Product::where('status', '=' , 1)->where('categoryId', $choosed_category)->orderBy('price', 'desc')->paginate($limit);
+                    break;
+                case "mostBuy":
+                    $list_product = Product::where('status', '=' , 1)
+                    ->join('order_details', 'products.id', '=' ,'order_details.product_id')
+                    ->where('categoryId', $choosed_category)
+                    ->groupBy('product_id')
+                    ->orderByRaw('SUM(quantity) DESC')->paginate($limit);
+                    break;
+                default:
+                    $list_product = Product::where('status', '=' , 1)->where('categoryId', $choosed_category)->paginate($limit);
+                    break;
+           }
         }
-        else if($choosed_category != null && $orderOption == "priceDown"){
-            $list_product = Product::where('status', '=' , 1)->where('categoryId', $choosed_category)->orderBy('price', 'desc')->paginate($limit);
-        }
-        else if($choosed_category == null && $orderOption == "priceUp") {
-            $list_product = Product::where('status', '=' , 1)->orderBy('price', 'asc')->paginate($limit);
-        }
-        else if($choosed_category == null && $orderOption == "priceDown") {
-            $list_product = Product::where('status', '=' , 1)->orderBy('price', 'desc')->paginate($limit);
-        }
-
-        // if($choosed_category == null || $choosed_category == 0){
-        //     $list_product = Product::where('status', '=' , 1)->paginate($limit);
-        // }
-        // else {
-        //     $list_product = Product::where('status', '=' , 1)->where('categoryId', $choosed_category)->paginate($limit);
-        // }
-
-        // if($orderOption == "priceUp") {
-        //     $list_product = Product::where('status', '=' , 1)->where('categoryId', $choosed_category)->orderBy('price', 'asc')->paginate($limit);
-        // }
         
         
         $list_category = Category::all();
