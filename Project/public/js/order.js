@@ -72,11 +72,16 @@ $(document).ready(function () {
         return false;
     });
 
+    var start = moment().subtract(1, 'days');
+    var end = moment();
     var searchStr = window.location.search;
-    var startStr = searchStr.substr(searchStr.lastIndexOf('?')+7, 10);
-    var endStr = searchStr.substr(searchStr.lastIndexOf('&')+5, 10);
-    var start = moment(startStr);
-    var end = moment(endStr)
+
+    if(searchStr.length > 0 && window.location.pathname == '/admin/search/order'){
+        var startStr = searchStr.substr(searchStr.lastIndexOf('?')+7, 10);
+        var endStr = searchStr.substr(searchStr.lastIndexOf('&')+5, 10);
+        start = moment(startStr);
+        end = moment(endStr)
+    }
 
     $('#time-picker').daterangepicker({
         startDate: start,
