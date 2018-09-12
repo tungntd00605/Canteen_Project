@@ -25,6 +25,8 @@ Route::get('/admin/order', 'OrderController@index');
 Route::get('/admin/order/{id}', 'OrderController@show');
 Route::get('/admin/order/change-status', 'OrderController@changeStatus');
 Route::delete('/admin/order/{id}', 'OrderController@destroy');
+Route::get('/admin/search/order', 'OrderController@showByDate');
+
 
 Route::get('/', 'ClientPageController@showHome');
 Route::get('/category', 'ClientPageController@showCategory');

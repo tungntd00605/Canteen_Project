@@ -11,6 +11,12 @@
                 @if (Session::has('message'))
                     <div class="alert {{ Session::get('message-class') }}">{{ Session::get('message') }}</div>
                 @endif
+                <div class="row">
+                    <div class="col-md-6">
+                        <button id="time-picker" class="btn light-green lighten-2 dropdown-toggle"><i class="fa fa-calendar"></i>&nbsp;
+                            <span>{{date('F d, Y',strtotime($start))}} - {{date('F d, Y',strtotime($end))}}</span></button>
+                    </div>
+                </div>
                 @if(count($list_obj) > 0)
                     <table class="table table-bordered table-responsive-md table-striped text-center">
                         <tr>
