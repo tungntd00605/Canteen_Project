@@ -19,7 +19,7 @@
                             <nav class="nav flex-column md-pills rgba-white-slight font-weight-bold">
                                 <h5 class="font-weight-bold dark-grey-text ml-3 mb-2"><strong>Sắp xếp theo</strong></h5>
                                 <a class="nav-link text-left active" href="#">Mặc định</a>
-                                <a class="nav-link text-left" href="#">Bán chạy</a>
+                                <a class="nav-link text-left" href="/category?categoryId={{$choosed_category}}&order-by=mostBuy">Bán chạy</a>
                                 <a class="nav-link text-left" href="/category?categoryId={{$choosed_category}}&order-by=priceUp">Giá: thấp đến cao</a>
                                 <a class="nav-link text-left" href="/category?categoryId={{$choosed_category}}&order-by=priceDown">Giá: cao đến thấp</a>
                             </nav>
