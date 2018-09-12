@@ -56,7 +56,7 @@
                             <div class="tab-content rounded-bottom">
                                 <!--Panel 1-->
                                 <div class="tab-pane fade in show active" id="panel1001" role="tabpanel">
-                                    <div id="line_chart" style="width: 100%; height: 600px"></div>
+                                    <div id="line_chart" class="justify-content-center" style="width: 100%; height: 600px"></div>
                                 </div>
                                 <!--/.Panel 1-->
                                 <!--Panel 2-->
@@ -349,8 +349,8 @@
                     title: 'Box Office Earnings in First Two Weeks of Opening',
                     subtitle: 'in millions of dollars (USD)'
                 },
-                // width: 900,
-                // height: 500
+                width: 900,
+                height: 500
             };
 
             var chart = new google.charts.Line(document.getElementById('line_chart'));

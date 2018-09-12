@@ -20,7 +20,7 @@
     opacity: 0;
 }
 
-svg {
+.loader svg {
     position: absolute;
     top: 47%;
     right: 50%;
@@ -29,7 +29,7 @@ svg {
 /*
   Set the color of the icon
 */
-svg path,
-svg rect {
+.loader svg path,
+.loader svg rect {
     fill: #FF6700;
 }
