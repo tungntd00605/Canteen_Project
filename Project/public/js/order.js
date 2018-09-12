@@ -72,8 +72,11 @@ $(document).ready(function () {
         return false;
     });
 
-    var start = moment().subtract(1, 'days');
-    var end = moment()
+    var searchStr = window.location.search;
+    var startStr = searchStr.substr(searchStr.lastIndexOf('?')+7, 10);
+    var endStr = searchStr.substr(searchStr.lastIndexOf('&')+5, 10);
+    var start = moment(startStr);
+    var end = moment(endStr)
 
     $('#time-picker').daterangepicker({
         startDate: start,
@@ -127,5 +130,5 @@ $(document).ready(function () {
 
 function cb(start, end) {
     $('#time-picker span').html(start.format('MMMM D, YYYY') + ' - ' + end.format('MMMM D, YYYY'));
-    window.location.href = '/admin/search/order?start=' + start.format('DD-MM-YYYY') + '&end=' + end.format('DD-MM-YYYY');
+    window.location.href = '/admin/search/order?start=' + start.format('YYYY-MM-DD') + '&end=' + end.format('YYYY-MM-DD');
 }

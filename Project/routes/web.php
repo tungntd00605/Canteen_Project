@@ -39,8 +39,6 @@ Route::post('/api-xoa-san-pham', 'ShoppingCartController@removeFromCart');
 Route::get('/xoa-gio-hang', 'ShoppingCartController@destroyCart');
 Route::post('/gui-don-hang', 'ShoppingCartController@checkoutCart');
 
-
-
 Route::delete('admin/destroy-many/product', 'ProductController@destroyMany');
 
 Route::get('/pusher', function() {
