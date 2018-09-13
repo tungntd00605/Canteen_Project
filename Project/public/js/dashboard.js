@@ -70,31 +70,21 @@ function cb(start, end) {
         success: function (response) {
             var newHtml = '';
             var sumSale = 0;
+            console.log(response)
             for (var i in response.jsonData){
                 sumSale += parseFloat(response.jsonData[i].total);
-
-                newHtml += '<tr>'
-                newHtml += '<td class="pt-3-half id-col">20</td>'
-                newHtml +=    '<td class="pt-3-half">Ly</td>'
-                newHtml +=    '<td class="pt-3-half">Ly</td>'
-                newHtml +=    '<td class="pt-3-half">0231839021</td>'
-                newHtml += '<td class="pt-3-half">2018-09-11 03:12:32</td>'
-                newHtml += '<td class="pt-3-half">'
-                newHtml +=    '<ul>'
-                newHtml +=    '<li>Nước chanh leo x 6</li>'
-                newHtml +='</ul>'
-                newHtml +='</td>'
-                newHtml +='<td class="pt-3-half">Chờ xử lý</td>'
-                newHtml +='<td>'
-                newHtml +='<span class="table-confirm" id="order-20" title="Xác nhận đơn hàng">'
-                newHtml +=    '<button type="button" class="btn-floating btn-sm btn-info btn-confirm waves-effect waves-light"><i class="fas fa-check"></i></button>'
-                newHtml +='</span>'
-                newHtml +='<span class="table-remove"><button type="button" class="btn-floating btn-sm btn-danger btn-delete waves-effect waves-light"><i class="far fa-trash-alt"></i></button></span>'
-                newHtml +='</td>'
-                newHtml +='</tr>'
-
-                $('#table-data').append(newHtml);
             }
+            for (var m in response.order_table){
+                newHtml += '<tr>'
+                newHtml += '<td class="pt-3-half id-col">' + response.order_table[m].id + '</td>'
+                newHtml +=    '<td class="pt-3-half">' + response.order_table[m].customer_name + '</td>'
+                newHtml +=    '<td class="pt-3-half">' + response.order_table[m].ship_name + '</td>'
+                newHtml +=    '<td class="pt-3-half">' + response.order_table[m].ship_phone + '</td>'
+                newHtml += '<td class="pt-3-half">' + response.order_table[m].created_at + '</td>'
+                newHtml +='<td class="pt-3-half">' + response.order_table[m].status + '</td>'
+                newHtml +='</tr>'
+            }
+            $('#table-data').append(newHtml);
             $('#total-sale').html(numeral(sumSale).format('0,0') + ' VND');
             if(response.jsonData.length < 2){
                 $('#line_chart').html('Không đủ dữ liệu để hiển thị biểu đồ');
