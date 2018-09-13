@@ -81,7 +81,7 @@
                                                         <div class="view overlay">
                                                             <img src="{{$item->thumbnail}}"
                                                                  class="img-fluid product-thumb imgProduct" alt="">
-                                                            <a>
+                                                            <a href="/product/{{$item->id}}">
                                                                 <div class="mask rgba-white-slight"></div>
                                                             </a>
                                                         </div>
@@ -94,7 +94,7 @@
                                                         <div class="card-body">
                                                             <!--Category & Title-->
                                                             <!--Lệch do tên dài ngắn khác nhau-->
-                                                            <h6 class="card-title mb-1"><strong><a href=""
+                                                            <h6 class="card-title mb-1"><strong><a href="/product/{{$item->id}}"
                                                                                                    class="dark-grey-text">{{$item->name}}</a></strong>
                                                             </h6>
                                                             <span class="badge badge-danger mb-2"><strong>{{$item->discountPriceWithFormat}}
@@ -145,12 +145,12 @@
                                     <div class="row mt-5 py-2 mb-4 hoverable align-items-center">
 
                                         <div class="col-6">
-                                            <a><img src="{{$food->thumbnail}}" class="img-fluid imgProduct"></a>
+                                            <a href="/product/{{$food->id}}"><img src="{{$food->thumbnail}}" class="img-fluid imgProduct"></a>
                                         </div>
                                         <div class="col-6 align-items-center">
 
                                             <!-- Title -->
-                                            <a><strong>{{$food->name}}</strong></a>
+                                            <a href="/product/{{$food->id}}"><strong>{{$food->name}}</strong></a>
 
                                             <!-- Price -->
                                             <h6 class="h6-responsive font-weight-bold dark-grey-text mt-1">
@@ -182,12 +182,12 @@
                                 <!-- First row -->
                                     <div class="row mt-5 py-2 mb-4 hoverable align-items-center">
                                         <div class="col-6">
-                                            <a><img src="{{$drink->thumbnail}}" class="img-fluid imgProduct"></a>
+                                            <a href="/product/{{$drink->id}}"><img src="{{$drink->thumbnail}}" class="img-fluid imgProduct"></a>
                                         </div>
                                         <div class="col-6 align-items-center">
 
                                             <!-- Title -->
-                                            <a><strong>{{$drink->name}}</strong></a>
+                                            <a href="/product/{{$drink->id}}"><strong>{{$drink->name}}</strong></a>
 
                                             <!-- Price -->
                                             <h6 class="h6-responsive font-weight-bold dark-grey-text mt-1">
@@ -220,12 +220,12 @@
                                     <div class="row mt-5 py-2 mb-4 hoverable align-items-center">
 
                                         <div class="col-6">
-                                            <a><img src="{{$other->thumbnail}}" class="img-fluid imgProduct"></a>
+                                            <a href="/product/{{$other->id}}"><img src="{{$other->thumbnail}}" class="img-fluid imgProduct"></a>
                                         </div>
                                         <div class="col-6 align-items-center">
 
                                             <!-- Title -->
-                                            <a><strong>{{$other->name}}</strong></a>
+                                            <a href="/product/{{$other->id}}"><strong>{{$other->name}}</strong></a>
 
                                             <!-- Price -->
                                             <h6 class="h6-responsive font-weight-bold dark-grey-text mt-1">

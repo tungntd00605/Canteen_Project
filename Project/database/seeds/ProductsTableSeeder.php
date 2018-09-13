@@ -94,7 +94,7 @@ class ProductsTableSeeder extends Seeder
             ],
             [
                 'id'=>8,
-                'name'=> 'Nước ngọt chanh muối',
+                'name'=> 'Nước chanh muối',
                 'categoryId'=>2,
                 'thumbnail'=>'https://product.hstatic.net/1000074072/product/icy-chanh-mu_i-min.png',
                 'price'=>10000,
@@ -237,7 +237,7 @@ class ProductsTableSeeder extends Seeder
             ],
             [
                 'id'=>21,
-                'name'=> 'Bánh mì trứng xúc xích',
+                'name'=> 'Bánh mì xúc xích',
                 'categoryId'=>1,
                 'thumbnail'=>'https://images.foody.vn/res/g70/692135/prof/s576x330/foody-mobile-foody-xuc-xich-duc-v-150-636426500961170440.jpg',
                 'price'=>20000,
