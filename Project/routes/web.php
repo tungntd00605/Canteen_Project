@@ -32,6 +32,7 @@ Route::get('/', 'ClientPageController@showHome');
 Route::get('/category', 'ClientPageController@showCategory');
 Route::get('/product/{id}', 'ClientPageController@showProductDetail');
 Route::get('/contact', 'ClientPageController@showContact');
+Route::get('/about', 'ClientPageController@showAboutUs');
 
 Route::get('/cart', 'ShoppingCartController@showCart');
 Route::post('/api-them-gio-hang', 'ShoppingCartController@addToCartApi');
@@ -41,9 +42,5 @@ Route::post('/gui-don-hang', 'ShoppingCartController@checkoutCart');
 
 Route::delete('admin/destroy-many/product', 'ProductController@destroyMany');
 
-Route::get('/pusher', function() {
-    event(new App\Events\OrderNotifyEvent('Hi there Pusher!'));
-    return "Event has been sent!";
-});
 
 Route::get('/get-sale-api', 'DashboardController@getSaleByDate');

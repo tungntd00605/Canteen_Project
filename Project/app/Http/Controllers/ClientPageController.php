@@ -46,6 +46,10 @@ class ClientPageController extends Controller
         return view('client.contact');
     }
 
+    public function showAboutUs(){
+        return view('client.aboutus');
+    }
+
     public function showCategory(){
         $limit = 12;
         $orderOption = Input::get('order-by');
