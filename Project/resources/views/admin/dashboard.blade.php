@@ -100,9 +100,7 @@
                                 <th class="text-center">Receiver Name</th>
                                 <th class="text-center">Phone</th>
                                 <th class="text-center">Order time</th>
-                                <th class="text-center">Detail</th>
                                 <th class="text-center">Status</th>
-                                <th class="text-center">Option</th>
                             </tr>
 
                         </table>
