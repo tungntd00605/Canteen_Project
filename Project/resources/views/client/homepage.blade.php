@@ -68,7 +68,7 @@
                                 <hr class="mb-5">
                                 <!-- Grid row -->
                                 <div class="row">
-                                    @foreach ($product as $item)
+                                    @foreach ($mostBuy as $item)
                                         <div class="col-lg-4 col-md-6 mb-4 ">
                                             <!--Card-->
                                             <div class="card card-ecommerce">

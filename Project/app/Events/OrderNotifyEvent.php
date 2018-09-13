@@ -14,7 +14,7 @@ class OrderNotifyEvent implements ShouldBroadcast
 {
     use Dispatchable, InteractsWithSockets, SerializesModels;
 
-
+    public $order_id;
     public $ship_phone;
     public $customer_name;
     public $room;
@@ -28,6 +28,7 @@ class OrderNotifyEvent implements ShouldBroadcast
         $this->ship_phone = $data['ship_phone'];
         $this->customer_name = $data['customer_name'];
         $this->room = $data['room'];
+        $this->order_id = $data['order_id'];
     }
 
     /**

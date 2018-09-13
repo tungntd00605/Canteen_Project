@@ -18,13 +18,18 @@ class ClientPageController extends Controller
         $foods = Product::where('status', '!=' , 0)->where('categoryId', 1)->paginate(3);
         $drinks = Product::where('status', '!=' , 0)->where('categoryId', 2)->paginate(3);
         $others = Product::where('status', '!=' , 0)->where('categoryId', 3)->paginate(3);
+        $mostBuy = Product::where('status', '=' , 1)
+                ->join('order_details', 'products.id', '=' ,'order_details.product_id')
+                ->groupBy('product_id')
+                ->orderByRaw('SUM(quantity) DESC')->paginate($limit);
         return view('client.homepage')
             ->with([
                 'categories'=> $categories,
                 'product'=> $product,
                 'foods'=> $foods,
                 'drinks'=> $drinks,
-                'others'=> $others
+                'others'=> $others,
+                'mostBuy' => $mostBuy
             ]);
     }
 

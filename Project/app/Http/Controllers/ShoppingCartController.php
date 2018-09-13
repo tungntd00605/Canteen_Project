@@ -127,6 +127,7 @@ class ShoppingCartController extends Controller
                 $data['ship_phone'] = $ship_phone;
                 $data['customer_name'] = $customer_name;
                 $data['room'] = $ship_address;
+                $data['order_id'] = $order_id;
                 event(new OrderNotifyEvent($data));
                 // clear session cart.
                 Session::remove('cart');
