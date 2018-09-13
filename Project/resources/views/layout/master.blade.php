@@ -66,23 +66,22 @@
                 <ul class="collapsible collapsible-accordion">
                     <li><a href="/admin/"
                            class="collapsible-header waves-effect arrow-r {{$current_page == 'home_page'?'active':''}}"><i
-                                    class="fa fa-tachometer"></i> Home<i class="fa fa-angle-down rotate-icon"></i></a>
+                                    class="fa fa-tachometer"></i> Home</i></a>
                     </li>
                     <li><a href="/admin/product"
                            class="collapsible-header waves-effect arrow-r {{$current_page == 'product_page'?'active':''}}"><i
-                                    class="fa fa-photo"></i>Product<i class="fa fa-angle-down rotate-icon"></i></a>
+                                    class="fa fa-photo"></i>Product</i></a>
 
                     </li>
                     <li><a href="/admin/category"
                            class="collapsible-header waves-effect arrow-r {{$current_page == 'category_page'?'active':''}}"><i
-                                    class="fa fa-user"></i>Category<i class="fa fa-angle-down rotate-icon"></i></a>
+                                    class="fa fa-user"></i>Category</i></a>
                     </li>
                     <li><a href="/admin/order"
                            class="collapsible-header waves-effect arrow-r {{$current_page == 'order_page'?'active':''}}"><i
-                                    class="fa fa-css3"></i> Order<i class="fa fa-angle-down rotate-icon"></i></a>
+                                    class="fa fa-css3"></i> Order</i></a>
                     </li>
-                    <li><a class="collapsible-header waves-effect arrow-r"><i class="fa fa-th"></i>User<i
-                                    class="fa fa-angle-down rotate-icon"></i></a>
+                    <li><a class="collapsible-header waves-effect arrow-r"><i class="fa fa-th"></i>User</i></a>
                     </li>
                 </ul>
             </li>
@@ -260,7 +259,7 @@
 
         notifyContent += '<div>';
 
-        notifyContent += '<a class="dropdown-item" href="#">';
+        notifyContent += '<a class="dropdown-item" href="/admin/order/'+data.order_id+'">';
         notifyContent += '<div class="float-left">';
         notifyContent += '<img src="https://api.adorable.io/avatars/71/' + avatar + '.png" alt="" class="rounded-circle" alt="50x50" style="width: 70px; height: 70px;">';
         notifyContent += '</div>';
