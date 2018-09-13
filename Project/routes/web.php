@@ -23,7 +23,7 @@ Route::resource('admin/category', 'CategoryController');
 Route::resource('admin/product', 'ProductController');
 Route::get('/admin/order', 'OrderController@index');
 Route::get('/admin/order/{id}', 'OrderController@show');
-Route::get('/admin/order/change-status', 'OrderController@changeStatus');
+Route::get('/admin/order/{id}/change-status', 'OrderController@changeStatus');
 Route::delete('/admin/order/{id}', 'OrderController@destroy');
 Route::get('/admin/search/order', 'OrderController@showByDate');
 
@@ -45,3 +45,5 @@ Route::get('/pusher', function() {
     event(new App\Events\OrderNotifyEvent('Hi there Pusher!'));
     return "Event has been sent!";
 });
+
+Route::get('/get-sale-api', 'DashboardController@getSaleByDate');

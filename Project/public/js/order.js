@@ -13,7 +13,7 @@ $(document).ready(function () {
                     swal("Xác nhận đơn hàng thành công", {
                         icon: "success",
                     }).then((value)=> {
-                        window.location.href = '/admin/order/change-status?id=' + id + '&status=1';
+                        window.location.href = '/admin/order/' + id + '/change-status?status=1';
                     });
                 } else {
                 }

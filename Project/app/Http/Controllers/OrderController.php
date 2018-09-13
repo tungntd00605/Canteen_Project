@@ -48,12 +48,12 @@ class OrderController extends Controller
             'end' => $end]);
     }
 
-    public function changeStatus()
+    public function changeStatus($id)
     {
-        $id = Input::get('id');
         $status = Input::get('status');
         $order = Order::find($id);
         if ($order == null) {
+            dd($order);
             return view('error.404');
         }
         $order->status = $status;
