@@ -4,15 +4,16 @@
 @section('content')
 <!-- /.Navigation -->
 
+<link rel="stylesheet" href="{{asset('css/swiper.min.css')}}">
+
 <!-- Main Container -->
 <div class="container mt-5 pt-3">
 
     <!--Section: Product detail -->
     <section id="productDetails" class="pb-5">
-
         <!--News card-->
         <div class="card mt-5 hoverable">
-            <div class="row mt-5">
+            <div class="row mt-3 mb-3 ml-3 mr-3">
                 <div class="col-lg-6">
                     <img src="{{$obj->thumbnail}}" alt="" class="img-fluid">
                 </div>
@@ -37,6 +38,7 @@
                             </div>
                         </div>
                     <!--/.Accordion wrapper-->
+                    </div>
 
                     <!-- Add to Cart -->
                     <section class="color">
@@ -56,6 +58,47 @@
             </div>
         </div>
     </section>
+    <section class="pb-5 mb-5" style="height: 500px;">
+        <link rel="stylesheet" href="{{asset('css/productDetail.css')}}">
+        <h2>Sản phẩm liên quan</h2>
+        <div class="swiper-container">
+            <div class="swiper-wrapper">
+                @foreach($related_product as $item)
+                    <div class="swiper-slide" style="width: 300px; height: 380px;">
+                        <div class="imgBox">
+                            <img src="{{$item->thumbnail}}" alt="product-related">
+                        </div>
+                        <div class="detail">
+                            <a href="/product/{{$item->id}}">
+                                <h4 style="text-align: center;">{{$item->name}}</h4><h5 class="price_related" style="color: #d19d19">{{$item->discountPriceString}}</h5>
+                            </a>
+                        </div>
+                    </div>
+                @endforeach
+            </div>
+            <!-- Add Pagination -->
+            <div class="swiper-pagination"></div>
+        </div>
+        <script src="{{asset('js/swiper.min.js')}}"></script>
+    </section>
+    <script>
+        var swiper = new Swiper('.swiper-container', {
+            effect: 'coverflow',
+            grabCursor: true,
+            centeredSlides: true,
+            slidesPerView: 'auto',
+            coverflowEffect: {
+                rotate: 50,
+                stretch: 1,
+                depth: 100,
+                modifier: 1,
+                slideShadows: true,
+            },
+            pagination: {
+                el: '.swiper-pagination',
+            },
+        });
+    </script>
 </div>
 <!-- /.Main Container -->
 @endsection

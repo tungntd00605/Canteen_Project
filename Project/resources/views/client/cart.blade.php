@@ -116,12 +116,7 @@
                         <!-- Pills navs -->
                         <ul class="nav md-pills nav-justified pills-primary font-weight-bold">
                             <li class="nav-item">
-                                <a class="nav-link active" data-toggle="tab" href="#tabCheckoutBilling123" role="tab">1.
-                                    Billing</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" data-toggle="tab" href="#tabCheckoutPayment123" role="tab">2.
-                                    Payment</a>
+                                <a class="nav-link active" data-toggle="tab" href="#tabCheckoutBilling123" role="tab">Thanh toán</a>
                             </li>
                         </ul>
 
@@ -176,7 +171,7 @@
                                         <div class="col-md-12">
                                             <div class="md-form" style="margin-bottom: 15px">
                                                 <select class="mdb-select md-form" id="list-room">
-                                                    <option value="" disabled selected>Choose your room</option>
+                                                    <option value="" disabled selected>Chọn phòng</option>
                                                     {{-- <option value="1">Option 1</option>
                                                     <option value="2">Option 2</option>
                                                     <option value="3">Option 3</option> --}}
@@ -200,71 +195,6 @@
 
                             </div>
                             <!--/.Panel 1-->
-
-                            <!--Panel 2-->
-                            <div class="tab-pane fade" id="tabCheckoutPayment123" role="tabpanel">
-
-                                <div class="d-block my-3">
-                                    <div class="mb-2">
-                                        <input name="group2" type="radio" class="form-check-input with-gap"
-                                               id="radioWithGap4" checked required>
-                                        <label class="form-check-label" for="radioWithGap4">Credit card</label>
-                                    </div>
-                                    <div class="mb-2">
-                                        <input iname="group2" type="radio" class="form-check-input with-gap"
-                                               id="radioWithGap5" required>
-                                        <label class="form-check-label" for="radioWithGap5">Debit card</label>
-                                    </div>
-                                    <div class="mb-2">
-                                        <input name="group2" type="radio" class="form-check-input with-gap"
-                                               id="radioWithGap6" required>
-                                        <label class="form-check-label" for="radioWithGap6">Paypal</label>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-md-6 mb-3">
-                                        <label for="cc-name123">Name on card</label>
-                                        <input type="text" class="form-control" id="cc-name123" placeholder="" required>
-                                        <small class="text-muted">Full name as displayed on card</small>
-                                        <div class="invalid-feedback">
-                                            Name on card is required
-                                        </div>
-                                    </div>
-                                    <div class="col-md-6 mb-3">
-                                        <label for="cc-number123">Credit card number</label>
-                                        <input type="text" class="form-control" id="cc-number123" placeholder=""
-                                               required>
-                                        <div class="invalid-feedback">
-                                            Credit card number is required
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-md-3 mb-3">
-                                        <label for="cc-expiration123">Expiration</label>
-                                        <input type="text" class="form-control" id="cc-expiration123" placeholder=""
-                                               required>
-                                        <div class="invalid-feedback">
-                                            Expiration date required
-                                        </div>
-                                    </div>
-                                    <div class="col-md-3 mb-3">
-                                        <label for="cc-cvv123">CVV</label>
-                                        <input type="text" class="form-control" id="cc-cvv123" placeholder="" required>
-                                        <div class="invalid-feedback">
-                                            Security code required
-                                        </div>
-                                    </div>
-                                </div>
-                                <hr class="mb-4">
-
-                                <button class="btn btn-primary btn-lg btn-block ">Place
-                                    order
-                                </button>
-
-                            </div>
-                            <!--/.Panel 2-->
-
                         </div>
                         <!-- Pills panels -->
 

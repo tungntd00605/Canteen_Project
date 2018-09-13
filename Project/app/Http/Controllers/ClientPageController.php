@@ -33,7 +33,8 @@ class ClientPageController extends Controller
         if ($obj == null){
             return view('error.404');
         }
-        return view('client.productDetail')->with('obj',$obj);
+        $related_product = Product::where('categoryId', $obj->categoryId)->inRandomOrder()->limit(5)->get();
+        return view('client.productDetail')->with(['obj'=>$obj,'related_product'=>$related_product]);
     }
 
     public function showContact(){
