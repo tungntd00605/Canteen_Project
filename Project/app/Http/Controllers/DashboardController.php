@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Order;
+use Auth;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -38,4 +39,17 @@ class DashboardController extends Controller
                                 'start' => $start,
                                 'end' => $end], 200);
     }
+
+    public function __construct() {
+    	$this->middleware('auth');
+    }
+
+    public function getIndex() {
+    	return 'Đăng nhập thành công!';
+    }
+
+    public function getLogout() {
+        Auth::logout();
+        return redirect('login');
+     }
 }

@@ -117,22 +117,13 @@
                      style="width : 200%;">
                 </div>
             </li>
-            <li class="nav-item">
-                <a class="nav-link waves-effect"><i class="fa fa-envelope"></i> <span
-                            class="clearfix d-none d-sm-inline-block">Contact</span></a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link waves-effect"><i class="fa fa-comments-o"></i> <span
-                            class="clearfix d-none d-sm-inline-block">Support</span></a>
-            </li>
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle waves-effect" href="#" id="userDropdown" data-toggle="dropdown"
                    aria-haspopup="true" aria-expanded="false">
                     <i class="fa fa-user"></i> <span class="clearfix d-none d-sm-inline-block">Profile</span></a>
                 </a>
                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
-                    <a class="dropdown-item" href="#">Log Out</a>
-                    <a class="dropdown-item" href="#">My account</a>
+                    <a class="dropdown-item" href="{{url('logout')}}">Log Out</a>
                 </div>
             </li>
 
