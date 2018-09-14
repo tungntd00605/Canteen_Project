@@ -109,13 +109,13 @@
                         <i class="fab fa-facebook-f white-text"> </i>
                     </a>
                     <!--Twitter-->
-                    <a class="tw-ic px-2">
+                    <a href="https://twitter.com/CanteenFpt" class="tw-ic px-2">
                         <i class="fab fa-twitter white-text"> </i>
                     </a>
                     <!--Google +-->
-                    <a class="gplus-ic px-2">
-                        <i class="fab fa-google-plus white-text"> </i>
-                    </a>
+                    {{--<a class="gplus-ic px-2">--}}
+                        {{--<i class="fab fa-google-plus white-text"> </i>--}}
+                    {{--</a>--}}
                 </div>
                 <!--Grid column-->
 

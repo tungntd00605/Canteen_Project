@@ -66,23 +66,23 @@
                 <ul class="collapsible collapsible-accordion">
                     <li><a href="/admin/"
                            class="collapsible-header waves-effect arrow-r {{$current_page == 'home_page'?'active':''}}"><i
-                                    class="fa fa-tachometer"></i> Home</i></a>
+                                    class="fa fa-tachometer"></i> Home</a>
                     </li>
                     <li><a href="/admin/product"
                            class="collapsible-header waves-effect arrow-r {{$current_page == 'product_page'?'active':''}}"><i
-                                    class="fa fa-photo"></i>Product</i></a>
+                                    class="fa fa-photo"></i>Product</a>
 
                     </li>
                     <li><a href="/admin/category"
                            class="collapsible-header waves-effect arrow-r {{$current_page == 'category_page'?'active':''}}"><i
-                                    class="fa fa-user"></i>Category</i></a>
+                                    class="fa fa-user"></i>Category</a>
                     </li>
                     <li><a href="/admin/order"
                            class="collapsible-header waves-effect arrow-r {{$current_page == 'order_page'?'active':''}}"><i
-                                    class="fa fa-css3"></i> Order</i></a>
+                                    class="fa fa-css3"></i> Order</a>
                     </li>
-                    <li><a class="collapsible-header waves-effect arrow-r"><i class="fa fa-th"></i>User</i></a>
-                    </li>
+                    {{--<li><a class="collapsible-header waves-effect arrow-r"><i class="fa fa-th"></i>User</a>--}}
+                    {{--</li>--}}
                 </ul>
             </li>
             <!--/. Side navigation links -->

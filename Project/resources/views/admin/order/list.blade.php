@@ -26,6 +26,7 @@
                             <th class="text-center">Phone</th>
                             <th class="text-center">Order time</th>
                             <th class="text-center">Detail</th>
+                            <th class="text-center">Total Price</th>
                             <th class="text-center">Status</th>
                             <th class="text-center">Option</th>
                         </tr>
@@ -43,8 +44,9 @@
                                         @endforeach
                                     </ul>
                                 </td>
-                                <td class="pt-3-half">{{$item->statusLabel}}</td>
-                                <td>
+                                <td class="pt-3-half">{{$item->getTotalMoneyString()}}</td>
+                                <td class="pt-3-half status-col">{{$item->statusLabel}}</td>
+                                <td class="option-col">
                                     @if($item->status==0)
                                         <span
                                                 class="table-confirm" id="order-{{$item->id}}"
@@ -61,7 +63,7 @@
                                                         class="fas fa-check-double"></i></button>
                                         </span>
                                     @endif
-                                    @if($item->status!=-1)
+                                    @if($item->status!=-1 && $item->status!=2)
                                         <span class="table-remove"><button type="button"
                                                                            class="btn-floating btn-sm btn-danger btn-delete"><i
                                                         class="far fa-trash-alt"></i></button></span>
@@ -71,7 +73,7 @@
                         @endforeach
                     </table>
                     <div class="float-right">
-                        {{ $list_obj->links() }}
+                        {{ $list_obj->appends(request()->input())->links() }}
                     </div>
                 @else
                     <div class="text-center">Hiện không có đơn hàng nào để hiển thị</div>

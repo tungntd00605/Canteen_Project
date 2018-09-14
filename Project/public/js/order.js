@@ -34,7 +34,7 @@ $(document).ready(function () {
                     swal("Đơn hàng đã được hoàn thành", {
                         icon: "success",
                     }).then((value)=> {
-                        window.location.href = '/admin/order/change-status?id=' + id + '&status=2';
+                        window.location.href = '/admin/order/' + id + '/change-status?id=&status=2';
                     });
                 } else {
                 }
@@ -60,7 +60,8 @@ $(document).ready(function () {
                     },
                     success: function (response) {
                         swal("Thành công!", "Đơn hàng đã bị hủy!", "success");
-                        thisButton.closest('tr').remove();
+                        thisButton.closest('tr').children('.status-col').html('Đã hủy');
+                        thisButton.closest('tr').children('.option-col').html('');
                     },
                     error: function () {
                         swal("Có lỗi xảy ra!", "Vui lòng thử lại sau", "error");

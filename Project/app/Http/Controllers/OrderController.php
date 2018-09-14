@@ -52,14 +52,20 @@ class OrderController extends Controller
     public function changeStatus($id)
     {
         $status = Input::get('status');
+        if($status != 1 & $status != 2){
+            return response()->json(['message' => 'Trạng thái bạn đang muốn chuyển không hợp lệ'], '400');
+        }
         $order = Order::find($id);
+        if($order->status == -1 || $order->status == 2){
+            return response()->json(['message' => 'Bạn không thể chuyển trạng thái của đơn hàng đã hủy hoặc đã hoàn thành'], '400');
+        }
         if ($order == null) {
             dd($order);
             return view('error.404');
         }
         $order->status = $status;
         if($status == 1){
-            event(new ClientNotifyEvent('Đơn hàng của bạn đang được xử lý, nhân viên cửa hàng sẽ liên hệ với bạn ngay'));
+            event(new ClientNotifyEvent('Đơn hàng của bạn đang được xử lý'));
         }
         $order->save();
         return redirect()->back();
@@ -71,6 +77,9 @@ class OrderController extends Controller
         if ($obj == null) {
             return response()->json(['message' => 'Đơn hàng không tồn tại hoặc đã bị xoá!',
                 'message-class' => 'alert alert-danger'], 404);
+        }
+        if($obj->status == 2){
+            return response()->json(['message' => 'Bạn không thể chuyển trạng thái của đơn hàng đã hoàn thành'], '400');
         }
         $obj->status = -1;
         $obj->save();

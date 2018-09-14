@@ -26,9 +26,9 @@ class DashboardController extends Controller
         if($start == null || $end == null){
             return 'Không điền đủ thông tin ngày tháng cần tìm';
         }
-        $list_order = Order::select(DB::Raw('DATE(created_at) as day'), DB::raw('SUM(total_price) as total'))
+        $list_order = Order::select(DB::Raw('DATE(created_at) as day'), DB::raw('SUM(total_price) as total'))->where('status', 2)
             ->whereBetween('created_at', [$startparse, $endparse])->groupBy('day')->orderBy('day', 'asc')->get();
-        $order_table = Order::whereBetween('created_at', [$startparse, $endparse])->orderBy('created_at', 'asc')->get();
+        $order_table = Order::where('status', 2)->whereBetween('created_at', [$startparse, $endparse])->orderBy('created_at', 'asc')->get();
         if($list_order == null) {
             return view('error.404');
         }

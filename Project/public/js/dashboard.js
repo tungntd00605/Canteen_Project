@@ -81,12 +81,13 @@ function cb(start, end) {
                 newHtml +=    '<td class="pt-3-half">' + response.order_table[m].ship_name + '</td>'
                 newHtml +=    '<td class="pt-3-half">' + response.order_table[m].ship_phone + '</td>'
                 newHtml += '<td class="pt-3-half">' + response.order_table[m].created_at + '</td>'
-                newHtml +='<td class="pt-3-half">' + response.order_table[m].status + '</td>'
+                newHtml +='<td class="pt-3-half">' + numeral(response.order_table[m].total_price).format('0,0') + ' VND</td>'
                 newHtml +='</tr>'
             }
             $('#table-data').append(newHtml);
             $('#total-sale').html(numeral(sumSale).format('0,0') + ' VND');
             if(response.jsonData.length < 2){
+                swal("Lỗi biểu đồ", "Không đủ dữ liệu để hiển thị biểu đồ", "error");
                 $('#line_chart').html('Không đủ dữ liệu để hiển thị biểu đồ');
             }else {
                 drawChart(response.jsonData);

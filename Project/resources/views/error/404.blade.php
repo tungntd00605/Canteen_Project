@@ -1,5 +1,5 @@
-@extends('layout.master',['page_title' => 'Trang 404 | FPT Canteen',
-                        'current_page' => 'category_manager'])
+@extends('layout.client',['page_title' => 'Trang 404 | FPT Canteen',
+                        'current_page' => 'Error 404'])
 @section('content')
     <head>
         <link href="{{asset('css/404.css')}}" rel="stylesheet" type="text/css" media="all">
@@ -15,7 +15,7 @@
             <h2>404</h2>
             <p>An error Occurred in the Application And Your Page could not be Served.</p>
 
-            <a href="#" onclick="history.go(-1)">Go Back</a>
+            <a href="#" style="font-size: 16px;" onclick="history.go(-1)">Go Back</a>
         </div>
 
     </div>

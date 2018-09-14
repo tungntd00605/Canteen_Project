@@ -35,7 +35,7 @@
                                    href="/category">Tất cả</a>
                                 @foreach($list_category as $item)
                                     <a class="nav-link text-left {{$choosed_category == $item->id?'active':''}}"
-                                       href="/category?categoryId={{$item->id}}">{{$item->name}}</a>
+                                       href="/category?categoryId={{$item->id}}{{$order_option != null ? '&order-by='.$order_option : ''}}">{{$item->name}}</a>
                                 @endforeach
                             </nav>
                             <!--/. Side navigation links -->

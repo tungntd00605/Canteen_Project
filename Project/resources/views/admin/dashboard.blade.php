@@ -29,7 +29,7 @@
                             </p>
                             <div class="d-flex justify-content-between">
                                 <p class="display-4 align-self-end" id="total-sale">0 VND</p>
-                                <p class="align-self-end pb-2">0%</p>
+                                {{--<p class="align-self-end pb-2">0%</p>--}}
                             </div>
 
                         </div>
@@ -41,14 +41,14 @@
                             <ul class="nav tabs-light-blue nav-fill" role="tablist">
                                 <li class="nav-item ml-0">
                                     <a class="nav-link waves-light active" data-toggle="tab" href="#panel1001"
-                                       role="tab">Profile</a>
+                                       role="tab">Sale chart</a>
                                 </li>
-                                <li class="nav-item">
-                                    <a class="nav-link waves-light" data-toggle="tab" href="#panel1002" role="tab">Follow</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link waves-light" data-toggle="tab" href="#panel1003" role="tab">Contact</a>
-                                </li>
+                                {{--<li class="nav-item">--}}
+                                    {{--<a class="nav-link waves-light" data-toggle="tab" href="#panel1002" role="tab">Follow</a>--}}
+                                {{--</li>--}}
+                                {{--<li class="nav-item">--}}
+                                    {{--<a class="nav-link waves-light" data-toggle="tab" href="#panel1003" role="tab">Contact</a>--}}
+                                {{--</li>--}}
                             </ul>
 
                             <div class="tab-content rounded-bottom">
@@ -59,26 +59,26 @@
                                 </div>
                                 <!--/.Panel 1-->
                                 <!--Panel 2-->
-                                <div class="tab-pane fade" id="panel1002" role="tabpanel">
-                                    <p align="justify" class="font-small text-muted mx-1">Lorem ipsum dolor sit amet,
-                                        consectetur adipisicing elit. Nihil odit magnam minima, soluta doloribus
-                                        reiciendis molestiae placeat unde eos molestias. Quisquam aperiam, pariatur.
-                                        Tempora, placeat ratione porro voluptate odit minima.</p>
-                                    <p align="justify" class="font-small text-muted mx-1">Lorem ipsum dolor sit amet,
-                                        consectetur adipisicing elit. Nihil odit magnam minima, soluta doloribus
-                                        reiciendis molestiae placeat unde eos molestias. Quisquam aperiam, pariatur.
-                                        Tempora, placeat ratione porro voluptate odit minima.</p>
-                                </div>
+                                {{--<div class="tab-pane fade" id="panel1002" role="tabpanel">--}}
+                                    {{--<p align="justify" class="font-small text-muted mx-1">Lorem ipsum dolor sit amet,--}}
+                                        {{--consectetur adipisicing elit. Nihil odit magnam minima, soluta doloribus--}}
+                                        {{--reiciendis molestiae placeat unde eos molestias. Quisquam aperiam, pariatur.--}}
+                                        {{--Tempora, placeat ratione porro voluptate odit minima.</p>--}}
+                                    {{--<p align="justify" class="font-small text-muted mx-1">Lorem ipsum dolor sit amet,--}}
+                                        {{--consectetur adipisicing elit. Nihil odit magnam minima, soluta doloribus--}}
+                                        {{--reiciendis molestiae placeat unde eos molestias. Quisquam aperiam, pariatur.--}}
+                                        {{--Tempora, placeat ratione porro voluptate odit minima.</p>--}}
+                                {{--</div>--}}
                                 <!--/.Panel 2-->
                                 <!--Panel 3-->
-                                <div class="tab-pane fade" id="panel1003" role="tabpanel">
-                                    <img class="img-fluid z-depth-1 rounded mb-3" alt="sample image"
-                                         src="https://mdbootstrap.com/img/Photos/Others/intro1.jpg">
-                                    <p align="justify" class="font-small text-muted mx-1">Lorem ipsum dolor sit amet,
-                                        consectetur adipisicing elit. Nihil odit magnam minima, soluta doloribus
-                                        reiciendis molestiae placeat unde eos molestias. Quisquam aperiam, pariatur.
-                                        Tempora, placeat ratione porro voluptate odit minima at ipsum sit amet.</p>
-                                </div>
+                                {{--<div class="tab-pane fade" id="panel1003" role="tabpanel">--}}
+                                    {{--<img class="img-fluid z-depth-1 rounded mb-3" alt="sample image"--}}
+                                         {{--src="https://mdbootstrap.com/img/Photos/Others/intro1.jpg">--}}
+                                    {{--<p align="justify" class="font-small text-muted mx-1">Lorem ipsum dolor sit amet,--}}
+                                        {{--consectetur adipisicing elit. Nihil odit magnam minima, soluta doloribus--}}
+                                        {{--reiciendis molestiae placeat unde eos molestias. Quisquam aperiam, pariatur.--}}
+                                        {{--Tempora, placeat ratione porro voluptate odit minima at ipsum sit amet.</p>--}}
+                                {{--</div>--}}
                                 <!--/.Panel 3-->
                             </div>
 
@@ -100,7 +100,7 @@
                                 <th class="text-center">Receiver Name</th>
                                 <th class="text-center">Phone</th>
                                 <th class="text-center">Order time</th>
-                                <th class="text-center">Status</th>
+                                <th class="text-center">Total Price</th>
                             </tr>
 
                         </table>

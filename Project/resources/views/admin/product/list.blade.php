@@ -100,7 +100,7 @@
                         </div>
                         <div class="col-md-4">
                             <div class="float-right ml-5">
-                                {{ $list_obj->links() }}
+                                {{ $list_obj->appends(request()->input())->links() }}
                             </div>
                         </div>
                     </div>

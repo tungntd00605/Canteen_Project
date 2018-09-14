@@ -13,6 +13,11 @@ class Order extends Model
     }
     // Hàm để cho ra trạng thái của order bằng chữ thay vì bằng số  và gọi bằng $order->statusLabel
     //(với $order là một đối tượng Order)
+
+    function getTotalMoneyString(){
+        return sprintf('%s VND', number_format($this->total_price, 0));
+    }
+
     public function getStatusLabelAttribute()
     {
         switch ($this->status) {

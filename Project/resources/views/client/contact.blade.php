@@ -123,15 +123,15 @@
                                                 <hr class="hr-light my-4">
                                                 <ul class="list-inline text-center list-unstyled">
                                                     <li class="list-inline-item">
-                                                        <a class="p-2 fa-lg tw-ic">
+                                                        <a href="https://twitter.com/CanteenFpt" class="p-2 fa-lg tw-ic">
                                                             <i class="fab fa-twitter"></i>
                                                         </a>
                                                     </li>
-                                                    <li class="list-inline-item">
-                                                        <a class="p-2 fa-lg li-ic">
-                                                            <i class="fab fa-google-plus"> </i>
-                                                        </a>
-                                                    </li>
+                                                    {{--<li class="list-inline-item">--}}
+                                                        {{--<a class="p-2 fa-lg li-ic">--}}
+                                                            {{--<i class="fab fa-google-plus"> </i>--}}
+                                                        {{--</a>--}}
+                                                    {{--</li>--}}
                                                     <li class="list-inline-item">
                                                         <a class="p-2 fa-lg ins-ic">
                                                             <i class="fab fa-facebook-f"> </i>
