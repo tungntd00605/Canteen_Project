@@ -7,7 +7,7 @@
     <div class="card">
         <h3 class="card-header text-center font-weight-bold text-uppercase py-4">Order table</h3>
         <div class="card-body">
-            <div id="table" class="table-editable">
+            <div id="table" class="table-editable table-responsive">
                 @if (Session::has('message'))
                     <div class="alert {{ Session::get('message-class') }}">{{ Session::get('message') }}</div>
                 @endif

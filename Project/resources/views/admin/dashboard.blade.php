@@ -28,8 +28,8 @@
                                     <span></span></button>
                             </p>
                             <div class="d-flex justify-content-between">
-                                <p class="display-4 align-self-end" id="total-sale">0 VND</p>
-                                {{--<p class="align-self-end pb-2">0%</p>--}}
+                                <p class="display-4 align-self-end" id="total-sale">Revenue: 0 VND</p>
+                                <p class="align-self-end pb-2" style="font-size: 22px;" id="order-number">Order: </p>
                             </div>
 
                         </div>
@@ -92,7 +92,7 @@
 
                 <!--Card content-->
                 <div class="card-body blue-panel text-center">
-                    <div class="table-editable">
+                    <div class="table-editable table-responsive">
                         <table id="table-data" class="table table-bordered table-responsive-md table-striped text-center">
                             <tr>
                                 <th class="text-center id-col">ID</th>

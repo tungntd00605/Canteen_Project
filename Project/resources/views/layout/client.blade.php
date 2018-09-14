@@ -214,7 +214,7 @@
             </div>
             <!--Body-->
             <div class="modal-body" id="style-4">
-                <table class="table table-hover" >
+                <table class="table table-responsive table-hover" >
                     <thead>
                     <tr>
                         <th>Ảnh</th>

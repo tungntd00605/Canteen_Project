@@ -7,7 +7,7 @@
     <div class="card">
         <h3 class="card-header text-center font-weight-bold text-uppercase py-4">Product table</h3>
         <div class="card-body">
-            <div id="table" class="table-editable" style="position: relative">
+            <div id="table" class="table-editable table-responsive" style="position: relative">
                 @if (Session::has('message'))
                     <div class="alert {{ Session::get('message-class') }}">{{ Session::get('message') }}</div>
                 @endif
@@ -26,14 +26,14 @@
                     </div>
                     <div class="col-md-7">
                         <select class="mdb-select colorful-select dropdown-primary" name="categoryId">
-                            <option value="" choosed>Choose category</option>
+                            <option value="" choosed>Tất cả</option>
                             @foreach ($list_category as $item)
                                 <option value="{{$item->id}}" {{$item->id==$choosedCategory?'selected':''}}>{{$item->name}}</option>
                             @endforeach
                         </select>
                     </div>
                     <div class="col-md-4">
-                        <span class="table-add float-right mt-3 mr-2">
+                        <span class="table-add float-right mt-3 mr-2" title="Thêm mới sản phấm">
                             <a href="/admin/product/create" class="text-success">
                                 <i class="fa fa-plus fa-2x" aria-hidden="true"></i>
                             </a>
@@ -72,12 +72,12 @@
                                 <td class="pt-3-half">{{$item->description}}</td>
                                 <td class="pt-3-half">{{$item->statusLabel}}</td>
                                 <td>
-                                    <a href="/admin/product/{{$item->id}}/edit" class="table-edit">
+                                    <a title="Sửa thông tin sản phẩm" href="/admin/product/{{$item->id}}/edit" class="table-edit">
                                         <button type="button"
                                                 class="btn-floating btn-sm btn-info btn-edit"><i
                                                     class="far fa-edit"></i></button>
                                     </a>
-                                    <span class="table-remove"><button type="button"
+                                    <span class="table-remove" title="Xóa sản phấm"><button type="button"
                                                                        class="btn-floating btn-sm btn-danger btn-delete"><i
                                                     class="far fa-trash-alt"></i></button></span>
                                 </td>

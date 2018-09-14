@@ -85,7 +85,8 @@ function cb(start, end) {
                 newHtml +='</tr>'
             }
             $('#table-data').append(newHtml);
-            $('#total-sale').html(numeral(sumSale).format('0,0') + ' VND');
+            $('#total-sale').html('Revenue: ' + numeral(sumSale).format('0,0') + ' VND');
+            $('#order-number').html('Order: ' + response.order_table.length);
             if(response.jsonData.length < 2){
                 swal("Lỗi biểu đồ", "Không đủ dữ liệu để hiển thị biểu đồ", "error");
                 $('#line_chart').html('Không đủ dữ liệu để hiển thị biểu đồ');

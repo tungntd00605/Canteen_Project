@@ -7,7 +7,7 @@
     <div class="card">
         <h3 class="card-header text-center font-weight-bold text-uppercase py-4">Category table</h3>
         <div class="card-body">
-            <div id="table" class="table-editable">
+            <div id="table" class="table-editable table-responsive">
                 @if (Session::has('message'))
                     <div class="alert {{ Session::get('message-class') }}">{{ Session::get('message') }}</div>
                 @endif
@@ -55,18 +55,18 @@
                                     <img src="{{$item->thumbnail}}" alt="" height="120px" width="180px">
                                 </td>
                                 <td>
-                                    <a title="Show list product" href="/admin/category/{{$item->id}}" class="table-edit">
+                                    <a title="Xem các sản phẩm trong danh mục" href="/admin/category/{{$item->id}}" class="table-edit">
                                         <button  type="button" class="btn-floating btn-sm secondary-color btn-detail">
                                             <i class="fas fa-list-ol"></i>
                                         </button>
                                     </a>
-                                    <a title="Edit category info" href="/admin/category/{{$item->id}}/edit" class="table-edit">
+                                    <a title="Sửa thông tin danh mục" href="/admin/category/{{$item->id}}/edit" class="table-edit">
                                         <button  type="button" class="btn-floating btn-sm btn-info btn-edit">
                                             <i class="far fa-edit">
                                             </i>
                                         </button>
                                     </a>
-                                    <span title="Delete category" class="table-remove"><button type="button"   class="btn-floating btn-sm btn-danger btn-delete">
+                                    <span title="Xóa danh mục" class="table-remove"><button type="button"   class="btn-floating btn-sm btn-danger btn-delete">
                                             <i class="far fa-trash-alt"></i>
                                         </button>
                                     </span>
