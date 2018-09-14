@@ -12,7 +12,7 @@ $(document).ready(function () {
                     'customer_name': $('input[name="customer_name"]').val(),
                     'ship_name': $('input[name="ship_name"]').val(),
                     'ship_phone': $('input[name="ship_phone"]').val(),
-                    'ship_address': $('#list-room').find(":selected").text(),
+                    'ship_address': $('#list-room').find(":selected").val(),
                     'message': $('textarea[name="message"]').val(),
                     '_token': $('meta[name="csrf-token"]').attr('content')
                 },
@@ -30,10 +30,9 @@ $(document).ready(function () {
                     $.each(errors.errors, function( key, value ) {
                         errorsHtml += '<li class="text-danger">' + value[0] + '</li>';
                     });
-                    console.log(errorsHtml);
                     $('#validate-msg ul').html(errorsHtml);
 
-                    swal("Có lỗi xảy ra!", "Vui lòng thử lại sau", "error").
+                    swal("Thông tin không hợp lệ", "Vui lòng sửa lại các lỗi xảy ra và thử lại", "error").
                     then((value) => {
                     });
                     button.prop('disabled', false);

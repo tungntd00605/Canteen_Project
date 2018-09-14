@@ -74,6 +74,9 @@
                     <li class="nav-item">
                         <a class="nav-link waves-effect waves-light dark-grey-text font-weight-bold" href="/contact"><i class="fa fa-envelope blue-text"></i> Liên hệ<span class="sr-only">(current)</span></a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link waves-effect waves-light dark-grey-text font-weight-bold" href="/about"><i class="fa fa-info blue-text"></i> About Us<span class="sr-only">(current)</span></a>
+                    </li>
 
                 </ul>
             </div>
@@ -247,7 +250,7 @@
             <div class="modal-footer">
                 <button type="button" class="btn btn-grey btn-rounded btn-sm" data-dismiss="modal">Đóng</button>
                 <a href="/cart">
-                    <button type="button" class="btn btn-rounded btn-sm btn-cart">Thanh toán</button>
+                    <button type="button" class="btn btn-rounded btn-sm btn-cart">Gửi đơn hàng</button>
                 </a>
             </div>
         </div>
@@ -280,6 +283,43 @@
     $(window).on('load',function () {
         $('.loader').addClass('complete');
     })
+</script>
+
+
+<script src="https://js.pusher.com/3.1/pusher.min.js"></script>
+<script>
+    //instantiate a Pusher object with our Credential's key
+    var pusher = new Pusher('{{env('PUSHER_APP_KEY')}}', {
+        cluster: 'ap1',
+        encrypted: true
+    });
+
+    //Subscribe to the channel we specified in our Laravel Event
+    var channel = pusher.subscribe('canteen');
+
+    //Bind a function to a Event (the full Laravel class)
+    channel.bind('App\\Events\\ClientNotifyEvent', addMessage);
+
+    function addMessage(data) {
+        toastr.options = {
+            "closeButton": false,
+            "debug": false,
+            "newestOnTop": false,
+            "progressBar": false,
+            "positionClass": "toast-bottom-right",
+            "preventDuplicates": false,
+            "onclick": null,
+            "showDuration": 300,
+            "hideDuration": 1000,
+            "timeOut": 5000,
+            "extendedTimeOut": 1000,
+            "showEasing": "swing",
+            "hideEasing": "linear",
+            "showMethod": "fadeIn",
+            "hideMethod": "fadeOut"
+        }
+        toastr["success"](data.message);
+    }
 </script>
 
 </body>

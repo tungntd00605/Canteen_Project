@@ -116,7 +116,7 @@
                         <!-- Pills navs -->
                         <ul class="nav md-pills nav-justified pills-primary font-weight-bold">
                             <li class="nav-item">
-                                <a class="nav-link active" data-toggle="tab" href="#tabCheckoutBilling123" role="tab">Thanh toán</a>
+                                <a class="nav-link active" data-toggle="tab" href="#tabCheckoutBilling123" role="tab">Thông tin đơn hàng</a>
                             </li>
                         </ul>
 

@@ -115,7 +115,7 @@
                     <!--Grid row-->
                     <div class="row justify-content-center mb-4" id="stopSticky">
 
-                        {{$list_product->links()}}
+                        {{$list_product-> appends(request()->input()) ->links()}}
 
                     </div>
                     <!--Grid row-->

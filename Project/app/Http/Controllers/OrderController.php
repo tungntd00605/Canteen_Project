@@ -7,6 +7,7 @@ use Carbon\Carbon;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Input;
+use App\Events\ClientNotifyEvent;
 
 class OrderController extends Controller
 {
@@ -57,8 +58,11 @@ class OrderController extends Controller
             return view('error.404');
         }
         $order->status = $status;
+        if($status == 1){
+            event(new ClientNotifyEvent('Đơn hàng của bạn đang được xử lý, nhân viên cửa hàng sẽ liên hệ với bạn ngay'));
+        }
         $order->save();
-        return redirect('/admin/order');
+        return redirect()->back();
     }
 
     public function destroy($id)
