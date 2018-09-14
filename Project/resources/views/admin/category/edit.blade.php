@@ -3,6 +3,13 @@
     'current_page'=>'category_page',
 ])
 @section('content')
+    <style>
+        /*p { display: none; }*/
+        .invalid { border-color: red; }
+        #errorUser,#errorDescription { color: red }
+        .succes{border-color: blue}
+    </style>
+    <link rel="stylesheet" href="{{asset('css/style.css')}}">
     <section class="section card mb-5">
 
         <div class="card-body">
@@ -27,8 +34,9 @@
                         <!--Grid column-->
                         <div class="col-md-6 mb-4">
                             <div class="md-form">
-                                <input type="text" name="name" class="form-control" value="{{$obj->name}}">
+                                <input type="text" name="name" class="form-control" value="{{$obj->name}}" id="name">
                                 <label class="">Name </label>
+                                <span id="errorUser" class="font-small"></span>
                             </div>
                         </div>
                         <!--Grid column-->
@@ -41,8 +49,9 @@
                         <!--Grid column-->
                         <div class="col-md-6 mb-4">
                             <div class="md-form">
-                                <textarea type="text" id="description" name="description" class="md-textarea form-control" rows="2">{{$obj->description}}</textarea>
+                                <textarea type="text" name="description" class="md-textarea form-control" rows="2">{{$obj->description}}</textarea>
                                 <label for="description">Description</label>
+                                <span id="errorDescription" class="font-small"></span>
                             </div>
                         </div>
                         <!--Grid column-->
@@ -108,5 +117,35 @@
                 reader.readAsDataURL(input.files[0]);
             }
         }
+
+    </script>
+    <script>
+        $(document).ready(function () {
+            $('input[name = "name"]').focusout(function(){
+                if ($('input[name = "name"]').val() == null || $('input[name = "name"]').val().length == 0){
+                    $('input[name = "name"]').addClass('error');
+                    $('#errorUser').text("Không được để trống phần User");
+                }else if ($('input[name = "name"]').val().length >= 20) {
+                    $('input[name = "name"]').addClass('error');
+                    $('#errorUser').text("User không được để quá 20 kí tự");
+                } else {
+                    $('input[name = "name"]').removeClass('error');
+                    $('#errorUser').text("");
+                }
+            });
+
+            $('textarea[name = "description"]').focusout(function(){
+                if ($('textarea[name = "description"]').val() == null || $('textarea[name = "description"]').val().length == 0){
+                    $('textarea[name = "description"]').addClass('error');
+                    $('#errorDescription').text("Không được để trống phần Description");
+                }else if ($('textarea[name = "description"]').val().length >= 300) {
+                    $('textarea[name = "description"]').addClass('error');
+                    $('#errorDescription').text("Description không được để quá 300 kí tự");
+                } else {
+                    $('textarea[name = "description"]').removeClass('error');
+                    $('#errorDescription').text("");
+                }
+            });
+        })
     </script>
 @endsection

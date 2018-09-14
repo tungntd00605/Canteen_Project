@@ -3,6 +3,13 @@
     'current_page'=>'product_page',
 ])
 @section('content')
+    <style>
+        /*p { display: none; }*/
+        .invalid { border-color: red; }
+        #errorUser,#errorPrice,#errorDiscount,#errorDescription { color: red }
+        .succes{border-color: blue}
+    </style>
+    <link rel="stylesheet" href="{{asset('css/style.css')}}">
     <section class="section card mb-5">
 
         <div class="card-body">
@@ -28,6 +35,7 @@
                             <div class="md-form">
                                 <input type="text" name="name" class="form-control">
                                 <label class="">Name </label>
+                                <span id="errorUser" class="font-small"></span>
                             </div>
                         </div>
                         <!--Grid column-->
@@ -57,6 +65,7 @@
                             <div class="md-form">
                                 <input type="text" name="price" class="form-control">
                                 <label class="">Price </label>
+                                <span id="errorPrice" class="font-small"></span>
                             </div>
                         </div>
                         <!--Grid column-->
@@ -70,6 +79,7 @@
                             <div class="md-form">
                                 <input type="text" name="discount" class="form-control" value="0">
                                 <label class="">Discount </label>
+                                <span id="errorDiscount" class="font-small" ></span>
                             </div>
                         </div>
                         <!--Grid column-->
@@ -82,8 +92,9 @@
                         <!--Grid column-->
                         <div class="col-md-6 mb-4">
                             <div class="md-form">
-                                <textarea type="text" id="description" name="description" class="md-textarea form-control" rows="2"></textarea>
+                                <textarea type="text" name="description" class="md-textarea form-control" rows="2"></textarea>
                                 <label for="description">Description</label>
+                                <span id="errorDescription"class="font-small" ></span>
                             </div>
                         </div>
                         <!--Grid column-->
@@ -147,5 +158,131 @@
                 reader.readAsDataURL(input.files[0]);
             }
         }
+    </script>
+    <script>
+        $(document).ready(function () {
+            $('input[name = "name"]').focusout(function(){
+                if ($('input[name = "name"]').val() == null || $('input[name = "name"]').val().length == 0){
+                    $('input[name = "name"]').addClass('error');
+                    $('#errorUser').text("Không được để trống phần User");
+                }else if ($('input[name = "name"]').val().length >= 20) {
+                    $('input[name = "name"]').addClass('error');
+                    $('#errorUser').text("User không được để quá 20 kí tự");
+                } else {
+                    $('input[name = "name"]').removeClass('error');
+                    $('#errorUser').text("");
+                }
+            });
+
+            $('input[name = "price"]').focusout(function(){
+                if ($('input[name = "price"]').val() == null || $('input[name = "price"]').val().length == 0){
+                    $('input[name = "price"]').addClass('error');
+                    $('#errorPrice').text("Không được để trống phần Price");
+                }else if ($('input[name = "price"]').val().length >= 20) {
+                    $('input[name = "price"]').addClass('error');
+                    $('#errorPrice').text("Price không được để quá 20 kí tự");
+                } else {
+                    $('input[name = "price"]').removeClass('error');
+                    $('#errorPrice').text("");
+                }
+            });
+
+            $('input[name = "discount"]').focusout(function(){
+                if ($('input[name = "discount"]').val() == null || $('input[name = "discount"]').val().length == 0){
+                    $('input[name = "discount"]').addClass('error');
+                    $('#errorDiscount').text("Không được để trống phần Discount");
+                }else if ($('input[name = "discount"]').val().length >= 20) {
+                    $('input[name = "discount"]').addClass('error');
+                    $('#errorDiscount').text("Discount không được để quá 20 kí tự");
+                } else {
+                    $('input[name = "discount"]').removeClass('error');
+                    $('#errorDiscount').text("");
+                }
+            });
+
+            $('textarea[name = "description"]').focusout(function(){
+                if ($('textarea[name = "description"]').val() == null || $('textarea[name = "description"]').val().length == 0){
+                    $('textarea[name = "description"]').addClass('error');
+                    $('#errorDescription').text("Không được để trống phần Description");
+                }else if ($('textarea[name = "description"]').val().length >= 300) {
+                    $('textarea[name = "description"]').addClass('error');
+                    $('#errorDescription').text("Description không được để quá 300 kí tự");
+                } else {
+                    $('textarea[name = "description"]').removeClass('error');
+                    $('#errorDescription').text("");
+                }
+            });
+        })
+    </script>
+    <script type="text/javascript">
+        /*window.onload = function () {
+            validationform();
+        }
+
+        function validationform() {
+            var inputUser = document.forms['form-validation']['name'];
+            inputUser.onblur = function() {
+                if (inputUser.value = ''){
+                    inputUser.classList.add('invalid');
+                    document.getElementById('errorUser').innerHTML = 'Vui lòng không để trống Name.';
+                }
+            };
+
+            inputUser.onfocus = function() {
+                if (this.classList.contains('invalid')) {
+                    // remove the "error" indication, because the user wants to re-enter something
+                    this.classList.remove('invalid');
+                    document.getElementById('errorUser').innerHTML ='';
+                }
+            }
+
+            var inputPrice = document.forms['form-validation']['price'];
+            inputPrice.onblur = function() {
+                if (inputPrice.value = ''){
+                    inputPrice.classList.add('invalid');
+                    document.getElementById('errorPrice').innerHTML = 'Vui lòng không để trống Price.';
+                }
+            };
+
+            inputPrice.onfocus = function() {
+                if (this.classList.contains('invalid')) {
+                    // remove the "error" indication, because the user wants to re-enter something
+                    this.classList.remove('invalid');
+                    document.getElementById('errorPrice').innerHTML ='';
+                }
+            }
+
+            var inputDiscount = document.forms['form-validation']['discount'];
+            inputDiscount.onblur = function() {
+                if (inputDiscount.value = ''){
+                    inputDiscount.classList.add('invalid');
+                    document.getElementById('errorDiscount').innerHTML = 'Vui lòng không để trống Discount.';
+                }
+            };
+
+            inputDiscount.onfocus = function() {
+                if (this.classList.contains('invalid')) {
+                    // remove the "error" indication, because the user wants to re-enter something
+                    this.classList.remove('invalid');
+                    document.getElementById('errorDiscount').innerHTML ='';
+                }
+            }
+
+            var inputDescription = document.forms['form-validation']['description'];
+            inputDescription.onblur = function() {
+                if (inputDescription.value = ''){
+                    inputDescription.classList.add('invalid');
+                    document.getElementById('errorDescription').innerHTML = 'Vui lòng không để trống Description.';
+                }
+            };
+
+            inputDescription.onfocus = function() {
+                if (this.classList.contains('invalid')) {
+                    // remove the "error" indication, because the user wants to re-enter something
+                    this.classList.remove('invalid');
+                    document.getElementById('errorDescription').innerHTML ='';
+                }
+            }
+        }*/
     </script>
 @endsection
