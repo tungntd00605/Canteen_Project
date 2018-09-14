@@ -72,7 +72,7 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link waves-effect waves-light dark-grey-text font-weight-bold" href="/contact"><i class="fa fa-envelope blue-text"></i> Liên hệ<span class="sr-only">(current)</span></a>
+                        <a class="nav-link waves-effect waves-light dark-grey-text font-weight-bold" href="https://docs.google.com/forms/d/e/1FAIpQLSdpFS3-vzXin5pe_CDGU2PKHHZ7blolkIyuFs_67CaIEV975w/viewform?usp=sf_link"><i class="fa fa-envelope blue-text"></i> Liên hệ<span class="sr-only">(current)</span></a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link waves-effect waves-light dark-grey-text font-weight-bold" href="/about"><i class="fa fa-info blue-text"></i> About Us<span class="sr-only">(current)</span></a>

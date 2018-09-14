@@ -18,6 +18,7 @@ class OrderNotifyEvent implements ShouldBroadcast
     public $ship_phone;
     public $customer_name;
     public $room;
+    public $time;
     /**
      * Create a new event instance.
      *
@@ -29,6 +30,7 @@ class OrderNotifyEvent implements ShouldBroadcast
         $this->customer_name = $data['customer_name'];
         $this->room = $data['room'];
         $this->order_id = $data['order_id'];
+        $this->time = $data['time'];
     }
 
     /**

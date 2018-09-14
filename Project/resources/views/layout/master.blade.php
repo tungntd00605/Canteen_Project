@@ -115,26 +115,6 @@
                 </a>
                 <div class="dropdown-menu dropdown-info" aria-labelledby="navbarDropdownMenuLink" id="messages"
                      style="width : 200%;">
-                    <div class="">
-                        <a class="dropdown-item" href="/admin/order/" class="row">
-                            <div class="float-left">
-                                <img src="https://api.adorable.io/avatars/285/abott@adorable.png" alt=""
-                                     class="rounded-circle" alt="50x50" style="width: 70px; height: 70px;">
-                            </div>
-                            <div class="float-right">
-                                <i class="fa fa-money mr-2" aria-hidden="true"></i>
-                                Name : <span>Nguyen Duc Minh</span>
-                                <br>
-                                <i class="fa fa-phone mr-2" aria-hidden="true"></i>
-                                Phone : <span>12345678</span>
-                                <br>
-                                <i class="fa fa-home mr-2" aria-hidden="true"></i>
-                                Room : <span>208</span>
-                                <br>
-                                <i class="fa fa-clock-o" aria-hidden="true"></i> 13 min</span>
-                            </div>
-                        </a>
-                    </div>
                 </div>
             </li>
             <li class="nav-item">
@@ -256,7 +236,9 @@
     function addMessage(data) {
         var avatar = Math.floor(Math.random() * (71 - 20 + 1)) + 20;
         var notifyContent = "";
-
+        // console.log(moment());
+        // console.log(moment(data.time.date));
+        // console.log(moment().diff(moment(data.time.date), 'minutes'));
         notifyContent += '<div>';
 
         notifyContent += '<a class="dropdown-item" href="/admin/order/'+data.order_id+'">';
@@ -273,7 +255,11 @@
         notifyContent += '<i class="fa fa-house mr-2" aria-hidden="true"></i>';
         notifyContent += 'Room : <span>' + data.room + '</span>';
         notifyContent += '<br>';
-        notifyContent += '<i class="fa fa-clock-o" aria-hidden="true"></i> 13 min</span>';
+        if(moment().diff(moment(data.time.date), 'minutes') == 0){
+            notifyContent += '<i class="fa fa-clock-o" aria-hidden="true"></i> Vừa xong</span>';
+        } else if (moment().diff(moment(data.time.date), 'minutes') > 0){
+            notifyContent += '<i class="fa fa-clock-o" aria-hidden="true"></i> ' + moment().diff(moment(data.time.date), 'minutes') +' phút trước</span>';
+        }
         //notifyContent += '<span>  Status : New Order</span>';
         notifyContent += '</div>';
         notifyContent += '</a>';

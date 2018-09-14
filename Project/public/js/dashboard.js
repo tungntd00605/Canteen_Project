@@ -70,7 +70,6 @@ function cb(start, end) {
         success: function (response) {
             var newHtml = '';
             var sumSale = 0;
-            console.log(response)
             for (var i in response.jsonData){
                 sumSale += parseFloat(response.jsonData[i].total);
             }
