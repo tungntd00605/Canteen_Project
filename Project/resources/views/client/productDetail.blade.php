@@ -123,13 +123,13 @@
                         new_content += '<td>' + new_items[i].product.dicountPriceString + '</td>';
                         new_content += '</tr>';
                     }
-                    if($('#cart-count-icon').hasClass( "grey" )){
+                    if ($('#cart-count-icon').hasClass("grey")) {
                         $('#cart-count-icon').removeClass('grey')
                         $('#cart-count-icon').addClass('danger-color')
                     }
-                    if(new_count == undefined){
+                    if (new_count == undefined) {
                         $('#cart-count-icon').text(1);
-                    }else{
+                    } else {
                         $('#cart-count-icon').text(new_count);
                     }
                     $('#cart-body').html(new_content);
@@ -139,7 +139,8 @@
                 error: function (error) {
                     swal('Thao tác thất bại', "Vui lòng thử lại sau", 'error');
                 }
-            });
+            })
+        });
     </script>
 </div>
 <!-- /.Main Container -->

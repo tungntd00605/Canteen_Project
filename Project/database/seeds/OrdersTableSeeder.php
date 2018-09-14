@@ -57,7 +57,7 @@ class OrdersTableSeeder extends Seeder
                 'id' => '14','customer_name' => 'Đại','total_price' => '202000','ship_name' => 'Đại','ship_address' => '3002','ship_phone' => '08273018312','message' => 'Liên hoan lớp','created_at' => '2018-07-17 03:05:30','updated_at' => '2018-07-17 03:05:30','status' => '2'
             ],
             [
-                'id' => '15','customer_name' => 'Hoàng','total_price' => '5000','ship_name' => 'Hoàng','ship_address' => '122','ship_phone' => '0278973912','message' => 'Ăn Sáng','created_at' => '2018-08-11 03:07:25','updated_at' => '2018-08-11 03:07:25','status' => '2'
+                'id' => '15','customer_name' => 'Hoàng','total_price' => '5000','ship_name' => 'Hoàng','ship_address' => '122','ship_phone' => '0278973912','message' => 'Ăn Sáng','created_at' => '2018-08-11 03:07:25','updated_at' => '2018-09-01 03:07:25','status' => '2'
             ],
             [
                 'id' => '16','customer_name' => 'Huyền','total_price' => '10000','ship_name' => 'Huyền','ship_address' => '322','ship_phone' => '082190831','message' => 'giải khát','created_at' => '2018-07-24 03:08:56','updated_at' => '2018-07-24 03:08:56','status' => '2'
@@ -69,10 +69,10 @@ class OrdersTableSeeder extends Seeder
                 'id' => '18','customer_name' => 'Minh','total_price' => '60000','ship_name' => 'Minh','ship_address' => '223','ship_phone' => '08371927381','message' => 'Nhanh nhé','created_at' => '2018-09-11 03:11:01','updated_at' => '2018-09-11 03:11:01','status' => '2'
             ],
             [
-                'id' => '19','customer_name' => 'Minh Nguyen','total_price' => '19000','ship_name' => 'Nguyen','ship_address' => '223','ship_phone' => '0723891738','message' => 'Ăn nhẹ','created_at' => '2018-09-11 03:11:41','updated_at' => '2018-09-11 03:11:41','status' => '2'
+                'id' => '19','customer_name' => 'Minh Nguyen','total_price' => '19000','ship_name' => 'Nguyen','ship_address' => '223','ship_phone' => '0723891738','message' => 'Ăn nhẹ','created_at' => '2018-09-08 03:11:41','updated_at' => '2018-09-11 03:11:41','status' => '2'
             ],
             [
-                'id' => '20','customer_name' => 'Ly','total_price' => '78000','ship_name' => 'Ly','ship_address' => '345','ship_phone' => '0231839021','message' => 'Đẹp da','created_at' => '2018-09-11 03:12:32','updated_at' => '2018-09-11 03:12:32','status' => '2'
+                'id' => '20','customer_name' => 'Ly','total_price' => '78000','ship_name' => 'Ly','ship_address' => '345','ship_phone' => '0231839021','message' => 'Đẹp da','created_at' => '2018-09-12 03:12:32','updated_at' => '2018-09-11 03:12:32','status' => '2'
             ]
 
         ]);
