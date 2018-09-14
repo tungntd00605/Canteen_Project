@@ -131,8 +131,7 @@
                     <i class="fa fa-user"></i> <span class="clearfix d-none d-sm-inline-block">Profile</span></a>
                 </a>
                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
-                    <a class="dropdown-item" href="#">Log Out</a>
-                    <a class="dropdown-item" href="#">My account</a>
+                    <a class="dropdown-item" href="{{url('logout')}}">Log Out</a>
                 </div>
             </li>
 

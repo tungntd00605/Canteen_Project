@@ -14,13 +14,11 @@ class UsersTableSeeder extends Seeder
     {
         //
         DB::table('users')->truncate();
-        DB::table('users')->insert([
-            [
-                'id'=>1,
-                'name'=> 'Admin',
-                'email'=> 'FPTcanteen@gmail.com',
-                'password'=> 'canteen2018',
-            ],
+        App\User::create([
+        	'id'=>1,
+            'name'=> 'Admin',
+            'email'=> 'FPTcanteen@gmail.com',
+            'password'=> bcrypt('canteen2018')
         ]);
     }
 }

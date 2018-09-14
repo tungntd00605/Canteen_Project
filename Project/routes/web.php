@@ -14,11 +14,11 @@
 
 use Illuminate\Support\Facades\Route;
 
-Route::get('/layout', function () {
-    return view('layout.client');
-});
+Route::get('login','AdminLoginController@getLogin');
+Route::post('login','AdminLoginController@postLogin');
 
 Route::get('/admin/', 'DashboardController@index');
+Route::get('logout','DashboardController@getLogout');
 Route::resource('admin/category', 'CategoryController');
 Route::resource('admin/product', 'ProductController');
 Route::get('/admin/order', 'OrderController@index');
