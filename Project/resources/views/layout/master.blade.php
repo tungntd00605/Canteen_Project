@@ -117,14 +117,6 @@
                      style="width : 200%;">
                 </div>
             </li>
-            <li class="nav-item">
-                <a class="nav-link waves-effect"><i class="fa fa-envelope"></i> <span
-                            class="clearfix d-none d-sm-inline-block">Contact</span></a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link waves-effect"><i class="fa fa-comments-o"></i> <span
-                            class="clearfix d-none d-sm-inline-block">Support</span></a>
-            </li>
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle waves-effect" href="#" id="userDropdown" data-toggle="dropdown"
                    aria-haspopup="true" aria-expanded="false">
